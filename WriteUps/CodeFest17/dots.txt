@@ -2,7 +2,7 @@ Another PNG this tome with a black and white squares pattern.
 
 Again a contrast and brightness trick.
 
-![screen](https://image.ibb.co/kTdEUQ/dots.png)
+<img src="images/dots.png">
 
 This time we encounter a strange pattern.
 If we think of the pure black parts as 0 and the black and white ones as 1 we get some binary code for each line.
