@@ -1,4 +1,4 @@
-Another PNG this tome with a black and white squares pattern.
+Another PNG this time with a black and white squares pattern.
 
 Again a contrast and brightness trick.
 
