@@ -1,15 +1,16 @@
 ---
 layout: default
 ---
+# Home
 
-# $ cat About
+## $ cat About
 {:id="about"}
 
 CTF Team composed by students of Sapienza University of Rome and alumns of CyberChallenge.IT.
 
 We are just born, stay tuned and look how we become big.
 
-# $ ls CTFs
+## $ ls CTFs
 {:id="ctfs"}
 
 <ul>
@@ -23,7 +24,7 @@ We are just born, stay tuned and look how we become big.
 
 You can contact out team at the official mail blablabla@pippo.com.-->
 
-# $ cat Team
+## $ cat Team
 {:id="team"}
 
 <ul>
@@ -32,13 +33,15 @@ You can contact out team at the official mail blablabla@pippo.com.-->
 <ul>
 <li>{{ member.mail }}</li>
 <li><a href="https://github.com/{{ member.github }}">https://github.com/{{ member.github }}</a></li>
+{% if member.site %}
 <li><a href="{{ member.site }}">{{ member.site }}</a></li>
+{% endif %}
 </ul>
 </li>
 {% endfor %}
 </ul>
 
-# $ ls Articles
+## $ ls Articles
 {:id="articles"}
 
 <ul>
@@ -47,7 +50,7 @@ You can contact out team at the official mail blablabla@pippo.com.-->
 {% endfor %}
 </ul>
 
-# $ ls Tools
+## $ ls Tools
 {:id="tools"}
 
 <ul>
