@@ -23,7 +23,7 @@ In the list of cookies, I now see this:
 
 <img src="https://github.com/TheRomanXpl0it/TheRomanXpl0it.github.io/blob/master/WriteUps/CodeFest17/images/cookie-4.png">
 
-The values of the *pass* cookie is an md5 hash for the word *aunty*.
+The value of the *pass* cookie is an md5 hash for the word *aunty*.
 I type it as a password, and I find out it's the flag:
 
 <img src="https://github.com/TheRomanXpl0it/TheRomanXpl0it.github.io/blob/master/WriteUps/CodeFest17/images/cookie-5.png">
