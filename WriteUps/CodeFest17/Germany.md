@@ -12,13 +12,13 @@ We can see that the program behaviour is conditionated by the procedure sub_4087
 Analyze them.
 ![germany-3](images/germany-3.png)
 
-Ok, it's simple, it writes tree random numbers in range(0, 3) in the array passed as argument.
-Returning to the previous function we see that this tree numbers mus be, in order, 0 1 2.
+Ok, it's simple, it writes three random numbers in range(0, 3) in the array passed as argument.
+Returning to the previous function we see that this three numbers mus be, in order, 0 1 2.
 We can brute force it.
 ![germany-4](images/germany-4.png)
 
 Now it's time to know the content of dest variable, the name of the file in which the program will write our bet.
-Viewing the global variable src it is an array of tree pointer to the strings `/home/suzy`, `.ssh`, `authorized_keys`.
+Viewing the global variable src it is an array of three pointer to the strings `/home/suzy`, `.ssh`, `authorized_keys`.
 ![germany-5](images/germany-5.png)
 
 Ok, now we have all info to solve the challenge.
