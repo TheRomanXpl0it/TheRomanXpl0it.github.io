@@ -9,7 +9,7 @@ We can compute the list of all the valid private keys.
 Because `private_key` and `public_key` are different, there are only 29 .
 
 The first step of the encryption algorithm is to compute ```(priv_key*(d+1)*x)%(pub_key)``` for each `x` in the input.  
-In order to reverse this step<sup>[[1]](#Proof)</sup> we need the [modular multiplicative inverse **( mmi )**](https://en.wikipedia.org/wiki/Modular_multiplicative_inverse) of `priv_key*(d+1)` modulo `pub_key`.
+In order to reverse this step<sup>[[1]](#proof)</sup> we need the [modular multiplicative inverse **mmi**](https://en.wikipedia.org/wiki/Modular_multiplicative_inverse) of `priv_key*(d+1)` modulo `pub_key`.
 
 We compute an inverse key for each candidate `private_key`.  
 ```python
