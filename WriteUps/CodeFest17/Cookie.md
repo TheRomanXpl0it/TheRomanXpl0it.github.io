@@ -8,7 +8,7 @@ Going through the page cookies, I found this:
 ![alt text](https://github.com/TheRomanXpl0it/TheRomanXpl0it.github.io/blob/master/WriteUps/CodeFest17/images/cookie-2.png)
 
 I tried to set the *flag* cookie to *False* and send the form.
-As a result, the old form is replace by the following:
+As a result, the old form is replaced by the following:
 
 <img src="https://github.com/TheRomanXpl0it/TheRomanXpl0it.github.io/blob/master/WriteUps/CodeFest17/images/cookie-3.png" width="550" >
 
