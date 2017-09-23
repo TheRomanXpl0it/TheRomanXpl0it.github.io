@@ -1,4 +1,24 @@
-theme: jekyll-theme-minimal
-title: TheRomanXpl0it
-description: CTF Team composed by students of Sapienza University of Rome and alumns of CyberChallenge.IT.
-avatar: https://avatars3.githubusercontent.com/u/32163043?v=4&s=200
+# Site specific settings
+title: "TheRomanXpl0it"
+name: "TheRomanXpl0it"
+keywords: "CTF, Hacking, Sapienza"
+description: "CTF Team composed by students of Sapienza University of Rome and alumns of CyberChallenge.IT."
+#cover: "/assets/img/cover.svg"
+
+# Site general settings
+lang: "en"
+ssl: false # It will redirect to https
+
+# Media
+# Just the shortname:
+# facebook: lampiaosec # Rigth
+# facebook: facebook.com/lampiaosec # Wrong
+disqus: test
+twitter: TheRomanXpl0it
+#facebook: 
+github: TheRomanXpl0it
+#google:
+
+# Build settings
+markdown: kramdown
+permalink: /:categories/:title/
