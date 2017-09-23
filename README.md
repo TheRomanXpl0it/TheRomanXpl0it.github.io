@@ -8,3 +8,6 @@ Position | Score
 #### Writeups
 
 + [Germany](WriteUps/CodeFest17/Germany.md)
++ [Yemen](WriteUps/CodeFest17/Yemen.md)
++ [Saudi Arabia](WriteUps/CodeFest17/SaudiArabia.md)
++ [Niger](WriteUps/CodeFest17/Niger.md)

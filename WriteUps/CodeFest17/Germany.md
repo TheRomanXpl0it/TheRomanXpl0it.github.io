@@ -40,4 +40,4 @@ Now type in the terminal `ssh -i private_key_file suzy@13.126.83.119` (suzy is t
 
 You are logged in, navigate the filesystem and get your flag.
 
-Flag: flag{wowyouknowyourexecutables}
+-> flag{wowyouknowyourexecutables}
