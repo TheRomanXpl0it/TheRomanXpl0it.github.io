@@ -1,3 +1,5 @@
+## CodeFest CTF 17 - Niger Writeup
+
 Listening to the file audio you can hear a clock.
 
 Let's open it with Audacity and check if there's something.
