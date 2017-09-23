@@ -32,7 +32,9 @@ You can contact out team at the official mail blablabla@pippo.com.-->
 <ul>
 <li>{{ member.mail }}</li>
 <li><a href="https://github.com/{{ member.github }}">https://github.com/{{ member.github }}</a></li>
+{% if member.site %}
 <li><a href="{{ member.site }}">{{ member.site }}</a></li>
+{% endif %}
 </ul>
 </li>
 {% endfor %}
