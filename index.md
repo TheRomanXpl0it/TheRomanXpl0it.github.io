@@ -2,13 +2,14 @@
 layout: default
 ---
 
-# $ cat about.txt
+# $ cat About
 {:id="about"}
 
 CTF Team composed by students of Sapienza University of Rome and alumns of CyberChallenge.IT.
+
 We are just born, stay tuned and look how we become big.
 
-# $ cat ctfs.txt
+# $ ls CTFs
 {:id="ctfs"}
 
 <ul>
@@ -17,12 +18,12 @@ We are just born, stay tuned and look how we become big.
 {% endfor %}
 </ul>
 
-<!--# $ cat contact.txt
+<!--# $ cat Contact
 {:id="contact"}
 
 You can contact out team at the official mail blablabla@pippo.com.-->
 
-# $ cat team.txt
+# $ cat Team
 {:id="team"}
 
 <ul>
@@ -37,7 +38,7 @@ You can contact out team at the official mail blablabla@pippo.com.-->
 {% endfor %}
 </ul>
 
-# $ cat articles.txt
+# $ ls Articles
 {:id="articles"}
 
 <ul>
@@ -46,7 +47,7 @@ You can contact out team at the official mail blablabla@pippo.com.-->
 {% endfor %}
 </ul>
 
-# $ cat tools.txt
+# $ ls Tools
 {:id="tools"}
 
 <ul>
