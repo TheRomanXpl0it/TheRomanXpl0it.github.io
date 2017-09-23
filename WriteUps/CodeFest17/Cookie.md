@@ -1,0 +1,32 @@
+This is the page we see when we access the service:
+
+![alt text](https://github.com/TheRomanXpl0it/TheRomanXpl0it.github.io/blob/master/WriteUps/CodeFest17/images/cookie-1.png)
+
+
+Going through the page cookies, I found this:
+
+![alt text](https://github.com/TheRomanXpl0it/TheRomanXpl0it.github.io/blob/master/WriteUps/CodeFest17/images/cookie-2.png)
+
+I tried to set the *flag* cookie to *False* and send the form.
+As a result, the old form is replace by the following:
+
+<img src="https://github.com/TheRomanXpl0it/TheRomanXpl0it.github.io/blob/master/WriteUps/CodeFest17/images/cookie-3.png" width="550" >
+
+After several tries, I found out that the correct username was *root*.
+
+I sent the form again:
+
+<img src="https://github.com/TheRomanXpl0it/TheRomanXpl0it.github.io/blob/master/WriteUps/CodeFest17/images/cookie-6.png" width="550" >
+
+
+In the list of cookies, I now see this:
+
+<img src="https://github.com/TheRomanXpl0it/TheRomanXpl0it.github.io/blob/master/WriteUps/CodeFest17/images/cookie-4.png">
+
+The values of the *pass* cookie is an md5 hash for the word *aunty*.
+I type it as a password, and I find out it's the flag:
+
+<img src="https://github.com/TheRomanXpl0it/TheRomanXpl0it.github.io/blob/master/WriteUps/CodeFest17/images/cookie-5.png">
+
+
+
