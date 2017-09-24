@@ -8,7 +8,7 @@ authors:
     - andreafioraldi
 ---
 
-This binary have a very small portion of code.
+This binary has a very small portion of code.
 
 Analize it in IDA:
 
