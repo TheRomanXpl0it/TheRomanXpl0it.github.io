@@ -18,11 +18,11 @@ The first syscall is a read (rax = 0) of 1024 bytes in the stack.
 
 The second is rt_sigreturn.
 
-For a l337 h4xx0r sigreturn means SROP. For me means [Wikipedia](https://en.wikipedia.org/wiki/Sigreturn-oriented_programming).
+For a l337 h4xx0r sigreturn means SROP. For me it means [Wikipedia](https://en.wikipedia.org/wiki/Sigreturn-oriented_programming).
 
 I learnt that we can control the program flow like with rop using sigreturn and the associated structure on the stack.
 
-This structure contains the context of the signal function.
+This structure contains the context of the signal handler.
 
 So writing this structure on the stack (with read) we have the complete control of all registers.
 
@@ -32,7 +32,7 @@ The syscall gadget under `int 3` is a perfect target for rip.
 
 Wait, how is composed a signal frame? I don't know, but pwnlib does.
 
-{% highlight python %}
+```python
 from pwn import *
 
 context.arch = "amd64"
@@ -50,5 +50,5 @@ p = remote("163.172.176.29", 9034)
 p.send(str(frame))
 
 print p.recvall()
-{% endhighlight %}
+```
 

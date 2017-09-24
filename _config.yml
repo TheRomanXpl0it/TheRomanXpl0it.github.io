@@ -20,5 +20,6 @@ github: TheRomanXpl0it
 #google:
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
 permalink: /:categories/:title/
+highlighter: pygments
