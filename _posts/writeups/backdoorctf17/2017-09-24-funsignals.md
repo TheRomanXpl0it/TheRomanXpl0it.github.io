@@ -30,7 +30,7 @@ A good choice is to prepare the registers for a write to the stdout of the flag.
 
 The syscall gadget under `int 3` is a perfect target for rip.
 
-Wait, how is composed a signal frame? I don't know, but pwnlib yes.
+Wait, how is composed a signal frame? I don't know, but pwnlib does.
 
 {% highlight python %}
 from pwn import *
