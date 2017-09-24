@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CodeFest CTF 2017 - Saudi Arabia Writeup
+title: CodeFest CTF 2017 - SimplyBlack Writeup
 categories: ctf_codefest17
 keywords: "steganography"
 authors:
