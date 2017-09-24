@@ -8,4 +8,6 @@ authors:
     - daniele-cappuccio
 ---
 
-https://danielecappuccio.net/CTFs/writeups/2017/Codefest/role_reversal
+<a href="https://danielecappuccio.net/CTFs/writeups/2017/Codefest/role_reversal">
+    https://danielecappuccio.net/CTFs/writeups/2017/Codefest/role_reversal
+</a>
