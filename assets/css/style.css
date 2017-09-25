@@ -109,3 +109,14 @@ td, th {
     text-align: left;
     padding: 8px;
 }
+
+@media screen and (max-width: 600px) {
+    .ascii {
+	font-size:4px;
+    }
+}
+@media screen and (min-width: 600px) and (max-width: 1000px) {
+    .ascii {
+	font-size:7px;
+    }
+}
