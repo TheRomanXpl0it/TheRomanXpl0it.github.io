@@ -14,11 +14,6 @@ body {
 	font-family: "Open Sans";
 }
 
-header, nav, main, footer {
-	margin: 15px;
-	border-bottom: 1px dashed rgba(255,255,255,0.5);
-}
-
 header, nav {
 	text-align: center;
 }
@@ -114,9 +109,19 @@ td, th {
     .ascii {
 	font-size:4px;
     }
+
+    header, nav, main, footer {
+	margin: 0px;
+	border-bottom: 1px dashed rgba(255,255,255,0.5);
+    }
 }
 @media screen and (min-width: 600px) and (max-width: 1000px) {
     .ascii {
 	font-size:7px;
+    }
+    
+    header, nav, main, footer {
+	margin: 15px;
+	border-bottom: 1px dashed rgba(255,255,255,0.5);
     }
 }
