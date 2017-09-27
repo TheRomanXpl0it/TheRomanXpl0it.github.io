@@ -12,7 +12,7 @@ This binary has a very small portion of code.
 
 Analize it in IDA:
 
-<img src="{{ site-url }}/assets/backdoorctf17/funsignals-1.png">
+<img class="img-responsive" src="{{ site-url }}/assets/backdoorctf17/funsignals-1.png">
 
 The first syscall is a read (rax = 0) of 1024 bytes in the stack.
 

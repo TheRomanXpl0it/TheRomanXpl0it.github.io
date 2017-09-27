@@ -2,11 +2,14 @@
 <html lang="{{ site.lang }}">
 	{% include head.html %}
 	<body>
-		{% include header.html %}
 		{% include nav.html %}
-		<main>
-			{{ content }}
-		</main>
+		<div class="container-fluid">
+			<div class="row">
+                <div class="col-xs-12">
+                    {{ content }}
+                </div>
+            </div>
+		</div>
 		<!--{% include footer.html %}-->
 	</body>
 </html>
