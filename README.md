@@ -1,3 +1,4 @@
-# TheRomanXpl0it webiste
+# TheRomanXpl0it - Website
 
-visit https://theromanxpl0it.github.io/
+- Website - https://theromanxpl0it.github.io/
+- CTFtime - https://ctftime.org/team/46516
