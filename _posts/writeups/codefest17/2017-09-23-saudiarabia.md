@@ -12,6 +12,6 @@ A black image.
 
 By playing around with the brighness and contrast settings in GIMP we can clearly see the secret
 
-<img class="medium_img" src="{{ site-url }}/assets/codefest17/simplyblack.png">
+<img class="img-responsive" src="{{ site-url }}/assets/codefest17/simplyblack.png">
 
 -> flag{LETHAL}

@@ -2,12 +2,12 @@
 layout: default
 ---
 
-<header>
-	<h1>{{ page.title }}</h1>
-	by 
-	{% for author in page.authors %}
-	<author><a href="https://github.com/{{ author }}">{{ author }}</a></author>{% if forloop.last == false %}, {% endif %}
-	{% endfor %}
-</header>
+<h1>{{ page.title }}</h1>
+by 
+{% for author in page.authors %}
+<author><a href="https://github.com/{{ author }}">{{ author }}</a></author>{% if forloop.last == false %}, {% endif %}
+{% endfor %}
+
+<p></p>
 
 {{ content }}
