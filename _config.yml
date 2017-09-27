@@ -22,4 +22,3 @@ github: TheRomanXpl0it
 # Build settings
 markdown: kramdown
 permalink: /:categories/:title/
-highlighter: pygments
