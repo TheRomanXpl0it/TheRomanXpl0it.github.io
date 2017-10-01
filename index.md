@@ -6,6 +6,7 @@ layout: home
 {:id="about"}
 
 CTF Team composed of students of Sapienza, University of Rome and alumns of CyberChallengeIT.
+
 We are just born, stay tuned and look how we become big.
 
 Contact us: theromanxpl0it@gmail.com
