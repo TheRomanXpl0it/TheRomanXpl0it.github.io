@@ -5,9 +5,10 @@ layout: home
 <h2>$ cat About</h2>
 {:id="about"}
 
-CTF Team composed by students of Sapienza University of Rome and alumns of CyberChallenge.IT.
-
+CTF Team composed of students of Sapienza, University of Rome and alumns of CyberChallengeIT.
 We are just born, stay tuned and look how we become big.
+
+Contact us: theromanxpl0it@gmail.com
 
 <h2>$ ls CTFs</h2>
 {:id="ctfs"}
