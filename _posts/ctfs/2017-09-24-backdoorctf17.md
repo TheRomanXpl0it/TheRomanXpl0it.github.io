@@ -1,6 +1,6 @@
 ---
 layout: simple
-title: backdoorctf 2017
+title: Backdoor CTF 2017
 categories: ctfs
 keywords: "ctf"
 ---
