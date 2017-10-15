@@ -9,7 +9,8 @@ CTF Team composed of students of Sapienza, University of Rome and alumns of Cybe
 
 We are just born, stay tuned and look how we become big.
 
-Contact us: <a href="mailto:theromanxpl0it@gmail.com">theromanxpl0it@gmail.com</a>
+Contact us at <a href="mailto:theromanxpl0it@gmail.com">theromanxpl0it@gmail.com</a>
+Follow us on [Twitter](https://twitter.com/TheRomanXpl0it)
 
 <h2>$ ls CTFs</h2>
 {:id="ctfs"}
