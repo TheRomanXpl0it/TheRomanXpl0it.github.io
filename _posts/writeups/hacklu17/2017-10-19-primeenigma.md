@@ -5,7 +5,7 @@ categories: ctf_hacklu17
 keywords: "number theory crypto"
 comments: true
 authors:
-    - qmatteoc
+    - chq-matteo
 ---
 <script type="text/javascript" async
   src="https://cdn.mathjax.org/mathjax/2.7-latest/MathJax.js?config=TeX-MML-AM_CHTML">
