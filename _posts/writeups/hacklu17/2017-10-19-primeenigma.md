@@ -26,18 +26,16 @@ We have got
 \begin{equation}
     k = A^d \mod p
     \label{eq:k}
-    
 \end{equation}  
 
 \begin{equation}
     c = k m \mod p
     \label{eq:c}
-    
 \end{equation}
 
 We know $B$, $g$, $p$, $A$ and we want to recover $m$.
 
-The only unknown in \eqref{eq:B} is $d$.  
+The only unknown in \eqref{eq:b} is $d$.  
 Luckily $B = g^d \equiv p-1 \equiv -1 \mod p$  
 So $(g^d)^2 \equiv 1 \mod p$  
 
