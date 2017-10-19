@@ -20,7 +20,7 @@ MathJax.Hub.Config({
 });
 </script>
 
-We have got
+We have
 
 \begin{equation}
     B = g^d \mod p 
