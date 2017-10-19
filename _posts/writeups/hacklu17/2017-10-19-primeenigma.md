@@ -37,7 +37,7 @@ We have
     \label{eq:c}
 \end{equation}
 
-We know $B$, $g$, $p$, $A$ and we want to recover $m$.
+We know $B$, $g$, $p$, $A$ and $c$ and we want to recover $m$.
 
 The only unknown in \eqref{eq:b} is $d$.  
 Luckily $B = g^d \equiv p-1 \equiv -1 \mod p$  
