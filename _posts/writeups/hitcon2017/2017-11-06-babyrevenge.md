@@ -132,3 +132,10 @@ requests.get(url + "?cmd=sh p")
 
 In the home directory of the system we found that the flag is in the MySQL db 
 
+Having a polling backdoor we needed to use one command to exfiltrate the flag from the DB, so we used something like this:
+`mysqldump -u user -p'password' flagdb`
+Now, there was some issues we faced:
+* A lock made our dump query fail
+* The database contained chinese characters that as well made our dump query fail
+With this in mind we rewrote our query to something like this
+`mysqldump -u user -p'password' flagdb --single-transaction --compatible-charset`
