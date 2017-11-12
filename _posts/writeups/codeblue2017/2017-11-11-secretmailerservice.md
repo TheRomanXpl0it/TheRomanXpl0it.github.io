@@ -43,7 +43,7 @@ int post_letter(Letter *letters, FILE *s)
 }
 ```
 
-The filter id is only checked to be <= 2 and not >= 0. This allows us to input a negative number in there and, since the filters are implemented as a lookup table of function addresses, we can basically call whatever function we want, as long as the parameters are compatible. What I did was call the setbuf entry in plt by using index -15, thus setting the data of one of the filters as the buffer for /dev/null. The nice part here is that libc assumes this buffer to be at least 8192 bytes long, so by posting other letters we can overflow it.
+The filter id is only checked to be <= 2 and not >= 0. This allows us to input a negative number in there and, since the filters are implemented as a lookup table of function addresses, we can basically call whatever function we want, as long as the parameters are compatible. What I did was call the setbuf entry in plt by using index -15, thus setting the data of one of the filters as the buffer for `/dev/null`. The nice part here is that libc assumes this buffer to be at least 8192 bytes long, so by posting other letters we can overflow it.
 
 Let's have a quick look at how a letter is saved in memory:
 
@@ -58,7 +58,7 @@ Let's have a quick look at how a letter is saved in memory:
 And at the stack of the main loop (please note this is the inverted stack layout used by ida, lower addresses are on top):
 
 ```cpp
--0000053C stream          dd ?                    ; offset
+-0000053C stream          dd ?                    ; /dev/null
 -00000538 var_538         dd ?
 -00000534 var_534         dd ?
 -00000530 data            Letter 5 dup(?)
@@ -68,7 +68,7 @@ And at the stack of the main loop (please note this is the inverted stack layout
 +00000004  r              db 4 dup(?)
 ```
 
-The logical thing to do now is overflow the buffer for the last letter, getting full control of the return address while leaving the other entries free for our use - remember that to overflow the buffer we have to post other letters' contents. Unfortunately, we still don't know any libc address, so that's what we're going to focus on next. I did it in a quite convoluted way, but a way I liked: I realized that we could return first to the read_letter function, whose role is to read a string into a buffer, and give it the address of some free memory area in order to write a format string there, and then call printf to leak a plt address. The end of this first step is returning back to the main loop, now knowing libc's base address.
+The logical thing to do now is overflow the buffer for the last letter, getting full control of the return address while leaving the other entries free for our use - remember that to overflow the buffer we have to post other letters' contents. Unfortunately, we still don't know any libc address, so that's what we're going to focus on next. I did it in a quite convoluted way, but a way I liked: I realized that we could return first to the `read_letter` function, whose role is to read a string into a buffer, and give it the address of some free memory area in order to write a format string there, and then call `printf` to leak a plt address. The end of this first step is returning back to the main loop, now knowing libc's base address.
 
 For the second and last step, I used the same setbuf and read_letter calls, only this time providing `"/bin/sh"` instead of `"%s"` to the latter. Then the logical thing was to call `system` on the buffer, getting a shell on the remote server. A couple of commands later, I got this:
 `CBCTF{4R3_YOU_w4RM3D_UP_f0R_MORE_PWNabLeS?}`
