@@ -10,6 +10,7 @@ CTF Team composed of students of Sapienza, University of Rome and alumns of Cybe
 We are just born, stay tuned and look how we become big.
 
 Contact us at <a href="mailto:theromanxpl0it@gmail.com">theromanxpl0it@gmail.com</a>
+
 Follow us on [Twitter](https://twitter.com/TheRomanXpl0it)
 
 <h2>$ ls CTFs</h2>
@@ -23,31 +24,14 @@ Follow us on [Twitter](https://twitter.com/TheRomanXpl0it)
     {% endfor %}
 </div>
 
-<!--#$ cat Contact
-{:id="contact"}
-
-You can contact out team at the official mail blablabla@pippo.com.-->
-
 <h2>$ cat Team</h2>
 {:id="team"}
 
 <ul class="list-group">
     {% for member in site.categories.team reversed %}
-    <li class="list-group-item" id="{{ member.title }}">{{ member.title }}
-        <ul class="list-unstyled">
-            <li>
-                {{ member.mail }}
-            </li>
-            <li>
-                <a href="https://github.com/{{ member.github }}">https://github.com/{{ member.github }}</a>
-            </li>
-            {% if member.site %}
-            <li>
-                <a href="{{ member.site }}">{{ member.site }}</a>
-            </li>
-            {% endif %}
-        </ul>
-    </li>
+    <a class="list-group-item" href="{{ member.url }}">
+        {{ member.title }}
+    </a>
     {% endfor %}
 </ul>
 

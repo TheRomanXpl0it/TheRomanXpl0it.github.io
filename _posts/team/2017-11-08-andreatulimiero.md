@@ -1,4 +1,5 @@
 ---
+layout: member
 title: Andrea Tulimiero
 github: andreatulimiero
 site: https://andreatulimiero.github.io/

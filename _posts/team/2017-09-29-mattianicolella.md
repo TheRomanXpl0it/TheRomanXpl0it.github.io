@@ -1,4 +1,5 @@
 ---
+layout: member
 title: Mattia Nicolella
 github: Nick1296
 site: 
