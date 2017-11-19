@@ -1,0 +1,24 @@
+---
+layout: simple
+---
+
+<h2>Info</h2>
+
+<p>Github: <a href="https://github.com/{{ page.github }}">https://github.com/{{ page.github }}</a></p>
+<p>Mail: <a href="mailto:{{ page.mail }}">{{ page.mail }}</a></p>
+
+{% if page.site %}
+<p>Website: <a href="{{ page.site }}">{{ page.site }}</a></p>
+{% endif %}
+
+<h2>Posts</h2>
+
+<div class="list-group">
+    {% for post in site.posts %}
+        {% if post.authors contains page.github %}
+        <a class="list-group-item" href="{{ post.url }}" title="{{ post.description }}">
+            {{ post.title }}
+        </a>
+        {% endif %}
+    {% endfor %}
+</div>
