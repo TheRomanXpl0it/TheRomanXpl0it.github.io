@@ -13,15 +13,26 @@ Contact us at <a href="mailto:theromanxpl0it@gmail.com">theromanxpl0it@gmail.com
 
 Follow us on [Twitter](https://twitter.com/TheRomanXpl0it)
 
-<h2>$ ls CTFs</h2>
+<h2>$ ls -l CTFs</h2>
 {:id="ctfs"}
 
-<div class="list-group">
-    {% for ctf in site.categories.ctfs %}
-    <a class="list-group-item" href="{{ ctf.url }}">
-        {{ ctf.title }}
-    </a>
-    {% endfor %}
+<div class="table-responsive">
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <th>CTF</th>
+                <th>Place</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ctf in site.categories.ctfs %}
+            <tr onclick="window.location='{{ ctf.url }}';">
+                <td>{{ ctf.title }}</td>
+                <td>{{ ctf.place }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 
 <h2>$ cat Team</h2>

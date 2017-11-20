@@ -3,6 +3,7 @@ layout: simple
 title: Backdoor CTF 2017
 categories: ctfs
 keywords: "ctf"
+place: 30th
 ---
 
 <table class="table">
@@ -14,7 +15,7 @@ keywords: "ctf"
     </thead>
     <tbody>
         <tr>
-            <td>30th</td>
+            <td>{{ page.place }}</td>
             <td>1750</td>
         </tr>
     </tbody>

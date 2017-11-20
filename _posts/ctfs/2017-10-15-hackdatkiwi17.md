@@ -3,6 +3,7 @@ layout: simple
 title: Hack Dat Kiwi CTF 2017
 categories: ctfs
 keywords: "ctf"
+place: 33rd
 ---
 
 <table class="table">
@@ -14,7 +15,7 @@ keywords: "ctf"
     </thead>
     <tbody>
         <tr>
-            <td>33rd</td>
+            <td>{{ page.place }}</td>
             <td>865</td>
         </tr>
     </tbody>
