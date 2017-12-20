@@ -47,3 +47,7 @@ The output of this script is the following image, which when read reveals the fl
 
 <img class="img-responsive" src="{{ site-url }}/assets/3dsctf2017/qr.png">
 
+```bash
+3DS{s0_y0u_kn0w_yur_g1fs}
+```
+
