@@ -8,6 +8,8 @@ comments: true
 authors:
     - andreafioraldi
 ---
+{{ page.date | date: "%B %-d, %Y" }}
+
 
 <style>
     .responsive-wrap iframe { max-width: 100%;}

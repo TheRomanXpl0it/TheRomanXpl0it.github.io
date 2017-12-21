@@ -7,6 +7,8 @@ comments: true
 authors:
     - daniele-cappuccio
 ---
+{{ page.date | date: "%B %-d, %Y" }}
+
 
 <a href="https://danielecappuccio.net/CTFs/writeups/2017/Codefest/role_reversal">
     https://danielecappuccio.net/CTFs/writeups/2017/Codefest/role_reversal

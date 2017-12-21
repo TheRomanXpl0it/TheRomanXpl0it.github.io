@@ -7,6 +7,8 @@ comments: true
 authors:
     - chq-matteo
 ---
+{{ page.date | date: "%B %-d, %Y" }}
+
 <script type="text/javascript" async
   src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>

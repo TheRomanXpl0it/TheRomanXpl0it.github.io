@@ -5,3 +5,5 @@ github: pietroborrello
 mail: pietro.borrello95@gmail.com
 categories: team
 ---
+{{ page.date | date: "%B %-d, %Y" }}
+

@@ -6,3 +6,5 @@ mail: daniele97bsk@gmail.com
 site: https://danielecappuccio.net
 categories: team
 ---
+{{ page.date | date: "%B %-d, %Y" }}
+

@@ -9,5 +9,7 @@ authors:
     - andreafioraldi
     - danielecappuccio
 ---
+{{ page.date | date: "%B %-d, %Y" }}
+
 
 HACKTHEPLANET!

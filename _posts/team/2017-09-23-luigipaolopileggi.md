@@ -5,3 +5,5 @@ github: rop2bash
 mail: willownoises@gmail.com
 categories: team
 ---
+{{ page.date | date: "%B %-d, %Y" }}
+

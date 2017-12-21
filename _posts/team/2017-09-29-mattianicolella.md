@@ -6,4 +6,6 @@ site:
 mail: mattianicolella@gmail.com
 categories: team
 ---
+{{ page.date | date: "%B %-d, %Y" }}
+
  
