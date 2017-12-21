@@ -24,6 +24,7 @@ As it turns out, excel passwords are implemented horribly, so by just following 
 3. Open the vbasic window, tell it it's fine that the password is broken, set a new password
 
 Yup, done already. _VBA passwords are that easy to bypass_.
+
 One note, though: When I tried to modify the string in file `xl/vbaProject.bin` inside the unzipped folder and compress it back, Excel wouldn't accept it. The only thing to work for me was to add the modified file to the original zip, so that compression options would be kept.
 
 So I could finally get my hands on the obfuscation algorithm. There were a couple hundred lines of visual basic, of which only a few were actually important, while the others were conversion algorithms between base64/text/bytes.
