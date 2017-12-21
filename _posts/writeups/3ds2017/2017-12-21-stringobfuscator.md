@@ -29,7 +29,7 @@ One note, though: When I tried to modify the string in file `xl/vbaProject.bin` 
 
 So I could finally get my hands on the obfuscation algorithm. There were a couple hundred lines of visual basic, of which only a few were actually important, while the others were conversion algorithms between base64/text/bytes.
 
-```vbnet
+```python
 Private Sub OK_Click()
     If TextBox1.Value = "" Then: Exit Sub
     Dim x, l, a, test1, test As String
