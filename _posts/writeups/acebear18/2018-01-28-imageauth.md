@@ -51,4 +51,6 @@ After each edit we submit and observe the change in the score, decide if we want
 
 ## The final result
 
+It doesn't work every time, but one time is enough.
+
 <img class="img-responsive" src="{{ site-url }}/assets/acebear/black.png">
