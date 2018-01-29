@@ -13,6 +13,8 @@ Contact us at <a href="mailto:theromanxpl0it@gmail.com">theromanxpl0it@gmail.com
 
 Follow us on [Twitter](https://twitter.com/TheRomanXpl0it)
 
+Join our [Telegram group](https://t.me/TheRomanChat)
+
 <h2>$ ls -l CTFs</h2>
 {:id="ctfs"}
 
