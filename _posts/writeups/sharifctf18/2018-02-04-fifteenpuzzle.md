@@ -9,10 +9,10 @@ authors:
 ---
 {{ page.date | date: "%B %-d, %Y" }}
 
-> You are given 128 puzzles (https://en.wikipedia.org/wiki/15_puzzle)
-> The ith puzzle determines the ith bit of the flag:
-> 1 if the puzzle is soluble
-> 0 if the puzzle is unsoluble
+> You are given 128 puzzles (https://en.wikipedia.org/wiki/15_puzzle)<br/>
+> The ith puzzle determines the ith bit of the flag:<br/>
+> 1 if the puzzle is soluble<br/>
+> 0 if the puzzle is unsoluble<br/>
 > Implement is_soluble() below, and use the code to get the flag!
 
 This was an easy task, as all that was required was determining if a given 15-puzzle was solvable. After some thirty seconds of googling, I had the algorithm, as described [here](https://www.geeksforgeeks.org/check-instance-15-puzzle-solvable/). All we have to do is calculate the inversion count of the numbers and we're basically done.
