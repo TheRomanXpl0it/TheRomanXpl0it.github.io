@@ -1,7 +1,7 @@
 ---
 layout: post
 title: SharifCTF 8 - Fifteen puzzle
-categories: ctf_sharif18
+categories: ctf_sharifctf18
 keywords: "algorithm"
 comments: true
 authors:
@@ -17,6 +17,7 @@ authors:
 
 This was an easy task, as all that was required was determining if a given 15-puzzle was solvable. After some thirty seconds of googling, I had the algorithm, as described [here](https://www.geeksforgeeks.org/check-instance-15-puzzle-solvable/). All we have to do is calculate the inversion count of the numbers and we're basically done.
 Here is the code I used, with the naive `O(N^2)` algorithm for the inversion count:
+
 ---
 ```python
 data = """
