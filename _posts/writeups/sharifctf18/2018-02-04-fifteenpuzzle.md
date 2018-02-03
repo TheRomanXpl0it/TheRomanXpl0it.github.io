@@ -19,6 +19,7 @@ This was an easy task, as all that was required was determining if a given 15-pu
 Here is the code I used, with the naive `O(N^2)` algorithm for the inversion count:
 
 ---
+{% raw %}
 ```python
 data = """
 [...]
@@ -51,7 +52,7 @@ for i in range(128):
     else:
         out = '0' + out
 
-print('SharifCTF{016x}' % int(out, 2))
+print('SharifCTF{%016x}' % int(out, 2))
 ```
 
 ```bash
