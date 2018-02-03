@@ -51,7 +51,7 @@ for i in range(128):
     else:
         out = '0' + out
 
-print('SharifCTF{%016x}' % int(out, 2))
+print('SharifCTF{016x}' % int(out, 2))
 ```
 
 ```bash
