@@ -27,7 +27,7 @@ place: 8th
 {:id="writeups"}
 
 <div class="list-group">
-    {% for writeup in site.categories.ctf_sharif18 %}
+    {% for writeup in site.categories.ctf_sharifctf18 %}
     <a class="list-group-item" href="{{ writeup.url }}" title="{{ writeup.description }}">
         {{ writeup.title }}
     </a>
