@@ -1,7 +1,7 @@
 ---
 layout: post
 title: EvlzCTF - Primeates
-categories: ctf_sharifctf18
+categories: ctf_evlzctf18
 keywords: "crypto"
 comments: true
 authors:
