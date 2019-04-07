@@ -1,1 +1,3 @@
-_size/
+_site/
+Gemfile.lock
+.jekyll-metadata
