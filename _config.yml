@@ -7,7 +7,7 @@ title:            TRX
 tagline:          TheRomanXpl0it CTF Team
 description:      "CTF team composed of students of Sapienza, University of Rome. Part of mhackeroni."
 url:              https://theromanxpl0it.github.io/
-baseurl:          /
+baseurl:          //
                   # the optional subpath of your site, e.g. "/my-jekyll-site/"
                   # This will apply to all pages in your Jekyll site.
 
