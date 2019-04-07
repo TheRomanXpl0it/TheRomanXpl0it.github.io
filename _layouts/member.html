@@ -13,11 +13,11 @@ layout: simple
 
 <h2>Posts</h2>
 
-<div class="list-group">
+<div class="posts">
     {% for post in site.posts %}
         {% if post.authors contains page.github %}
-        <a class="list-group-item" href="{{ post.url }}" title="{{ post.description }}">
-            {{ post.title }}
+        <a href="{{ post.url }}" title="{{ post.description }}">
+            {{ post.title }} <br>
         </a>
         {% endif %}
     {% endfor %}

@@ -7,7 +7,7 @@ comments: true
 authors:
     - andreafioraldi
 ---
-{{ page.date | date: "%B %-d, %Y" }}
+
 
 
 This binary has a very small portion of code.

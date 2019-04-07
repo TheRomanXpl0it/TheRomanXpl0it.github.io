@@ -1,0 +1,32 @@
+---
+layout: default
+title: TRX
+---
+
+<div class="posts">
+  {% for post in paginator.posts %}
+      <h3 class="post-title">
+        <a href="{{ site.baseurl }}{{ post.url | remove_first: '/'}}">
+          {{ post.title }}
+        </a>
+      </h3>
+      <span class="post-date">{{ post.date | date_to_string }}</span>
+  {% endfor %}
+</div>
+
+<div class="pagination">
+  {% if paginator.next_page %}
+    <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}">Older</a>
+  {% else %}
+    <span class="pagination-item older">Older</span>
+  {% endif %}
+  {% if paginator.previous_page %}
+    {% if paginator.page == 2 %}
+      <a class="pagination-item newer" href="{{ site.baseurl }}">Newer</a>
+    {% else %}
+      <a class="pagination-item newer" href="{{ site.baseurl }}page{{paginator.previous_page}}">Newer</a>
+    {% endif %}
+  {% else %}
+    <span class="pagination-item newer">Newer</span>
+  {% endif %}
+</div>

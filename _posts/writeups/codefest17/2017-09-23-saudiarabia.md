@@ -7,7 +7,7 @@ comments: true
 authors:
     - rop2bash
 ---
-{{ page.date | date: "%B %-d, %Y" }}
+
 
 
 A black image.

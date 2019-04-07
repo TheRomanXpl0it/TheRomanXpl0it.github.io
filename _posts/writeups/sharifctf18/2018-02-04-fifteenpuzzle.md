@@ -7,7 +7,7 @@ comments: true
 authors:
     - dp1
 ---
-{{ page.date | date: "%B %-d, %Y" }}
+
 
 > You are given 128 puzzles (https://en.wikipedia.org/wiki/15_puzzle)<br/>
 > The ith puzzle determines the ith bit of the flag:<br/>

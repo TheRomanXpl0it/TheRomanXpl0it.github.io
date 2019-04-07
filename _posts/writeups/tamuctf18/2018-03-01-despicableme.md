@@ -7,7 +7,7 @@ comments: true
 authors:
     - dp1
 ---
-{{ page.date | date: "%B %-d, %Y" }}
+
 
 >Looks like Gru needs a new encryption scheme to facilitate his communication with the criminal council.
 >

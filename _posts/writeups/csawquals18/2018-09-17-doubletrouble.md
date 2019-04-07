@@ -7,7 +7,7 @@ comments: true
 authors:
     - andreafioraldi
 ---
-{{ page.date | date: "%B %-d, %Y" }}
+
 
 The core function is the following:
 

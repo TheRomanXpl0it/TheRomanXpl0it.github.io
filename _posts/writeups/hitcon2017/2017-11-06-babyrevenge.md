@@ -7,7 +7,7 @@ comments: true
 authors:
     - andreafioraldi
 ---
-{{ page.date | date: "%B %-d, %Y" }}
+
 
 
 The page's code is:

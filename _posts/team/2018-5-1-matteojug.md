@@ -3,7 +3,8 @@ layout: member
 title: Matteo Almanza
 github: matteojug
 categories: team
+hidden: true
 ---
-{{ page.date | date: "%B %-d, %Y" }}
+
 
 

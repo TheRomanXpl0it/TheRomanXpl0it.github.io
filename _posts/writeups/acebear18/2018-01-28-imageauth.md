@@ -8,7 +8,7 @@ authors:
     - chq-matteo
 ---
 
-{{ page.date | date: "%B %-d, %Y" }}
+
 
 ## Challenge description
 

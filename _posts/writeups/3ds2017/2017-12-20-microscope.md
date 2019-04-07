@@ -7,7 +7,7 @@ comments: true
 authors:
     - dp1
 ---
-{{ page.date | date: "%B %-d, %Y" }}
+
 
 
 The input gif had 108900 frames, all either yellow or green. By mapping each one to a single white or black pixel of an image, we can get to a qr code.

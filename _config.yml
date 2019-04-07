@@ -1,24 +1,31 @@
-# Site specific settings
-title: "TheRomanXpl0it"
-name: "TheRomanXpl0it"
-keywords: "CTF, Hacking, Sapienza"
-description: "CTF team composed of students of Sapienza, University of Rome and CyberChallengeIT entrants."
-#cover: "/assets/img/cover.svg"
+# Dependencies
+markdown:         kramdown
+highlighter:      rouge
 
-# Site general settings
-lang: "en"
-ssl: false # It will redirect to https
+# Setup
+title:            TRX
+tagline:          TheRomanXpl0it CTF Team
+description:      "CTF team composed of students of Sapienza, University of Rome. Part of mhackeroni."
+url:              https://theromanxpl0it.github.io/
+baseurl:          /
+                  # the optional subpath of your site, e.g. "/my-jekyll-site/"
+                  # This will apply to all pages in your Jekyll site.
 
-# Media
-# Just the shortname:
-# facebook: lampiaosec # Rigth
-# facebook: facebook.com/lampiaosec # Wrong
-disqus: theromanxpl0it
-twitter: TheRomanXpl0it
-#facebook: 
-github: TheRomanXpl0it
-#google:
+author:
+  name:           TheRomanXpl0it
+  url:            https://twitter.com/TheRomanXpl0it
 
-# Build settings
-markdown: kramdown
-permalink: /:categories/:title/
+paginate:         6
+# paginate_path:    '/page:num'
+                    # Or '/my-jekyll-site/page:num' if you want to move your index pages
+
+plugins:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate
+
+# Custom vars
+version:            2.0.1
+
+github:
+  repo:             https://github.com/TheRomanXpl0it

@@ -7,7 +7,7 @@ comments: true
 authors:
     - andreafioraldi
 ---
-{{ page.date | date: "%B %-d, %Y" }}
+
 
 ```python
 #TheRomanXpl0it - andreafioraldi
