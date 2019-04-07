@@ -12,6 +12,7 @@ title: Misc
         {{ post.title }}
       </a>
     </h3>
+    {{ post.description }}<br>
     <span class="post-date">{{ post.date | date_to_string }}</span>
   {% endfor %}
 </div>
