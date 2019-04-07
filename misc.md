@@ -5,15 +5,15 @@ title: Misc
 
 <h2> Articles </h2>
 
-<div class="posts">
-  {% for post in site.categories.articles %}
-    <h3 class="post-title">
-      <a href="{{ site.baseurl }}{{ post.url | remove_first: '/'}}">
-        {{ post.title }}
+<div class="articles">
+  {% for article in site.categories.articles %}
+    <h3 class="article-title">
+      <a href="{{ article.baseurl }}{{ article.url | remove_first: '/'}}">
+        {{ article.title }}
       </a>
     </h3>
-    {{ post.description }}<br>
-    <span class="post-date">{{ post.date | date_to_string }}</span>
+    {{ article.description }}<br>
+    <span class="post-date">{{ article.date | date_to_string }}</span>
   {% endfor %}
 </div>
 
