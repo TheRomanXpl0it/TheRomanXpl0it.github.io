@@ -1,9 +1,9 @@
 ---
 layout: post
-title: WCTF 2019 BabyPwn
+title: "WCTF 2019 BabyPwn"
 categories: articles
-description: ""
-keywords: "pwn" "crypto"
+description: "CryptoPwn Windows challenge"
+keywords: "pwn crypto"
 comments: true
 authors:
     - andreafioraldi
