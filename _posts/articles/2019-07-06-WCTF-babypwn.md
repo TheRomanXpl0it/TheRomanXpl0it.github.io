@@ -7,7 +7,7 @@ keywords: "pwn crypto"
 comments: true
 authors:
     - andreafioraldi
-    - chqmatteo
+    - chq-matteo
 ---
 
 We played WCTF 2019 as mhackeroni and we got 8th place with two almost finished challenges that we could not submit in time.
