@@ -2,7 +2,7 @@
 layout: post
 title: AceBear Security Contest - imageauth
 categories: ctf_acebear18
-keywords: "malware analisys"
+keywords: "malware analysis"
 comments: true
 authors:
     - chq-matteo
