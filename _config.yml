@@ -17,7 +17,7 @@ author:
   name:           TheRomanXpl0it
   url:            https://twitter.com/TheRomanXpl0it
 
-paginate:         6
+paginate:         12
 # paginate_path:    '/page:num'
                     # Or '/my-jekyll-site/page:num' if you want to move your index pages
 
