@@ -9,13 +9,11 @@ authors:
     - dp1
 ---
 
-In the third meeting of DC11396 I presented my solution to the last problem of Flare-On 2018.
+In the third meeting of DC11396 I presented my solution to the last problem of [Flare-On](http://flare-on.com/) 2018, the annual individual reverse engineering CTF.
 
-Flare-On Challenge is the annual individual CTF about reverse engineering.
+This challenge seems "easy", it is "only" a normal bootkit. Well no, this one has two layers of virtual machine obfuscation with esoteric ISAs! Spooky!
 
-This challenge is easy, it is "only" a normal bootkit. Ah no, this one has two layers of virtual machine obfuscation with esoteric ISAs! Spooky!
-
-Look at my slides:
+Here are my presentation slides:
 
 <style>
     .responsive-wrap iframe { max-width: 100%;}
