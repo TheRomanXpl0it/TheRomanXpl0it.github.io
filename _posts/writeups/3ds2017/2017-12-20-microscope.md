@@ -47,7 +47,7 @@ if __name__ == "__main__":
 
 The output of this script is the following image, which when read reveals the flag:
 
-<img class="img-responsive" src="{{ site-url }}/assets/3dsctf2017/qr.png" alt="QR code image containing flag for 3DS Capture the Flag 2017 'Microscope' challenge">
+<img class="img-responsive" src="{{ site-url }}/assets/3dsctf2017/qr.png" alt="QR code image containing flag for 3DS Capture the Flag 2017 'Microscope' challenge" width="330" height="330">
 
 ```bash
 3DS{s0_y0u_kn0w_yur_g1fs}
