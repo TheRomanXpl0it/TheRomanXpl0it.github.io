@@ -13,7 +13,7 @@
     </div>
 
     <nav class="sidebar-nav">
-      <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" min-height="48" href="{{ site.baseurl }}">Home</a>
+      <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}">Home</a>
 
       {% comment %}
         The code below dynamically generates a sidebar nav of pages with
@@ -24,15 +24,15 @@
       {% for node in pages_list %}
         {% if node.title != null %}
           {% if node.layout == "page" %}
-            <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" min-height="48" href="{{ site.baseurl }}{{ node.url  | remove_first: '/' }}">{{ node.title }}</a>
+            <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ site.baseurl }}{{ node.url  | remove_first: '/' }}">{{ node.title }}</a>
           {% endif %}
         {% endif %}
       {% endfor %}
 
       <hr>
-      <a class="sidebar-nav-item" min-height="48" href="{{ site.github.repo }}">GitHub</a>
-      <a class="sidebar-nav-item" min-height="48" href="https://twitter.com/TheRomanXpl0it">Twitter</a>
-      <a class="sidebar-nav-item" min-height="48" href="https://mhackeroni.it/">mhackeroni</a>
+      <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub</a>
+      <a class="sidebar-nav-item" href="https://twitter.com/TheRomanXpl0it">Twitter</a>
+      <a class="sidebar-nav-item" href="https://mhackeroni.it/">mhackeroni</a>
     </nav>
   </div>
 </div>
