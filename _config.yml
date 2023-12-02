@@ -4,10 +4,10 @@ highlighter:      rouge
 
 # Setup
 title:            TRX
-tagline:          TheRomanXpl0it CTF Team
+tagline:          TRX CTF Team
 description:      "CTF team composed of students of Sapienza, University of Rome. Part of mhackeroni."
-url:              https://theromanxpl0it.github.io/
-baseurl:          https://theromanxpl0it.github.io/
+url:              https://theromanxpl0.it/
+baseurl:          https://theromanxpl0.it/
 #decomment this for local debugging
 #baseurl:          /
                   # the optional subpath of your site, e.g. "/my-jekyll-site/"
