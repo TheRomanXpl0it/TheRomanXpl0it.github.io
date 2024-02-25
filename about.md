@@ -15,7 +15,7 @@ Many of us are involved in the organization of the local DEF CON Group, <a href=
 
 Some of us actively teach crypto and binary exploitation at the newbies of CyberChallenge Rome.
 
-Contact us at <a href="mailto:theromanxpl0it@gmail.com">theromanxpl0it@gmail.com</a>
+Contact us at <a href="mailto:info@theromanxpl0.it">info@theromanxpl0.it</a>
 
 Follow us on [Twitter](https://twitter.com/TheRomanXpl0it)
 
