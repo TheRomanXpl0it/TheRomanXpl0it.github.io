@@ -144,7 +144,7 @@ There are services (like [OneCompiler](https://onecompiler.com/postgresql/), tha
 It's helpful to reason in phases the first few times. In mathematics, we can start skipping steps during calculations, but only because we've become familiar enough:
 
 - Identify your goal: in this case, "I want to get the flag" -> "I want to get all the characters of the record that starts with the flag format and ends with `}`".
-- Write it down as you would normally: `SELECT name WHERE name LIKE 'lactf{%}'`.
+- Write it down as you would normally: `SELECT name WHERE name LIKE 'lactf{ % }'`.
 - Rewrite it bypassing whitelist and blacklist: `SELECT name WHERE name SIMILAR TO 'lactf{_}'` with as many `_` as there are characters in the flag.
 - Combine the two techniques shown previously: `SELECT name WHERE name SIMILAR TO 'lactf{_}'` + `SELECT * FROM penguins WHERE name = '%s'` -> remembering that the only column in the DB is `name`, and that we can only write commands in place of `%s`: `SELECT * FROM penguins WHERE name = '' UNION SELECT name WHERE name SIMILAR TO 'lactf{_}'`
 
