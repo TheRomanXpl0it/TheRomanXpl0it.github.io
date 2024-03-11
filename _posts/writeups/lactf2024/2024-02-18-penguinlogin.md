@@ -216,7 +216,7 @@ Due to infrastructure issues, the first character of the flag couldn't be retrie
 
 ### How it actually went during the CTF
 
-One evening, I was at the gym to vent the frustration of not being able to find a rock on the west coast of California, United States (I love OSINT). Just before leaving, I heard that my teammate Leandro "Loldemort" Pagano was having a bad time with an SQLi. "Let me solve it," I wrote to him.
+One evening, I was at the gym to vent the frustration of not being able to find a rock on the west coast of California, United States (I love OSINT). Just before leaving, I heard that one of my teammates was having a bad time with an SQLi. "Let me solve it," I wrote to him.
 
 I hadn't read the code yet when I received a message on Discord from said player, expressing interest in solving the challenge. "Just use `_`", I said jokingly. I didn't know that the character was actually whitelisted.
 
@@ -277,5 +277,3 @@ while True:
 ```
 
 I was too lazy to press F12 while playing around, so I just based my final payload on the `"We found a penguin!!!!!"` response.
-
-<img class="img-responsive" src="{{ site-url }}/assets/lactf2024/penguin-login/img/ItalianRant.png" alt="Ranting in Italian">
