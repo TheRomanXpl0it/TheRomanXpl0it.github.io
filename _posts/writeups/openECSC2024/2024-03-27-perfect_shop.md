@@ -9,7 +9,7 @@ authors:
 ---
 
 # Perfect Shop
-*March 2024 - DOM-based XSS*
+*March 2024 - filtered and size-limited reflected XSS*
 
 > "Do you like perfect things? Check out my new online shop!"
 
@@ -87,7 +87,7 @@ Although the "playing field" turned out to be less extensive than expected, ther
 This is the first screen displayed when entering the site, or when a GET request is made to the `/` endpoint:
 
 <img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/img/home.png" alt="Homepage">
-Il codice relativo è il seguente:
+The related code is as follows:
 ```js
 app.get('/', (req, res) => {
     res.render('products', { products: products });
