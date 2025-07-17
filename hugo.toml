@@ -1,58 +1,69 @@
-baseURL = 'https://theromanxpl0.it'
-languageCode = 'en-us'
-title = 'TheRomanXpl0it'
-
+baseURL = "https://theromanxpl0.it"
+languageCode = "en-us"
+title = "TheRomanXpl0it"
 # Theme config below
-theme = 'hello-friend-ng'
+theme = "hello-friend-ng"
 
 [params]
-  dateform        = "Jan 2, 2006"
-  dateformShort   = "Jan 2"
-  dateformNum     = "2006-01-02"
-  dateformNumTime = "2006-01-02 15:04"
-
-  # Subtitle for home
-  #homeSubtitle = "A simple and beautiful blog"
-
-  # Set disableReadOtherPosts to true in order to hide the links to other posts.
-  disableReadOtherPosts = false
-
-  # Enable sharing buttons, if you like
-  enableSharingButtons = true
-
-  # Show a global language switcher in the navigation bar
-  enableGlobalLanguageMenu = true
-
-  # Metadata mostly used in document's head
-  description = "TRX website"
-  keywords = "homepage, blog"
-  images = [""]
+dateform = "Jan 2, 2006"
+dateformShort = "Jan 2"
+dateformNum = "2006-01-02"
+dateformNumTime = "2006-01-02 15:04"
+# Subtitle for home
+# homeSubtitle = "A simple and beautiful blog"
+# Set disableReadOtherPosts to true in order to hide the links to other posts.
+disableReadOtherPosts = false
+# Enable sharing buttons, if you like
+enableSharingButtons = true
+# Show a global language switcher in the navigation bar
+enableGlobalLanguageMenu = true
+# Metadata mostly used in document's head
+description = "TRX website"
+keywords = "homepage, blog"
+images = [""]
 
 [taxonomies]
-    category = "blog"
-    tag      = "tags"
-    series   = "series"
+category = "blog"
+tag = "tags"
+series = "series"
 
 [languages]
-  [languages.en]
-    title = "Hello Friend NG"
-    keywords = ""
-    copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
-    readOtherPosts = "Read other posts"
+[languages.en]
+title = "TheRomanXpl0it"
+keywords = ""
+copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
+readOtherPosts = "Read other posts"
 
-  [languages.en.params]
-    subtitle  = "A simple theme for Hugo"
+[languages.en.params]
+subtitle = "Roman CTF team"
 
-    [languages.en.params.logo]
-      logoText = "hello friend ng"
-      logoHomeLink = "/"
-    # or
-    #
-    # path = "/img/your-example-logo.svg"
-    # alt = "Your example logo alt text"
+[languages.en.params.logo]
+logoText = "TRX"
+logoHomeLink = "/"
+# or
+#
+# path = "/img/your-example-logo.svg"
+# alt = "Your example logo alt text"
 
-  # And you can even create generic menu
-  [[menu.main]]
-    identifier = "blog"
-    name       = "Blog"
-    url        = "/posts"
+[languages.it]
+title = "TheRomanXpl0it"
+keywords = ""
+copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
+readOtherPosts = "Read other posts"
+
+[languages.it.params]
+subtitle = "Team CTF romano"
+
+[languages.it.params.logo]
+logoText = "TRX"
+logoHomeLink = "/"
+# or
+#
+# path = "/img/your-example-logo.svg"
+# alt = "Your example logo alt text"
+
+# And you can even create generic menu
+[[menu.main]]
+identifier = "blog"
+name = "Blog"
+url = "/posts"
