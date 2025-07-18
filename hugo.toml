@@ -3,6 +3,15 @@ languageCode = "en-us"
 title = "TheRomanXpl0it"
 copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 
+[markup]
+  [markup.highlight]
+    style = "monokai"
+    noClasses = false
+
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 # Theme config below
 theme = "hello-friend-ng"
 archetypeDir = "archetypes"
