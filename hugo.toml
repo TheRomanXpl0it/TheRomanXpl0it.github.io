@@ -39,7 +39,6 @@ posts = "/posts/:year/:month/:title/"
 [taxonomies]
 tag = "tags"
 category = "categories"
-series = "series"
 
 [params]
 dateform = "Jan 2, 2006"
@@ -53,7 +52,7 @@ keywords = ""
 images = [""]
 # Home subtitle of the index page.
 #
-homeSubtitle = "Roman CTF team"
+homeSubtitle = "Italian CTF team"
 # Set a background for the homepage
 # backgroundImage = "assets/images/background.jpg"
 # Prefix of link to the git commit detail page. GitInfo must be enabled.
@@ -98,7 +97,7 @@ name = "TRX"
 #
 [params.footer]
 trademark = 2025
-rss = false
+rss = true
 copyright = true
 author = true
 topText = []
@@ -130,9 +129,9 @@ logoCursorDisabled = true
 # Uncomment this if you want a portrait on your start page
 #
 [params.portrait]
-path = "logo/TRX.png"
+path = "logo/TRX_minimal.svg"
 alt = "Portrait"
-maxWidth = "250px"
+maxWidth = "500px"
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Addon: Social icons
@@ -160,6 +159,11 @@ url = "https://t.me/TheRomanChat"
 
 [menu]
 [[menu.main]]
+identifier = "about"
+name = "About"
+url = "about/"
+
+[[menu.main]]
 identifier = "members"
 name = "Members"
 url = "members/"
@@ -168,4 +172,3 @@ url = "members/"
 identifier = "posts"
 name = "Posts"
 url = "posts/"
-
