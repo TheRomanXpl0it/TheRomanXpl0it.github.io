@@ -8,12 +8,10 @@ categories:
 - lactf2024
 tags:
 - web
+- sqli
 authors:
 - Tiziano-Caruana
 ---
-
-# penguin-login
-*February 2024 - Blind SQL injection*
 
 > "I got tired of people leaking my password from the db so I moved it out of the db."
 
@@ -91,7 +89,7 @@ def submit_form():
 ...
 ```
 
-We know that the website uses Postgres as the [RDBMS](https://cloud.google.com/learn/what-is-a-relational-database?hl=en)/[SQL database](https://www.solarwinds.com/resources/it-glossary/sql-database), and that the flag is contained in the penguins table along with the penguins. 
+We know that the website uses Postgres as the [RDBMS](https://cloud.google.com/learn/what-is-a-relational-database?hl=en)/[SQL database](https://www.solarwinds.com/resources/it-glossary/sql-database), and that the flag is contained in the penguins table along with the penguins.
 
 The code is straightforward: the first half deals only with connections and setup, while the `submit` endpoint checks that the characters entered by the user are part of the whitelist (letters, numbers, `{}`, and `_`), which effectively consists of the characters that can be part of the flag.
 
@@ -102,7 +100,7 @@ A quick analysis of the code can already tell us everything we need to know, but
 
 <img class="img-responsive" src="/lactf2024/penguin-login/vid/code201.gif" alt="code 201 example">
 
-We can thus see the differences in response depending on the input. If a penguin is found, a [status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) is returned, while if nothing is found, we get a 201. 
+We can thus see the differences in response depending on the input. If a penguin is found, a [status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) is returned, while if nothing is found, we get a 201.
 
 As we can see in line 63, the query is constructed using string interpolation with [%-formatting](https://www.programiz.com/python-programming/string-interpolation#:~:text=Example%203) which allows for user input. This approach is vulnerable to [SQL injection](https://stackoverflow.com/questions/51960654/python-string-formatting-percentage-symbol-after-string-substituion), and the challenge author has simulated a makeshift solution through a system of [whitelisting e blacklisting](https://www.ninjaone.com/it-hub/endpoint-security/what-is-input-sanitization/#:~:text=Input%20sanitization%20methods).
 
@@ -155,7 +153,7 @@ It's helpful to reason in phases the first few times. In mathematics, we can sta
 The payload will simply be what we wrote in this last phase, which is `' UNION SELECT name WHERE name SIMILAR TO 'lactf{_}`
 
 ### Constructing the payload
-At this point, all we have to do is construct a `UNION` with a `SIMILAR TO` instead of the more popular `LIKE`. In my case: `' UNION SELECT name WHERE name SIMILAR TO 'lactf{_}`. 
+At this point, all we have to do is construct a `UNION` with a `SIMILAR TO` instead of the more popular `LIKE`. In my case: `' UNION SELECT name WHERE name SIMILAR TO 'lactf{_}`.
 
 I'm not sure if there was a more convenient way to get the length of the flag, but I just added underscores until I got a positive result. These are the payloads useful for extracting the flag, modified from those used during the competition:
 
@@ -224,7 +222,7 @@ One evening, I was at the gym to vent the frustration of not being able to find 
 
 I hadn't read the code yet when I received a message on Discord from said player, expressing interest in solving the challenge. "Just use `_`", I said jokingly. I didn't know that the character was actually whitelisted.
 
-My teammate had already discovered the existence of `SIMILAR TO`, so once I got home, I only had to deal with writing the payload. 
+My teammate had already discovered the existence of `SIMILAR TO`, so once I got home, I only had to deal with writing the payload.
 
 #### Payload used during the CTF
 

@@ -14,7 +14,7 @@ authors:
 
 For this challenge we get access to a login prompt. This is the code on the backend, stripped of the useless parts:
 
-{% highlight python %}
+```python
 
 key = file('SECRET').read().strip()
 
@@ -27,7 +27,7 @@ def login():
 			username = str(request.form.get('username'))
 			if request.cookies.get('data') and request.cookies.get('user'):
 				data = str(request.cookies.get('data')).decode('base64').strip()
-				user = str(request.cookies.get('user')).decode('base64').strip()				
+				user = str(request.cookies.get('user')).decode('base64').strip()
 				temp = '|'.join([key,username,user])
 				if data != SLHA1(temp).digest():
 					temp = SLHA1(temp).digest().encode('base64').strip().replace('\n','')
@@ -50,7 +50,7 @@ def login():
 	else:
 		return render_template('login.html')
 
-{% endhighlight %}
+```
 
 It uses the username in the login form and the contents of two cookies, user and data, to authenticate the user, alongside with the contents of file SECRET, which we don't have access to.
 

