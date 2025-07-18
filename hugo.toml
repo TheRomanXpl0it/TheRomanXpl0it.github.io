@@ -2,8 +2,8 @@ baseURL = "https://theromanxpl0.it"
 languageCode = "en-us"
 title = "TheRomanXpl0it"
 copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
-PygmentsCodeFences = true
-PygmentsStyle = "monokai"
+#PygmentsCodeFences = true
+#PygmentsStyle = "dracula"
 # Theme config below
 theme = "hello-friend-ng"
 archetypeDir = "archetypes"
@@ -28,6 +28,9 @@ disableHugoGeneratorInject = false
 [markup.goldmark]
 [markup.goldmark.renderer]
 unsafe = true
+[markup.highlight]
+noClasses = true
+style = "xcode-dark"
 
 [taxonomies]
 category = "categories"
