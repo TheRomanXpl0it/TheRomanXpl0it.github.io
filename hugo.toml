@@ -140,7 +140,7 @@ logoCursorDisabled = true
 # Uncomment this if you want a portrait on your start page
 #
 [params.portrait]
-path = "logo/TRX_minimal.svg"
+path = "logo/TRX_noborder.svg"
 alt = "Portrait"
 maxWidth = "500px"
 
