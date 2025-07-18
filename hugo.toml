@@ -2,16 +2,8 @@ baseURL = "https://theromanxpl0.it"
 languageCode = "en-us"
 title = "TheRomanXpl0it"
 copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
-
-[markup]
-  [markup.highlight]
-    style = "monokai"
-    noClasses = false
-
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
-
+PygmentsCodeFences = true
+PygmentsStyle = "monokai"
 # Theme config below
 theme = "hello-friend-ng"
 archetypeDir = "archetypes"
@@ -32,6 +24,16 @@ disableSitemap = false
 disable404 = false
 disableHugoGeneratorInject = false
 
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+series = "series"
+
 [pagination]
 disableAliases = false
 pagerSize = 20
@@ -44,10 +46,6 @@ limit = 42
 
 [permalinks]
 posts = "/posts/:year/:month/:title/"
-
-[taxonomies]
-tag = "tags"
-category = "categories"
 
 [params]
 dateform = "Jan 2, 2006"
@@ -120,8 +118,8 @@ msapplication = "#1b1c1d"
 theme = "#1b1c1d"
 
 [params.logo]
-logoMark = ">"
-logoText = "<img >"
+logoMark = ""
+logoText = "TRX"
 # logoHomeLink = "/"
 # Set true to remove the logo cursor entirely.
 logoCursorDisabled = true
