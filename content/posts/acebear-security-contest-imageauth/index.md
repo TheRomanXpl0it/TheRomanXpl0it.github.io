@@ -56,4 +56,4 @@ After each edit we submit and observe the change in the score, decide if we want
 
 It doesn't work every time, but one time is enough.
 
-<img class="img-responsive" src="{{ site-url }}/assets/acebear/black.png" alt="Custom image of red and white shapes on grey background, with blue dot within one red shape, that successfully bypassed neural network authentication with 0.99 score" width="224" height="224">
+<img class="img-responsive" src="/acebear/black.png" alt="Custom image of red and white shapes on grey background, with blue dot within one red shape, that successfully bypassed neural network authentication with 0.99 score" width="224" height="224">

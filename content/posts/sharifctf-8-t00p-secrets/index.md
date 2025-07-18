@@ -137,7 +137,7 @@ Just print the new chunck to get an address from the main arena (free has rewrit
 
 The last phase is to overwrite the pointer to already created secret content with `__free_hook`, use edit and write the magic gadget address in `__free_hook`, call free and win.
 
-Download the binary [here]({{ site-url }}/assets/sharifctf18/t00p_secrets).
+Download the binary [here](/sharifctf18/t00p_secrets).
 Full exploit code:
 
 ```python

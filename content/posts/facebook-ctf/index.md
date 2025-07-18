@@ -14,4 +14,4 @@ authors:
 
 So we got a token from Facebook ctf
 
-<img class="img-responsive" src="{{ site-url }}/assets/fbctf19/facebook_coin.jpg" alt="Photo of commemorative coin looking like a gear given to competitors at the 2019 Facebook Capture The Flag" width="603" height="339.183">
+<img class="img-responsive" src="/fbctf19/facebook_coin.jpg" alt="Photo of commemorative coin looking like a gear given to competitors at the 2019 Facebook Capture The Flag" width="603" height="339.183">

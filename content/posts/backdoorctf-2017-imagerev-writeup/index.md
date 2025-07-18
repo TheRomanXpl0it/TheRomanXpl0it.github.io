@@ -12,13 +12,13 @@ authors:
 - andreafioraldi
 ---
 
-Looking at the code in [encrypt.py]({{ site-url }}/assets/backdoorctf17/encrypt.py) we can see that the encryption function works with a pixel at once.
+Looking at the code in [encrypt.py](/backdoorctf17/encrypt.py) we can see that the encryption function works with a pixel at once.
 
 Analyzing the return value it is a tuple of 8 hex strings.
 
 So a pixel is mapped to a 64 bytes hex string.
 
-Now we can print all different pixel types in the [encrypted.txt]({{ site-url }}/assets/backdoorctf17/encrypted.txt) file using a bit of python.
+Now we can print all different pixel types in the [encrypted.txt](/backdoorctf17/encrypted.txt) file using a bit of python.
 
 ```python
 f = open("encrypted.txt")

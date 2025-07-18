@@ -16,7 +16,7 @@ Another PNG this time with a black and white squares pattern.
 
 Again a contrast and brightness trick.
 
-<img class="img-responsive" src="{{ site-url }}/assets/codefest17/dots.png" alt="Modified black and white image revealing ASCII characters" width="603" height="357">
+<img class="img-responsive" src="/codefest17/dots.png" alt="Modified black and white image revealing ASCII characters" width="603" height="357">
 
 This time we encounter a strange pattern.
 If we think of the pure black parts as 0 and the black and white ones as 1 we get some binary code for each line.

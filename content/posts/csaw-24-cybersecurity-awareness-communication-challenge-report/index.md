@@ -24,5 +24,5 @@ Thank you
 ## Team Mashers - Qualification report
 
 <div class="responsive-wrap">
-    <iframe src="{{ site-url }}/assets/csaw24/CSAW_CAC_website.pdf" width="100%" height="1080"></iframe>
+    <iframe src="/csaw24/CSAW_CAC_website.pdf" width="100%" height="1080"></iframe>
 </div>

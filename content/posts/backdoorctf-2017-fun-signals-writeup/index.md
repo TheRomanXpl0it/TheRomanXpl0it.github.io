@@ -16,7 +16,7 @@ This binary has a very small portion of code.
 
 Analize it in IDA:
 
-<img class="img-responsive" src="{{ site-url }}/assets/backdoorctf17/funsignals-1.png" alt="IDA screenshot showing disassembled binary code with syscalls to read() and rt_sigreturn()" width="603" height="260">
+<img class="img-responsive" src="/backdoorctf17/funsignals-1.png" alt="IDA screenshot showing disassembled binary code with syscalls to read() and rt_sigreturn()" width="603" height="260">
 
 The first syscall is a read (rax = 0) of 1024 bytes in the stack.
 

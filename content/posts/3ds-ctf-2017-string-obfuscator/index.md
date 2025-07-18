@@ -16,13 +16,13 @@ authors:
 
 The input file had no extension, so the first thing to do was figure out how to read it. I opened it in n++ and saw it began with the zip header, so it got decompressed. On the inside, the files were actually the structure of an `.xlsm` file, so rather than working on the directory I changed the extension of the input and opened it in excel. I had to enable macros for the challenge to work properly, and this is what I saw at first:
 
-<img class="img-responsive" src="{{ site-url }}/assets/3dsctf2017/excel.png" alt="Screenshot of Microsoft Excel window showing obfuscated formula" width="603" height="234.433">
+<img class="img-responsive" src="/3dsctf2017/excel.png" alt="Screenshot of Microsoft Excel window showing obfuscated formula" width="603" height="234.433">
 
 By clicking on the icon in the top left, a dialog would pop up and ask for a string to be encrypted:
 
-<img class="img-responsive" src="{{ site-url }}/assets/3dsctf2017/dialog.png" alt="Screenshot of dialog box showing input field and 'Encrypt' button in Microsoft Excel" width="603" height="235.017">
+<img class="img-responsive" src="/3dsctf2017/dialog.png" alt="Screenshot of dialog box showing input field and 'Encrypt' button in Microsoft Excel" width="603" height="235.017">
 
-It was at this point that I figured out that the string in the bottom was the output of that encryption algorithm and that I had to find and reverse it. As I enabled macros before, I went to the visual basic editor (that's `Alt+F11`), but was prompted for a password. After trying the obvious passwords with no success, I was stuck for a while. Paraphrasing my teammate, [for a l33t h4xor it's easy, for me it means Google]({{ site-url }}/ctf_backdoorctf17/funsignals/)
+It was at this point that I figured out that the string in the bottom was the output of that encryption algorithm and that I had to find and reverse it. As I enabled macros before, I went to the visual basic editor (that's `Alt+F11`), but was prompted for a password. After trying the obvious passwords with no success, I was stuck for a while. Paraphrasing my teammate, [for a l33t h4xor it's easy, for me it means Google](/ctf_backdoorctf17/funsignals/)
 
 As it turns out, excel passwords are implemented horribly, so by just following a couple steps from [here](http://www.dragmar.com/public/?p=140) I was able to bypass it. I'll list them here for clarity:
 1. Change the string 'DPB' to 'DPx' inside the file

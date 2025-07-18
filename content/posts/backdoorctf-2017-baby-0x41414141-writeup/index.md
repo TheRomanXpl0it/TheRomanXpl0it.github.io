@@ -14,13 +14,13 @@ authors:
 
 Executing the binary for the first time we have this behaviour:
 
-<img class="img-responsive" src="{{ site-url }}/assets/backdoorctf17/baby-1.png" alt="Screenshot showing program prompt to enter user name" width="603" height="83">
+<img class="img-responsive" src="/backdoorctf17/baby-1.png" alt="Screenshot showing program prompt to enter user name" width="603" height="83">
 
 Ok, cool, decompile it.
 
 This is the main function:
 
-<img class="img-responsive" src="{{ site-url }}/assets/backdoorctf17/baby-2.png" alt="Code snippet showing decompiled main() function with vulnerable printf() and fflush() calls" width="603" height="204">
+<img class="img-responsive" src="/backdoorctf17/baby-2.png" alt="Code snippet showing decompiled main() function with vulnerable printf() and fflush() calls" width="603" height="204">
 
 Note: edata is in .bss and it is stdin
 
@@ -30,7 +30,7 @@ After the vulnerable printf there is a fflush call, so i choose to overwrite its
 
 In the functions list we can see the `flag(void)` function:
 
-<img class="img-responsive" src="{{ site-url }}/assets/backdoorctf17/baby-3.png" alt="Screenshot of decompiler showing 'flag(void)' function definition, which executes cat flag.txt" width="603" height="238">
+<img class="img-responsive" src="/backdoorctf17/baby-3.png" alt="Screenshot of decompiler showing 'flag(void)' function definition, which executes cat flag.txt" width="603" height="238">
 
 Now we must write an exploit to overwrite the fflush entry with the address of flag.
 

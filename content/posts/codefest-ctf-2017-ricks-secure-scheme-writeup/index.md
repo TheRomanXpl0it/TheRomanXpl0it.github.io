@@ -15,7 +15,7 @@ authors:
 ## Capture United States - Ricks’ Secure Scheme
 
 
-<img class="img-responsive" src="{{ site-url }}/assets/codefest17/USA-1.png" alt="Screenshot of service menu showing login option and usage logs" width="603" height="286">
+<img class="img-responsive" src="/codefest17/USA-1.png" alt="Screenshot of service menu showing login option and usage logs" width="603" height="286">
 
 
 The schwifty_service that runs under the port 10987 of the addressed server presents us a menu interface with some options given:
@@ -35,11 +35,11 @@ To view the secret content we must login first.
 
 At first let's search the login procedure in IDA Pro. Decompiling the code in the only function called by main, we can find:
 
-<img class="img-responsive" src="{{ site-url }}/assets/codefest17/USA-2.png" alt="Screenshot of decompiled function calling sub_400A26()" width="603" height="244">
+<img class="img-responsive" src="/codefest17/USA-2.png" alt="Screenshot of decompiled function calling sub_400A26()" width="603" height="244">
 
 So let's go have a look at `sub_400A26`
 
-<img class="img-responsive" src="{{ site-url }}/assets/codefest17/USA-3.png" alt="Screenshot of sub_400A26() decryption function using time() and rand()" width="603" height="389">
+<img class="img-responsive" src="/codefest17/USA-3.png" alt="Screenshot of sub_400A26() decryption function using time() and rand()" width="603" height="389">
 
 This function looks like a decryption function! We can notice that it initializes the random seed with `time()` and then xores the first 34 chars of the password with the random value obtained each time with `rand()`.
 

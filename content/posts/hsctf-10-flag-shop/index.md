@@ -22,7 +22,7 @@ authors:
 
 We are provided with the link to the website and its corresponding source code.
 The website appears to be very simple, and the source code is quite short:
-<img class="img-responsive" src="{{ site-url }}/assets/hsctf2023/FlagShopHome.png" alt="Screenshot showing the Flag Shop homepage with search bar and table" width="603" height="267">
+<img class="img-responsive" src="/hsctf2023/FlagShopHome.png" alt="Screenshot showing the Flag Shop homepage with search bar and table" width="603" height="267">
 
 Content of ```app.py```:
 ```python
@@ -173,18 +173,18 @@ With ```');``` we escaped the string and closed the statement, giving us an <a h
 
 By testing or reading the documentation, we can discover that this happens because only the last valid condition is computed by the $where clause. This means that we can write anything in the first ```include```, since it won't be interpreted (```something'); this.challenge.includes('```):
 
-<img class="img-responsive" src="{{ site-url }}/assets/hsctf2023/burp1.png" alt="Burp Suite screenshot showing the result of a request sent with the payload (```something'); this.challenge.includes('```), which returns all the results from the database" width="603" height="398">
+<img class="img-responsive" src="/hsctf2023/burp1.png" alt="Burp Suite screenshot showing the result of a request sent with the payload (```something'); this.challenge.includes('```), which returns all the results from the database" width="603" height="398">
 
 While the second one is interpreted (```something'); this.challenge.includes('search```):
-<img class="img-responsive" src="{{ site-url }}/assets/hsctf2023/burp2.png" alt="Burp Suite screenshot showing that if we include a search parameter in the injected 'include', the query will execute it" width="603" height="229">
+<img class="img-responsive" src="/hsctf2023/burp2.png" alt="Burp Suite screenshot showing that if we include a search parameter in the injected 'include', the query will execute it" width="603" height="229">
 
 So we have the vulnerability, but we cannot directly retrieve the flag since it is excluded from the query (if you're not sure, please reread the source code).
 I then tried a payload with a boolean operator (```something'); always_true() || this.challenge.includes('something```):
-<img class="img-responsive" src="{{ site-url }}/assets/hsctf2023/burp3.png" alt="Burp Suite screenshot showing all challenges result after including an 'or 1==1' before the injected search parameter" width="603" height="394">
+<img class="img-responsive" src="/hsctf2023/burp3.png" alt="Burp Suite screenshot showing all challenges result after including an 'or 1==1' before the injected search parameter" width="603" height="394">
 
 This is very useful for searching for a potential attack. We can perform a conditional check on the flag using ```&& this.challenge.includes('flag')``` to only get results from the ```flag-shop``` entity. We can do a first test with the flag format (```something'); this.flag.includes('flag{') && this.challenge.includes('flag```):
-<img class="img-responsive" src="{{ site-url }}/assets/hsctf2023/FirstBlind.png" alt="Burp Suite screenshot showing result including 'flag{'" width="603" height="394">
-<img class="img-responsive" src="{{ site-url }}/assets/hsctf2023/BlindNotWorking.png" alt="Burp Suite screenshot showing no result after including a random word as search parameter" width="603" height="131">
+<img class="img-responsive" src="/hsctf2023/FirstBlind.png" alt="Burp Suite screenshot showing result including 'flag{'" width="603" height="394">
+<img class="img-responsive" src="/hsctf2023/BlindNotWorking.png" alt="Burp Suite screenshot showing no result after including a random word as search parameter" width="603" height="131">
 
 We will have to take advantage of this behavior, performing a small brute force to reconstruct the flag character by character. We can now start to construct our payload.
 

@@ -16,6 +16,6 @@ A black image.
 
 By playing around with the brighness and contrast settings in GIMP we can clearly see the secret
 
-<img class="img-responsive" src="{{ site-url }}/assets/codefest17/simplyblack.png" alt="Modified black image revealing flag in white text" width="603" height="245">
+<img class="img-responsive" src="/codefest17/simplyblack.png" alt="Modified black image revealing flag in white text" width="603" height="245">
 
 -> flag{LETHAL}

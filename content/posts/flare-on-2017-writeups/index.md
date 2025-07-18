@@ -182,7 +182,7 @@ The interesting part still has to come though: when modifying an exe, the file t
 
 These turned out to be four of the files from last year's challenge, and I finally managed to get to the flag by jumping around with the debugger, since there were more checks that I didn't want to reverse. By jumping to the right code section each time one of the four files was being worked on by the application I made it write out the right bytes in key.bin and I was finally greeted with a nice MessageBox:
 
-<img class="img-responsive" src="{{ site-url }}/assets/img/flareon4-chal4.png" alt="Image of the flag for challenge 4 of the Flare-On 4 CTF" width="411" height="172">
+<img class="img-responsive" src="/img/flareon4-chal4.png" alt="Image of the flag for challenge 4 of the Flare-On 4 CTF" width="411" height="172">
 
 The flag is `bl457_fr0m_th3_p457@flare-on.com`
 
@@ -249,7 +249,7 @@ When I run it all I got was an error message in a MessageBox, so I started going
 
 Frankly, I didn't expect much to happen when I run it, so imagine my surprise when this popped up:
 
-<img class="img-responsive" src="{{ site-url }}/assets/img/flareon4-chal6.png" alt="Image of a single character of the flag for challenge 6 of the CTF Flareon 4" width="297" height="232">
+<img class="img-responsive" src="/img/flareon4-chal6.png" alt="Image of a single character of the flag for challenge 6 of the CTF Flareon 4" width="297" height="232">
 
 I finally had a byte of the flag. Granted, it was probably just one of the 'o's in `@flare-on.com`, but it was something. All I had to do now was finding out the other bytes. I noticed a big chunk of random looking data at the start of the .text section, from which some bytes had become the new export table when I got that first byte, so I started to think that there could be other export tables encrypted in that data. I finally realized that the library was actually choosing which offset to decrypt based on the current timestamp. In particular, it would divide the sum of the current month and year by 26 and take the remainder, which would then be used as the index of the export table to decrypt.
 
@@ -295,4 +295,4 @@ Yes, I'm already drawing my conclusions here. After I finished challenge six sch
 
 Out of the six challenges I solved, some of the nicest were the last two, with the sixth being _slightly_ evil in its management of export tables. The fourth challenge took a bit more guessing than I was expecting to find the right files, but in the end I enjoyed all of them.
 
-<img class="img-responsive" src="{{ site-url }}/assets/img/flareon4-results.png" alt="Screenshot showing results for user dp_1 in Flareon 4" width="603" height="276.45">
+<img class="img-responsive" src="/img/flareon4-results.png" alt="Screenshot showing results for user dp_1 in Flareon 4" width="603" height="276.45">

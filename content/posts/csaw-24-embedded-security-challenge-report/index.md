@@ -20,5 +20,5 @@ Some of our members participated in the [CSAW Embedded Security Challenge](https
 ## TRX Technical Labs - Qualification report
 
 <div class="responsive-wrap">
-    <iframe src="{{ site-url }}/assets/csaw24/CSAW_quals_paper_2024.pdf" width="100%" height="1080"></iframe>
+    <iframe src="/csaw24/CSAW_quals_paper_2024.pdf" width="100%" height="1080"></iframe>
 </div>
