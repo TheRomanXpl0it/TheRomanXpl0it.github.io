@@ -122,6 +122,8 @@ msapplication = "#1b1c1d"
 theme = "#1b1c1d"
 
 [params.logo]
+path = "logo/TRX_smooth.png"
+alt = "logo"
 logoMark = ""
 logoText = "TRX"
 # logoHomeLink = "/"
@@ -140,9 +142,9 @@ logoCursorDisabled = true
 # Uncomment this if you want a portrait on your start page
 #
 [params.portrait]
-path = "logo/TRX_noborder.svg"
-alt = "Portrait"
-maxWidth = "500px"
+path = "logo/TRX_smooth.png"
+alt = ""
+maxWidth = "32vh"
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Addon: Social icons
