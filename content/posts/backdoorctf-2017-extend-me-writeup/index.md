@@ -63,5 +63,4 @@ Remember to login with the same username every time, otherwise the checks on dat
 
 Voilà
 
-
 Reading other writeups, it seems that the intended solving method was hash extension (as even the challenge's name seems to suggest), yet I believe this cookie based solution to be much simpler and faster to execute. It also uses as its only tool any web browser that can edit cookies, or in my case Firefox with an extension to do the same.

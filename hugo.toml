@@ -162,7 +162,7 @@ name = "instagram"
 url = "https://www.instagram.com/theromanxpl0it"
 
 [[params.social]]
-name = "X"
+name = "x-twitter"
 url = "https://x.com/TheRomanXpl0it"
 
 [[params.social]]
