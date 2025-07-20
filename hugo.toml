@@ -2,8 +2,6 @@ baseURL = "https://theromanxpl0.it"
 languageCode = "en-us"
 title = "TheRomanXpl0it"
 copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
-# PygmentsCodeFences = true
-# PygmentsStyle = "dracula"
 # Theme config below
 theme = "hello-friend-ng"
 archetypeDir = "archetypes"
@@ -39,7 +37,7 @@ tag = "tags"
 
 [pagination]
 disableAliases = false
-pagerSize = 20
+pagerSize = 8
 path = "page"
 
 [services]
@@ -52,7 +50,7 @@ posts = "/posts/:year/:month/:title/"
 
 [params]
 dateform = "Jan 2, 2006"
-dateformShort = "Jan 2"
+dateformShort = "Jan 2006"
 dateformNum = "2006-01-02"
 dateformNumTime = "2006-01-02 15:04"
 # Metadata mostly used in document's head
@@ -98,6 +96,16 @@ customJS = []
 # Toggle this option need to rebuild SCSS, requires extended version of Hugo
 #
 justifyContent = false  # Set "text-align: justify" to .post-content.
+
+[params.search]
+expand_results_meta = false
+distance = 0.4
+index_content = true
+index_headings = true
+index_summary = true
+index_taxonomies = false
+max_results = 20
+min_match_char_length = 2
 
 [params.author]
 name = "TRX"
@@ -188,3 +196,11 @@ url = "members/"
 identifier = "posts"
 name = "Posts"
 url = "posts/"
+
+[module]
+[[module.imports]]
+path = "github.com/hugomods/search"
+
+[outputs]
+home = ["HTML", "RSS", "SearchIndex"]
+
