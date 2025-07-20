@@ -3,7 +3,6 @@ title: Codeblue CTF 2017 - Secret Mailer Service
 date: '2017-11-11'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_codeblue2017
 - writeup
 - codeblue2017
 tags:
@@ -14,19 +13,6 @@ tags:
 authors:
 - dp1
 ---
-
-<script type="text/javascript" async
-  src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } },
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    processEscapes: true
-  }
-});
-</script>
 
 For this challenge we're given the binary of a service, `mailer`. There are 5 letters allocated on the stack which we can work on, and every time a letter is referenced the code checks if the index is valid - no exploits there. The service allows us to write, delete and post letters, where posting a letter really means writing out its contents to `/dev/null` with the ability to use a filter. It's in the filter selection that we find our vulnerability:
 

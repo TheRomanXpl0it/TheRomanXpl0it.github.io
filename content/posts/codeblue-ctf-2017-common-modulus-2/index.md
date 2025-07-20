@@ -3,13 +3,11 @@ title: Codeblue CTF 2017 - Common Modulus 2
 date: '2017-11-10'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_codeblue2017
 - writeup
 - codeblue2017
 tags:
-- number
-- theory
 - crypto
+- number-theory
 - rsa
 authors:
 - chq-matteo
@@ -27,11 +25,10 @@ MathJax.Hub.Config({
   }
 });
 </script>
-Next in the series [Common Modulus 3](../common3)
 
-If you haven't already, check out [Common Modulus 1 Writeup](../common1)!
+Next in the series [Common Modulus 3]({{< ref "posts/codeblue-ctf-2017-common-modulus-3/index.md" >}})
 
-We have solved [Common Modulus 1](../common1), but now there's more!
+We have solved [Common Modulus 1]({{< ref "posts/codeblue-ctf-2017-common-modulus-1/index.md" >}}), but now there's more!
 
 ```python
 e = 3 * get_random_prime(20)

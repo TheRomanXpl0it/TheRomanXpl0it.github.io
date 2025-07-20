@@ -3,11 +3,10 @@ title: CodeFest CTF 2017 - Suzy's Fun Login Writeup
 date: '2017-09-23'
 lastmod: '2023-07-03T19:19:24+02:00'
 categories:
-- ctf_codefest17
 - writeup
 - codefest17
 tags:
-- exploitation
+- pwn
 authors:
 - andreafioraldi
 ---
@@ -57,4 +56,4 @@ Now type in the terminal `ssh -i private_key_file suzy@13.126.83.119` (suzy is t
 
 You are logged in, navigate the filesystem and get your flag.
 
--> flag{wowyouknowyourexecutables}
+-> `flag{wowyouknowyourexecutables}`

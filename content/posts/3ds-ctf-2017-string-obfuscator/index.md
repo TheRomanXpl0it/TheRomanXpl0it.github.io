@@ -3,7 +3,6 @@ title: 3DS CTF 2017 - String Obfuscator
 date: '2017-12-21'
 lastmod: '2023-07-03T19:19:24+02:00'
 categories:
-- ctf_3ds2017
 - writeup
 - 3ds2017
 tags:
@@ -79,6 +78,11 @@ def decrypt(target):
 	return out
 ```
 
-At this point I thought I had it, but it took me a while to actually get to the flag. I couldn't get copy paste to work from excel for some reason, so at first I was manually copying the string over and I couldn't see there were some missing characters that overflowed the textbox. Excel has another layer of protection that can be applied on the whole document, which I had to remove by going to `Revision->Remove sheet protection`. Only now could I get copy paste to work and obtain the full encrypted string, `XVleYGBbWVpbXl9cYF9gX1lgWl1aXV1gXV9eXVpdXVxhXGBfYF1bYV1gYVxgYF1hXV9dX2BcYGBfYV1dXV9aXVlhXWBfXGBgWl9dXVtfWl1ZXVldXVlaXQ==`.
+At this point I thought I had it, but it took me a while to actually get to the flag. I couldn't get copy paste to work from excel for some reason, so at first I was manually copying the string over and I couldn't see there were some missing characters that overflowed the textbox. Excel has another layer of protection that can be applied on the whole document, which I had to remove by going to `Revision->Remove sheet protection`. Only now could I get copy paste to work and obtain the full encrypted string:
+```
+XVleYGBbWVpbXl9cYF9gX1lgWl1aXV1gXV9eXVpdXVxhXGBfYF1bYV1gYVxgYF1hXV9dX2BcYGBfYV1dXV9aXVlhXWBfXGBgWl9dXVtfWl1ZXVldXVlaXQ==
+```
 
-By running it through the decryption routine, I got the flag: `3DS{C0NGR47UL4710N5_Y0U_KN0W_7H3_W0RK5H337}`. Finally!
+By running it through the decryption routine, I got the flag: `3DS{C0NGR47UL4710N5_Y0U_KN0W_7H3_W0RK5H337}`.
+
+Finally!

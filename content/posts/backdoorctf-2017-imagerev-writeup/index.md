@@ -3,7 +3,6 @@ title: backdoorctf 2017 - ImageRev Writeup
 date: '2017-09-24'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_backdoorctf17
 - writeup
 - backdoorctf17
 tags:
@@ -31,8 +30,8 @@ while True:
 
 f.close()
 
-print "                        ENCRYPED PIXEL                               OCCURRENCES"
-print 
+print "                        ENCRYPTED PIXEL                               OCCURRENCES"
+print
 for e in m:
     print e + "        " + str(m[e])
 

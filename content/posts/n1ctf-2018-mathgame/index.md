@@ -3,7 +3,6 @@ title: N1CTF 2018 - MathGame
 date: '2018-03-12'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_n1ctf18
 - writeup
 - n1ctf18
 tags:
@@ -27,13 +26,13 @@ MathJax.Hub.Config({
 </script>
 
 > Game rules:
-> 
+>
 >   A 7\*7\*7 cube consists of 343 cubes, These are 218 cubic cells in the surface, and 125 cubic cells in the internal.
-> 
+>
 > We put numbers in 218 cubes, of which seven cubes number have different attributes than others (for example, odd and even, prime and non-prime).
-> 
+>
 > Connect these seven cubes to form 21 straight lines. Only two of these 21 straight lines are perpendicular and go through the same internal cube.
-> 
+>
 > Please give the coordinates of this internal cube. If you answer 5 Question, you will get the flag.
 
 Basically, we're given the six faces of the cube as 7\*7 grids from which we have to reconstruct the cube, find the seven "different" numbers, connect them, find two perpendicular lines which go through the same internal cube and return its coordinates.
@@ -99,7 +98,7 @@ def captcha():
 		line = r.readline().strip()
 	base, target = line.split('"')[1::2]
 	print 'Solving captcha for', base, target
-	
+
 	while True:
 		z = ''.join(random.choice(string.ascii_letters) for _ in range(10))
 		h = hashlib.sha256(base + z).hexdigest()
@@ -112,7 +111,7 @@ def readFace(name):
 	line = r.readline().strip()
 	while line != name:
 		line = r.readline().strip()
-	
+
 	out = []
 	for i in range(7):
 		r.readline()
@@ -153,13 +152,13 @@ def build(faces):
 			for e in l:
 				nums.add(e)
 	print 'Nums:', len(nums)
-	
+
 	coords = {}
 	# Back face
 	for i in range(7):
 		for j in range(7):
 			coords[faces[0][i][j]] = (j, 6 - i, 0)
-	
+
 	# Left face
 	a, b = faces[0][6][0], faces[0][0][0]
 	idx, f = getFace(a, b, faces, 0)
@@ -168,7 +167,7 @@ def build(faces):
 			if f[i][j] in coords:
 				assert coords[f[i][j]] == (0, j, i)
 			else: coords[f[i][j]] = (0, j, i)
-	
+
 	# Right face
 	a, b = faces[0][0][6], faces[0][6][6]
 	idx, f = getFace(a, b, faces, 0)
@@ -177,7 +176,7 @@ def build(faces):
 			if f[i][j] in coords:
 				assert coords[f[i][j]] == (6, 6 - j, i)
 			else: coords[f[i][j]] = (6, 6 - j, i)
-	
+
 	# Bottom face
 	a, b = faces[0][6][0], faces[0][6][6]
 	idx, f = getFace(a, b, faces, 0)
@@ -186,7 +185,7 @@ def build(faces):
 			if f[i][j] in coords:
 				assert coords[f[i][j]] == (j, 0, i)
 			else: coords[f[i][j]] = (j, 0, i)
-	
+
 	# Top face
 	a, b = faces[0][0][0], faces[0][0][6]
 	idx, f = getFace(a, b, faces, 0)
@@ -195,7 +194,7 @@ def build(faces):
 			if f[i][j] in coords:
 				assert coords[f[i][j]] == (j, 6, i)
 			else: coords[f[i][j]] = (j, 6, i)
-	
+
 	# Front face
 	a, b = f[6][0], f[6][6]
 	idx, f = getFace(a, b, faces, idx)
@@ -204,7 +203,7 @@ def build(faces):
 			if f[i][j] in coords:
 				assert coords[f[i][j]] == (j, 6 - i, 6)
 			else: coords[f[i][j]] = (j, 6 - i, 6)
-	
+
 	return (coords, nums)
 
 # Line between a and b
@@ -258,19 +257,19 @@ def check(nums, f):
 
 def solve(faces):
 	coords, nums = build(faces)
-	
+
 	for c in checks:
 		n = check(nums, c)
 		if len(n[0]) == 7 or len(n[1]) == 7:
 			print 'Check succedeed:', c
 			vals = n[0] if len(n[0]) == 7 else n[1]
 			print vals
-			
+
 			lines = []
 			for i in range(len(vals)):
 				for j in range(i):
 					lines.append(Line(coords[vals[i]], coords[vals[j]]))
-			
+
 			sol = []
 			for i in range(len(lines)):
 				for j in range(i):
@@ -287,32 +286,32 @@ def solve(faces):
 				print 'No solution found'
 				# print faces
 				quit()
-			
+
 			return sol[0]
-	
+
 	print 'No solver found'
 	print faces
 	quit()
 
 if __name__ == "__main__":
 	r = remote('47.75.60.212', 11011)
-	
+
 	captcha()
 	if len(sys.argv) > 1:
 		r.interactive()
 		quit()
-	
+
 	for _ in range(5):
 		print "=== Solving level", _, '==='
-		
+
 		try:
 			faces = [readFace(ch) for ch in 'ABCDEF']
 		except:
 			print "Nope, failed again :/"
 			quit()
-		
+
 		sol = solve(faces)
-		
+
 		r.recvuntil('x:')
 		r.sendline(str(sol[0]))
 		r.recvuntil('y:')

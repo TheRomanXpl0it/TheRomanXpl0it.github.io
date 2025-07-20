@@ -3,7 +3,6 @@ title: backdoorctf 2017 - extend-me Writeup
 date: '2017-09-24'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_backdoorctf17
 - writeup
 - backdoorctf17
 tags:

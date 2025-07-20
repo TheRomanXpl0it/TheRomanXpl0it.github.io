@@ -3,10 +3,10 @@ title: backdoorctf 2017 - ecb Writeup
 date: '2017-09-24'
 lastmod: '2023-07-03T19:19:24+02:00'
 categories:
-- ctf_backdoorctf17
 - writeup
 - backdoorctf17
 tags:
+- forensics
 - steganography
 authors:
 - rop2bash

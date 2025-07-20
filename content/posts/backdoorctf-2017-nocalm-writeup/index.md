@@ -3,7 +3,6 @@ title: backdoorctf 2017 - NoCalm Writeup
 date: '2017-09-24'
 lastmod: '2023-07-03T19:19:24+02:00'
 categories:
-- ctf_backdoorctf17
 - writeup
 - backdoorctf17
 tags:
@@ -63,7 +62,7 @@ while len(pg.active) > 0:
         print "Reached the target"
         print pg
         state = pg.found[0].state
-        
+
         flag = ""
         for a in argv:
             flag += state.se.any_str(a)[0]

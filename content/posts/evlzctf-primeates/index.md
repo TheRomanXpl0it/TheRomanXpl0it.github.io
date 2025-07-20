@@ -3,7 +3,6 @@ title: EvlzCTF - Primeates
 date: '2018-02-13'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_evlzctf18
 - writeup
 - evlzctf18
 tags:

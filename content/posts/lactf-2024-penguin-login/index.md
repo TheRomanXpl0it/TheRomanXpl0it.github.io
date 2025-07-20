@@ -3,7 +3,6 @@ title: LACTF 2024 - penguin-login
 date: '2024-02-18'
 lastmod: '2024-03-11T22:02:53+01:00'
 categories:
-- ctf_lactf2024
 - writeup
 - lactf2024
 tags:

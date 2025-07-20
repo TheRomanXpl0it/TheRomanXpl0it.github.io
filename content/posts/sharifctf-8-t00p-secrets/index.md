@@ -3,11 +3,10 @@ title: SharifCTF 8 - t00p_secrets
 date: '2018-02-04'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_sharifctf18
 - writeup
 - sharifctf18
 tags:
-- exploitation
+- pwn
 authors:
 - andreafioraldi
 ---
@@ -25,7 +24,7 @@ Enter your master key: wjigaep;r[jg]ahrg[es9hrg
 4. Print secret
 5. Print a secret
 6. Exit
-> 
+>
 ```
 
 There are six options: create, delete, edit... ok it's a heap pwn.

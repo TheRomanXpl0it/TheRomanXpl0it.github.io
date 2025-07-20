@@ -3,18 +3,17 @@ title: CodeFest CTF 2017 - Anonymous Recruitment Writeup
 date: '2017-09-24'
 lastmod: '2023-07-03T19:19:24+02:00'
 categories:
-- ctf_codefest17
 - writeup
 - codefest17
 tags:
 - web
 authors:
-- dpstart
+- dp1
 ---
 
 This is the page we see when we access the service:
 
-<img class="img-responsive" src="/codefest17/cookie-1.png" alt="Signup form with username and password fields" width="603" height="258>
+<img class="img-responsive" src="/codefest17/cookie-1.png" alt="Signup form with username and password fields" width="603" height="258">
 
 Going through the page cookies, I found this:
 

@@ -1,13 +1,13 @@
 ---
-title: "CodeFest CTF 2017 - Ricks\u2019 Secure Scheme Writeup"
+title: "CodeFest CTF 2017 - Ricks' Secure Scheme Writeup"
 date: '2017-09-23'
 lastmod: '2023-07-03T19:19:24+02:00'
 categories:
-- ctf_codefest17
 - writeup
 - codefest17
 tags:
-- exploitation
+- pwn
+- rand
 authors:
 - pietroborrello
 ---
@@ -69,7 +69,7 @@ def genPassword(time):
     return s
 
 
-s = genPassword(1505768803) + 'Welcome to my...\x00'    
+s = genPassword(1505768803) + 'Welcome to my...\x00'
 print s
 quit()
 
@@ -109,6 +109,7 @@ What?!?!?! How?!!!! Anyway, you've successfully logged in!
 ```
 
 Printing the secret will give us an epoch integer, and the md5 of that integer will give us the flag!
+
 ```
 flag{c51edda648c6949638488457f32874d6}
 ```

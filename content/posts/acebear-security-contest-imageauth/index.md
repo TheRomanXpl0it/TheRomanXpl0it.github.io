@@ -3,12 +3,11 @@ title: AceBear Security Contest - imageauth
 date: '2018-01-28'
 lastmod: '2023-07-03T19:19:24+02:00'
 categories:
-- ctf_acebear18
 - writeup
 - acebear18
 tags:
-- malware
-- analysis
+- reverse
+- neural-network
 authors:
 - chq-matteo
 ---

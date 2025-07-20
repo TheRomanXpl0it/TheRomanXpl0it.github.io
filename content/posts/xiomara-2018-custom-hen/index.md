@@ -3,9 +3,8 @@ title: Xiomara 2018 - Custom HEN
 date: '2018-02-26'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_xiomara18
 - writeup
-- xiomara
+- xiomara18
 tags:
 - crypto
 authors:

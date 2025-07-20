@@ -3,13 +3,11 @@ title: Codeblue CTF 2017 - Common Modulus 3
 date: '2017-11-10'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_codeblue2017
 - writeup
 - codeblue2017
 tags:
-- number
-- theory
 - crypto
+- number-theory
 - rsa
 authors:
 - chq-matteo
@@ -28,9 +26,8 @@ MathJax.Hub.Config({
 });
 </script>
 
-If you haven't already, check out [Common Modulus 1 Writeup](../common1) and [Common Modulus 2 Writeup](../common2)!
-
-We have solved [Common Modulus 1](../common1) and [Common Modulus 2](../common2), but now there's even more!
+We have solved [Common Modulus 1]({{< ref "posts/codeblue-ctf-2017-common-modulus-1/index.md" >}}) and
+[Common Modulus 2]({{< ref "posts/codeblue-ctf-2017-common-modulus-2/index.md" >}}), but now there's even more!
 
 Bigger public exponent? Check
 ```python

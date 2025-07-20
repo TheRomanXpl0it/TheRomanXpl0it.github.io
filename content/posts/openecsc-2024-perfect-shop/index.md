@@ -3,16 +3,14 @@ title: OpenECSC 2024 - Perfect Shop
 date: '2024-03-27'
 lastmod: '2024-03-28T17:07:39+01:00'
 categories:
-- ctf_openecsc2024
 - writeup
 - openECSC2024
 tags:
 - web
+- xss
 authors:
 - Tiziano-Caruana
 ---
-
-*March 2024 - filtered and size-limited reflected XSS*
 
 > "Do you like perfect things? Check out my new online shop!"
 

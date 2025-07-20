@@ -3,7 +3,6 @@ title: CodeFest CTF 2017 - Russia Writeup
 date: '2017-09-23'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_codefest17
 - writeup
 - codefest17
 tags:

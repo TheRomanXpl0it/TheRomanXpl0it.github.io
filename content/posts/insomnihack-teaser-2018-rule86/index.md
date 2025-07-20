@@ -3,7 +3,6 @@ title: Insomnihack Teaser 2018 - Rule86
 date: '2018-01-24'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_insomnihackteaser2018
 - writeup
 - insomnihackteaser2018
 tags:
@@ -159,7 +158,7 @@ nv1 = next(seed1)
 # we want same output
 for j in range(256):
     s.add(nv[j] == nv1[j])
-		
+
 # we want different input
 dis = False
 for i in range(256):

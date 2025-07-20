@@ -3,7 +3,6 @@ title: Harekaze CTF 2018 - Div N
 date: '2018-02-11'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_harekaze18
 - writeup
 - harekaze18
 tags:
@@ -32,22 +31,22 @@ $ objdump -d foo.o
 foo.o:     file format elf64-x86-64
 
 Disassembly of section .text:
-0000000000000000 
+0000000000000000
 :
    0:	48 89 f8             	mov    %rdi,%rax
    3:	48 ba 01 0d 1a 82 9a 	movabs $0x49ea309a821a0d01,%rdx
-   a:	30 ea 49 
+   a:	30 ea 49
    d:	48 c1 ff 3f          	sar    $0x3f,%rdi
   11:	48 f7 ea             	imul   %rdx
   14:	48 c1 fa 30          	sar    $0x30,%rdx
   18:	48 89 d0             	mov    %rdx,%rax
   1b:	48 29 f8             	sub    %rdi,%rax
-  1e:	c3                   	retq   
+  1e:	c3                   	retq
 $ echo “HarekazeCTF{$N}” > /dev/null
 ```
 
 I tried at first to run the code in an emulator, but the movabs with a quad word immediate wasn't supported, so I rewrote the code in python.
-In the System V x86_64 calling convenction rdi holds the first argument of a function.  
+In the System V x86_64 calling convenction rdi holds the first argument of a function.
 The disassembly is in the AT&T syntax, not the usual Intel syntax (e.g. mov %rdi, %rax means rax = rdi, that is move rdi to rax)
 
 ```python

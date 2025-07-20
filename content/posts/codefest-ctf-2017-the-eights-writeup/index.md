@@ -3,10 +3,10 @@ title: CodeFest CTF 2017 - The Eights Writeup
 date: '2017-09-23'
 lastmod: '2023-07-03T19:19:24+02:00'
 categories:
-- ctf_codefest17
 - writeup
 - codefest17
 tags:
+- forensics
 - steganography
 authors:
 - rop2bash
@@ -75,4 +75,4 @@ If we think of the pure black parts as 0 and the black and white ones as 1 we ge
 
 and it repeats itself.
 
--> flag{THECODER}
+-> `flag{THECODER}`

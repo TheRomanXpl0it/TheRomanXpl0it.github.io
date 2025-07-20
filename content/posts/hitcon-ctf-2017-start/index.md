@@ -3,11 +3,10 @@ title: Hitcon CTF 2017 - Start
 date: '2017-11-06'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_hitcon2017
 - writeup
 - hitcon2017
 tags:
-- exploitation
+- pwn
 authors:
 - andreafioraldi
 ---

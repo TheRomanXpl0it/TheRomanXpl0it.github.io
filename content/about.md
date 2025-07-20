@@ -4,3 +4,5 @@ title = 'About'
 +++
 
 We are a competitive CTF team from Italy.
+
+Also professional pasta eaters.

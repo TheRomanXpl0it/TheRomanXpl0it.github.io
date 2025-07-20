@@ -3,10 +3,10 @@ title: SharifCTF 8 - Fifteen puzzle
 date: '2018-02-04'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_sharifctf18
 - writeup
 - sharifctf18
 tags:
+- misc
 - algorithm
 authors:
 - dp1
@@ -22,7 +22,6 @@ This was an easy task, as all that was required was determining if a given 15-pu
 Here is the code I used, with the naive `O(N^2)` algorithm for the inversion count:
 
 ---
-{% raw %}
 ```python
 data = """
 [...]
@@ -49,7 +48,7 @@ for i in range(128):
             row = j
         mat += [int(x, 10) for x in line if len(x.strip()) > 0]
         data = data[1:]
-    
+
     if (row + invcount(mat)) % 2 == 0:
         out = '1' + out
     else:
@@ -57,7 +56,6 @@ for i in range(128):
 
 print('SharifCTF{%016x}' % int(out, 2))
 ```
-{% endraw %}
 
 ```bash
 SharifCTF{52d3b36b2167d2076b06d8101582b7af}

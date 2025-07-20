@@ -5,6 +5,7 @@ lastmod: '2019-04-07T14:29:47+02:00'
 categories:
 - articles
 tags:
+- hardware
 - microarch
 authors:
 - pietroborrello
@@ -12,7 +13,7 @@ authors:
 
 What? Reading kernel memory from user space? What?
 
-I explained, at the 5th meeting of DC11396, how modern processor optimizations such as branch prediction and out-of-order execution may lead to leak of secrets through the CPU’s microarchitectural state. 
+I explained, at the 5th meeting of DC11396, how modern processor optimizations such as branch prediction and out-of-order execution may lead to leak of secrets through the CPU’s microarchitectural state.
 Numerous attacks have been proposed, this is an overview of the state of the art of these techniques:
 
 <style>

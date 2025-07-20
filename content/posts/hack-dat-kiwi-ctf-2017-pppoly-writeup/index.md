@@ -3,11 +3,11 @@ title: Hack Dat Kiwi CTF 2017 - Pppoly Writeup
 date: '2017-10-16'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_hackdatkiwi17
 - writeup
 - hackdatkiwi17
 tags:
 - reverse
+- php
 authors:
 - dp1
 ---
@@ -43,6 +43,7 @@ if (strpos($r=sys($p,"python"),"YES")!==false and ctype_alnum($password)) $r.=md
 echo $r;
 ```
 What it does is base64 decode the data contained in `$p`, put the password in place of the `pb24` placeholder and execute it as python, collecting its output. If the output contains "YES" then the md5 of the password is calculated, which will become the flag. Let's have a look at the python code, shall we?
+
 ```python
 def skewer(t):
     return ord(t)-53;

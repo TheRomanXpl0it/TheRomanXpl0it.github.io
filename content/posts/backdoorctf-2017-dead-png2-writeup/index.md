@@ -3,10 +3,10 @@ title: backdoorctf 2017 - dead-png2 Writeup
 date: '2017-09-25'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_backdoorctf17
 - writeup
 - backdoorctf17
 tags:
+- forensics
 - data-recovery
 authors:
 - dp1

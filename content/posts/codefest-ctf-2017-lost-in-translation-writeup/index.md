@@ -3,10 +3,10 @@ title: CodeFest CTF 2017 - Lost in Translation Writeup
 date: '2017-09-23'
 lastmod: '2023-07-03T19:19:24+02:00'
 categories:
-- ctf_codefest17
 - writeup
 - codefest17
 tags:
+- forensics
 - steganography
 authors:
 - rop2bash
@@ -28,4 +28,4 @@ First thing I can think of is morse code
 
 By decoding it we obtain the flag.
 
--> flag{h014_p33p5}
+-> `flag{h014_p33p5}`

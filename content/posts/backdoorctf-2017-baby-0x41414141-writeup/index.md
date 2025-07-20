@@ -3,11 +3,10 @@ title: backdoorctf 2017 - BABY 0x41414141 Writeup
 date: '2017-09-24'
 lastmod: '2023-07-03T19:19:24+02:00'
 categories:
-- ctf_backdoorctf17
 - writeup
 - backdoorctf17
 tags:
-- exploitation
+- pwn
 authors:
 - andreafioraldi
 ---
@@ -38,11 +37,11 @@ Because the flag address is a really big number i decided to split the format st
 
 Above all we must locate the printf's parameter index corrispondent to the first 4 bytes of the buffer:
 
-We try `AAAA %{INDEX}$p` with various indexes, and finally we get that with `AAAA %10$p` the program prints 0x41414141.
+We try `AAAA %{INDEX}$p` with various indexes, and finally we get that with `AAAA %10$p` the program prints `0x41414141`.
 
 In the exploit we must write the last 2 bytes of the flag's address to the fflush got entry and the first two bytes to the got entry +2.
 
-Remember that %n writes always 4 bytes.
+Remember that `%n` writes always 4 bytes.
 
 Adjusting the number of printed chars to fit the flag address we have the exploit.
 

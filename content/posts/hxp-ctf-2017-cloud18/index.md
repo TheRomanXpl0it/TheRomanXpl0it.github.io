@@ -3,7 +3,6 @@ title: HXP CTF 2017 - cloud18
 date: '2017-11-19'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_hxp2017
 - writeup
 - hxp2017
 tags:

@@ -6,8 +6,7 @@ categories:
 - articles
 tags:
 - reverse
-- engineering
-- cryptography
+- crypto
 authors:
 - chq-matteo
 ---

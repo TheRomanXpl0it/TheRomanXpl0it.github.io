@@ -3,16 +3,15 @@ title: HSCTF 10 - Flag Shop
 date: '2023-06-12'
 lastmod: '2023-07-03T19:19:24+02:00'
 categories:
-- ctf_hsctf2023
 - writeup
 - hsctf2023
 tags:
 - web
+- blind
+- sqli
 authors:
 - Tiziano-Caruana
 ---
-
-*June 2023 - Blind NoSQL injection*
 
 > “hsctf pay to win confirmed?”
 
@@ -22,9 +21,11 @@ authors:
 
 We are provided with the link to the website and its corresponding source code.
 The website appears to be very simple, and the source code is quite short:
-<img class="img-responsive" src="/hsctf2023/FlagShopHome.png" alt="Screenshot showing the Flag Shop homepage with search bar and table" width="603" height="267">
 
-Content of ```app.py```:
+<img class="img-responsive" src="/hsctf2023/FlagShopHome.png" alt="Screenshot showing the Flag Shop homepage with search bar and table">
+
+Content of `app.py`:
+
 ```python
 import os
 import traceback
@@ -68,9 +69,10 @@ if __name__ == "__main__":
 
 So we know that the website uses MongoDB as its <a href="https://www.talend.com/resources/sql-vs-nosql/">(NoSQL)</a> database.
 
-```index.html``` and ```index.css``` don't contain anything interesting, while ```index.js``` helps us understand that the buttons are useless and that ```api/search``` is the endpoint path used to make the POST request for the search.
+`index.html` and `index.css` don't contain anything interesting, while `index.js` helps us understand that the buttons are useless and that `api/search` is the endpoint path used to make the POST request for the search.
 
-Content of ```index.js```:
+Content of `index.js`:
+
 ```javascript
 const search_form = document.getElementById("search-form");
 const search_input = document.getElementById("search");
@@ -127,13 +129,15 @@ Nothing that we couldn't have discovered by playing around with the website.
 
 
 ## Playing around
-A quick analysis of the code would have been enough to understand where the vulnerability lies, but my teammate and I decided to bombard the ```search``` field. Everything seems to be working correctly, and searching with an empty ```textfield``` returns all results.
+A quick analysis of the code would have been enough to understand where the vulnerability lies, but my teammate and I decided to bombard the `search` field. Everything seems to be working correctly,
+and searching with an empty `textfield` returns all results.
 
 The payloads from the <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/NoSQL%20Injection">PayloadsAllTheThings</a> repository are mostly used for <a href="https://book.hacktricks.xyz/pentesting-web/login-bypass">login bypass</a>, while the <a href="https://portswigger.net/kb/issues/00100d00_server-side-javascript-code-injection">SSJI</a> payloads don't seem to do anything.
 
-When we send ```0;return true```, no result is displayed, while with ```';return 'a'=='a' && ''=='```, the previous query result remains (unexpected behavior, it should give us either a different result or an error).
+When we send `0;return true`, no result is displayed, while with `';return 'a'=='a' && ''=='`, the previous query result remains (unexpected behavior, it should give us either a different result or an error).
 
-Stupidly, we didn't take a look at the logs, but this is what happened if a 500 error code was obtained. Perfect! I only understood this after trying to send the payload to the ```api/search``` endpoint with <a href="https://portswigger.net/burp/documentation/desktop/tools/repeater">Burp Repeater</a>. We now know for sure that the vulnerability lies in the definition of the query.
+Stupidly, we didn't take a look at the logs, but this is what happened if a 500 error code was obtained. Perfect! I only understood this after trying to send the payload to the `api/search` endpoint with <a href="https://portswigger.net/burp/documentation/desktop/tools/repeater">Burp Repeater</a>. We now know for sure that the vulnerability lies in the definition of the query.
+
 ```python
 @app.route("/api/search", methods=["POST"])
 def search():
@@ -154,37 +158,41 @@ def search():
 	return jsonify({"error": "", "results": list(results)}), 200
 ```
 
-The if statement and error handling are normal. The only line to analyze is the ```$where``` clause.
+The if statement and error handling are normal. The only line to analyze is the `$where` clause.
 
 
 
 ## Exploiting the vulnerability (extended thought process)
 
-The input is directly inserted with an <a href="https://www.geeksforgeeks.org/formatted-string-literals-f-strings-python/">f-string</a> with 0 sanitization. Referring to the MongoDB ```$where``` clause <a href="https://www.mongodb.com/docs/manual/reference/operator/query/where/#mongodb-query-op.-where">documentation</a>, we read:
-> Use the ```$where``` operator to pass either a string containing a JavaScript expression or a full JavaScript function to the query system.
+The input is directly inserted with an [f-string](https://www.geeksforgeeks.org/formatted-string-literals-f-strings-python/) with 0 sanitization. Referring to the MongoDB `$where` clause [docs](https://www.mongodb.com/docs/manual/reference/operator/query/where/#mongodb-query-op.-where), we read:
 
-It could be intuitively understood by reading the content of ```db.flags.find()``` that the ```$where``` clause executes any JavaScript code passed to it.
+> Use the `$where` operator to pass either a string containing a JavaScript expression or a full JavaScript function to the query system.
+
+It could be intuitively understood by reading the content of `db.flags.find()` that the `$where` clause executes any JavaScript code passed to it.
 
 At this point, I copied the JS code to a code editor. When I have challenges like this, to make things easier for me, I copy the string and try to construct a very simple payload without moving the cursor.
 
-With ```');``` we escaped the string and closed the statement, giving us an <a href="https://portswigger.net/kb/issues/00100d00_server-side-javascript-code-injection">SSJI</a>. All that's left is to get rid of the extra ```')'``` at the end. I wasn't able to do this (and I don't think it was possible, but it certainly wasn't necessary) since I couldn't use comments. So, I went full monkey mode and just copied the previous function, forming a first test payload:
+With `');` we escaped the string and closed the statement, giving us an [SSJI](https://portswigger.net/kb/issues/00100d00_server-side-javascript-code-injection). All that's left is to get rid of the extra `')'` at the end. I wasn't able to do this (and I don't think it was possible, but it certainly wasn't necessary) since I couldn't use comments. So, I went full monkey mode and just copied the previous function, forming a first test payload:
 
-```'); this.challenge.includes('```, interpreted as ```this.challenge.includes(''); this.challenge.includes('')``` by the program. The output is what we expected and desired, which is to return all results (like a ```' OR 1=1```). 
+`'); this.challenge.includes('`, interpreted as `this.challenge.includes(''); this.challenge.includes('')` by the program. The output is what we expected and desired, which is to return all results (like a `' OR 1=1`).
 
-By testing or reading the documentation, we can discover that this happens because only the last valid condition is computed by the $where clause. This means that we can write anything in the first ```include```, since it won't be interpreted (```something'); this.challenge.includes('```):
+By testing or reading the documentation, we can discover that this happens because only the last valid condition is computed by the $where clause. This means that we can write anything in the first `include`, since it won't be interpreted (`something'); this.challenge.includes('`):
 
-<img class="img-responsive" src="/hsctf2023/burp1.png" alt="Burp Suite screenshot showing the result of a request sent with the payload (```something'); this.challenge.includes('```), which returns all the results from the database" width="603" height="398">
+<img class="img-responsive" src="/hsctf2023/burp1.png" alt="Burp Suite screenshot showing the result of a request sent with the payload (`something'); this.challenge.includes('`), which returns all the results from the database">
 
-While the second one is interpreted (```something'); this.challenge.includes('search```):
-<img class="img-responsive" src="/hsctf2023/burp2.png" alt="Burp Suite screenshot showing that if we include a search parameter in the injected 'include', the query will execute it" width="603" height="229">
+While the second one is interpreted (`something'); this.challenge.includes('search`):
+
+<img class="img-responsive" src="/hsctf2023/burp2.png" alt="Burp Suite screenshot showing that if we include a search parameter in the injected 'include', the query will execute it">
 
 So we have the vulnerability, but we cannot directly retrieve the flag since it is excluded from the query (if you're not sure, please reread the source code).
-I then tried a payload with a boolean operator (```something'); always_true() || this.challenge.includes('something```):
-<img class="img-responsive" src="/hsctf2023/burp3.png" alt="Burp Suite screenshot showing all challenges result after including an 'or 1==1' before the injected search parameter" width="603" height="394">
+I then tried a payload with a boolean operator (`something'); always_true() || this.challenge.includes('something`):
 
-This is very useful for searching for a potential attack. We can perform a conditional check on the flag using ```&& this.challenge.includes('flag')``` to only get results from the ```flag-shop``` entity. We can do a first test with the flag format (```something'); this.flag.includes('flag{') && this.challenge.includes('flag```):
-<img class="img-responsive" src="/hsctf2023/FirstBlind.png" alt="Burp Suite screenshot showing result including 'flag{'" width="603" height="394">
-<img class="img-responsive" src="/hsctf2023/BlindNotWorking.png" alt="Burp Suite screenshot showing no result after including a random word as search parameter" width="603" height="131">
+<img class="img-responsive" src="/hsctf2023/burp3.png" alt="Burp Suite screenshot showing all challenges result after including an 'or 1==1' before the injected search parameter">
+
+This is very useful for searching for a potential attack. We can perform a conditional check on the flag using `&& this.challenge.includes('flag')` to only get results from the `flag-shop` entity. We can do a first test with the flag format (`something'); this.flag.includes('flag{') && this.challenge.includes('flag`):
+
+<img class="img-responsive" src="/hsctf2023/FirstBlind.png" alt="Burp Suite screenshot showing result including 'flag{'">
+<img class="img-responsive" src="/hsctf2023/BlindNotWorking.png" alt="Burp Suite screenshot showing no result after including a random word as search parameter">
 
 We will have to take advantage of this behavior, performing a small brute force to reconstruct the flag character by character. We can now start to construct our payload.
 
@@ -255,12 +263,12 @@ while True:
                 if bool(result["results"]):
                     print("Found one more char : %s" % (flag+c))
                     flag += c
-                    
+
         except:
             continue
 ```
 
-As you can see, the only difference is that the first payload has more ```print``` statements.
+As you can see, the only difference is that the first payload has more `print` statements.
 
 This is because, due to the nature of the challenge and the fact that many others were also brute-forcing, the infrastructure became unresponsive for a few seconds, causing exceptions or blocking the request indefinitely.
 
@@ -269,9 +277,9 @@ The 'print' statements were only used for debugging (which is unnecessary when t
 ```python
 if c not in ['*','+','.','?','|','&','$', '"', "'", "\\", "|", "/"]
 ```
-is used to exclude characters that can cause problems with the payload string or the server, while the ```try/except``` is used to avoid losing progress in case of an error.
+is used to exclude characters that can cause problems with the payload string or the server, while the `try/except` is used to avoid losing progress in case of an error.
 
-It was also very useful during the competition because CTRL-C moves on to the next character instead of closing the program. 
+It was also very useful during the competition because CTRL-C moves on to the next character instead of closing the program.
 
 This way, in case the program got stuck (which happened about ten times during the competition, but not at all when I tried it on the post-competition infrastructure), I would only skip one character instead of having to start over and retrieve the last characters manually.
 

@@ -3,12 +3,11 @@ title: 3DS CTF 2017 - Bit Map
 date: '2017-12-19'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_3ds2017
 - writeup
 - 3ds2017
 tags:
 - forensics
-- stegano
+- steganography
 - html
 - python
 authors:
@@ -41,6 +40,4 @@ if '3DS' in r:
     print('}')
 ```
 
-This script prints our flag - ```bash
-3DS{H1dd3n_1n_7ru3_C0l0r5}
-```
+This script prints our flag -> `3DS{H1dd3n_1n_7ru3_C0l0r5}`

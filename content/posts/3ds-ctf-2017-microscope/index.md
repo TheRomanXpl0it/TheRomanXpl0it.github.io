@@ -3,12 +3,11 @@ title: 3DS CTF 2017 - Microscope
 date: '2017-12-20'
 lastmod: '2023-07-03T19:19:24+02:00'
 categories:
-- ctf_3ds2017
 - writeup
 - 3ds2017
 tags:
-- stegano
 - misc
+- steganography
 - gif
 - qr
 authors:
@@ -33,14 +32,14 @@ def extractFrames(inGif, outFolder):
 			outdata += [(0,0,0)]
 		else:
 			outdata += [(255,255,255)]
-		
+
 		nframes += 1
 		try:
 			frame.seek(nframes)
 		except EOFError:
 			break
 	return outdata
-    
+
 
 if __name__ == "__main__":
 	c = extractFrames('gif.gif', 'output')

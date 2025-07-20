@@ -3,7 +3,6 @@ title: AmateursCTF 2023 - Sanity
 date: '2023-07-25'
 lastmod: '2023-07-25T21:21:41+02:00'
 categories:
-- ctf_amtctf2023
 - writeup
 - amtctf2023
 tags:

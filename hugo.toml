@@ -36,7 +36,6 @@ style = "xcode-dark"
 [taxonomies]
 category = "categories"
 tag = "tags"
-series = "series"
 
 [pagination]
 disableAliases = false

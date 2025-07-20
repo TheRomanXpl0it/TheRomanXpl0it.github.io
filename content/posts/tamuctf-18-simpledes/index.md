@@ -3,7 +3,6 @@ title: TAMUctf 18 - SimpleDES
 date: '2018-03-03'
 lastmod: '2018-03-03T00:05:39+01:00'
 categories:
-- ctf_tamuctf18
 - writeup
 - tamuctf18
 tags:
@@ -41,8 +40,8 @@ def divideIntoBlocks(s, N):
         s = s[N:]
     return r
 
-def createSBoxS1():    
-    d = {}   
+def createSBoxS1():
+    d = {}
     d['0000'] = '101'
     d['0001'] = '010'
     d['0010'] = '001'
@@ -61,8 +60,8 @@ def createSBoxS1():
     d['1111'] = '011'
     return d
 
-def createSBoxS2():   
-    d = {}  
+def createSBoxS2():
+    d = {}
     d['0000'] = '100'
     d['0001'] = '000'
     d['0010'] = '110'
@@ -94,7 +93,7 @@ def simpleDES(R, binKey, plaintext):
     d1 = createSBoxS1()
     d2 = createSBoxS2()
     cyphertext = ''
-    
+
     # Let's use a list of chars instead of a string
     binaryKey = list(binKey)
 
@@ -129,12 +128,12 @@ def simpleDES(R, binKey, plaintext):
             Rr = Lr_xored
 
     return cyphertext
-    
+
 R = 2
 key = 'Mu'
 binaryKey = stringToBinary(key)
 cypher = '011001010010001010001100010110000001000110000101'
- 
+
 i = 0
 flag = 'Gigem{'
 b = ''

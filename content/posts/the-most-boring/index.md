@@ -3,7 +3,6 @@ title: The most boring
 date: '2018-04-30'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_asisquals18
 - writeup
 - asisquals18
 tags:
@@ -12,19 +11,6 @@ tags:
 authors:
 - dp1
 ---
-
-<script type="text/javascript" async
-  src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } },
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    processEscapes: true
-  }
-});
-</script>
 
 <pre>
 *******************************************************************************

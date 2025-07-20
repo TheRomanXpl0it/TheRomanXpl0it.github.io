@@ -3,7 +3,6 @@ title: TAMUctf 18 - DESpicable me
 date: '2018-03-01'
 lastmod: '2019-04-07T13:46:27+02:00'
 categories:
-- ctf_tamuctf18
 - writeup
 - tamuctf18
 tags:
@@ -53,7 +52,7 @@ def findThree(base):
 	if len(target) < 4:
 		#print "At least four output bytes are required"
 		return []
-	
+
 	first = []
 	for ch in alpha:
 		if ch == '"' or ch == '`': continue
@@ -64,7 +63,7 @@ def findThree(base):
 		return []
 	# print "Possible first chars:", first
 	target = target[1:]
-	
+
 	second = []
 	for f in first:
 		for ch in alpha:
@@ -76,7 +75,7 @@ def findThree(base):
 		return []
 	# print "Possible two byte prefixes:", second
 	target = target[1:]
-	
+
 	third = []
 	for s in second:
 		#print base + s
@@ -95,7 +94,7 @@ while len(target) > 0:
 		t_target = target
 		out += findThree(e)
 		target = t_target
-	
+
 	start = out
 	target = target[4:]
 	print out
