@@ -1,0 +1,41 @@
+{{ define "main" }}
+    {{ $paginator := .Paginate .Data.Pages }}
+
+    <main class="posts">
+      <h1>{{ .Title }}</h1>
+
+      {{ .Content }}
+
+      <div class="posts">
+        <ul class="posts-list">
+            {{ range $paginator.Pages }}
+              <li class="post-item">
+                <div class="post-item-inner">
+                  <div class="post-item-left">
+                    <a class="post-title" href="{{.Permalink}}">{{.Title}}</a>
+
+                    <div class="tags">
+                      {{- range .Params.roles -}}
+                        <a href="{{ "tags/" | absLangURL }}{{ . | urlize }}/"><span class="tag-pill tag-{{urlize .}}">{{.}}</span></a>
+                      {{ end }}
+                    </div>
+                  </div>
+
+                  <div class="post-item-right">
+                    <span class="post-published">
+                      {{ if .Site.Params.dateformShort }}
+                          {{ time.Format .Site.Params.dateformShort .Date }}
+                      {{ else }}
+                          {{ time.Format "Jan 2006" .Date }}
+                      {{ end }}
+                    </span>
+                </div>
+              </li>
+          {{ end }}
+        </ul>
+      </div>
+
+      {{ partial "pagination-list.html" . }}
+    </main>
+{{ end }}
+

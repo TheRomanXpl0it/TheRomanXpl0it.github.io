@@ -1,11 +1,17 @@
 ---
-title: CSAW 19 Embedded Security Challenge Report
+title: CSAW '19 Embedded Security Challenge Report
 date: '2019-11-11'
 lastmod: '2019-11-11T15:25:44+01:00'
 categories:
 - articles
 tags:
 - esc
+- csaw
+authors:
+- matteojug
+- cristianassaiante
+- chq-matteo
+- dp1
 ---
 
 We upload our final report for the CSAW 19 Embeded Security Challenge.
