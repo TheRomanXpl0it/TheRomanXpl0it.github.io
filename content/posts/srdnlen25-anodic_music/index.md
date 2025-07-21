@@ -11,8 +11,6 @@ authors:
 - ice cream
 ---
 
-# Anodic Music
-
 As always we can start by decompiling the main function:
 
 ```c

@@ -1,7 +1,6 @@
 ---
 title: Srdnlen CTF 2025 - SSPJ
 date: '2025-01-19'
-lastmod: '2025-01-20T22:03:00+02:00'
 categories:
 - writeup
 - srdnlen25
@@ -11,8 +10,6 @@ tags:
 authors:
 - salvatore.abello
 ---
-
-# SSPJ
 
 ## Challenge
 
@@ -26,7 +23,7 @@ class SSPJ(object):
 
         self.code = self.code_sanitizer(input("Enter your data: "))
 
-        # I'm so confident in my SSPJ that 
+        # I'm so confident in my SSPJ that
         # I don't even need to delete any globals/builtins
         exec(self.code, globals())
         return

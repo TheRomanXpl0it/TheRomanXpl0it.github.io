@@ -11,8 +11,6 @@ authors:
 - ice cream
 ---
 
-# It's not what it seems
-
 At first glance the challenge seems pretty standard, a flag checker, so after opening the binary with IDA, the following main function is showed:
 
 ```c

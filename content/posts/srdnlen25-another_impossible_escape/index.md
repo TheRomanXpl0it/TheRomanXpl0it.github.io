@@ -12,7 +12,6 @@ authors:
 - salvatore.abello
 ---
 
-# Another Impossible Escape
 ## Challenge
 
 ```py
@@ -40,7 +39,7 @@ BANNER = r"""
 #                       |_|                                #
 #                                                          #
 ############################################################
-""" 
+"""
 
 FLAG = "srdnlen{fake_flag}"
 del FLAG
@@ -111,7 +110,7 @@ if __name__ == "__main__":
 ## Solve
 
 This challenge is a pyjail with the following limitations:
- - We can't use the following characters: 
+ - We can't use the following characters:
  ```
  mwfqyhpvzrxk @`\'-+\"*
  ```
