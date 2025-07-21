@@ -1,0 +1,43 @@
+.member-info {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.2em 1.2em 2.5em;
+
+  &-left {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-sub {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  & img {
+    font-size: 10em;
+  }
+
+  @media #{$media-size-tablet} {
+    flex-direction: column;
+    align-items: center;
+
+    & img {
+      font-size: 6em;
+    }
+  }
+}
+
+.member-published {
+  text-align: center;
+}
+
+.member-social, .member-tags {
+  display: flex;
+  flex-direction: column;
+}

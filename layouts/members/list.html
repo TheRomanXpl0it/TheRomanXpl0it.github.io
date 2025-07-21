@@ -8,22 +8,23 @@
         <ul class="posts-list">
             {{ range .Data.Pages.ByWeight }}
               <li class="post-item">
-                <div class="post-item-inner">
-                  <div class="post-item-left">
-                    <span class="post-title variant">
+                <div class="post-item-inner" style="align-items: center;">
+                  <div class="post-item-left" style="flex: 5 1 0;">
+                    <span class="post-title variant" style="font-size: 1.4rem">
                     {{- partial "author.html" (dict "author" .Title "site" .Site) -}}
-                    {{- if .Params.op }} <i style="font-size:0.8em;" class="fa-solid fa-crown"></i>{{- end -}}
+                    {{- if .Params.op }} <i style="font-size:0.8em;" title="Grazie Dario" class="fa-solid fa-crown"></i>{{- end -}}
                     </span>
+                  </div>
+
+                  <div class="post-item-right" style="flex: 5 1 0;">
 
                     <div class="tags">
                       {{- range .Params.roles -}}
                         <a href="{{ "tags/" | absLangURL }}{{ . | urlize }}/"><span class="tag-pill tag-{{urlize .}}">{{.}}</span></a>
                       {{ end }}
                     </div>
-                  </div>
-
-                  <div class="post-item-right">
                     <span class="post-published">
+                      Joined
                       {{ if .Site.Params.dateformShort }}
                           {{ time.Format .Site.Params.dateformShort .Params.Joined }}
                       {{ else }}

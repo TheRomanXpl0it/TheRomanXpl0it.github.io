@@ -1,0 +1,70 @@
+{{ define "main" }}
+    <main class="post">
+        <article>
+            <h1 class="post-title variant" class="variant"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+            <hr>
+
+            <div class="member-info">
+              <img src="{{ .Params.avatar | default .Site.Params.baseAvatar | relURL }}" class="author-icon" />
+
+              <div class="member-info-left">
+                <h2 class="author-name variant">{{ .Params.name | default .Params.title }}</h2>
+
+                <div class="member-info-sub">
+                  {{- if .Content -}}
+                  <div>
+                      {{ .Content }}
+                  </div>
+                  {{- end -}}
+
+                  {{- with .Params.social }}
+                    {{ $socialLinks := slice }}
+                    {{ range $name, $link := . }}
+                      {{- if $link }}
+                        {{- if and (eq $name "mail") (hasPrefix $link "mailto:" | not) }}
+                          {{- $link = printf "mailto:%s" $link }}
+                        {{- end }}
+
+                        {{ $socialLinks = $socialLinks | append (dict "name" $name "url" $link) }}
+                      {{- end }}
+                    {{ end }}
+                    {{ if $socialLinks }}
+                      <div class="member-social">
+                        <strong>SOCIAL</strong>
+                        <div class="variant" style="font-size: 2em;margin: 0.2em;">
+                          {{ partial "social-icons.html" $socialLinks }}
+                        </div>
+                      </div>
+                    {{ end }}
+                  {{- end }}
+
+                    <div class="member-tags">
+                      <strong>ROLES</strong>
+                      <div class="tags">
+                        {{- range .Params.roles -}}
+                          <a href="{{ "tags/" | absLangURL }}{{ . | urlize }}/"><span class="tag-pill tag-{{urlize .}}">{{.}}</span></a>
+                        {{ end }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </article>
+
+        <hr>
+        {{ $posts := where .Site.RegularPages "Params.authors" "intersect" (slice .Title) }}
+        {{ $n := len $posts }}
+
+        <p class="member-published">
+          <strong>{{ .Title }}</strong>
+          {{if eq $n 0}}
+            did not publish anything yet.
+          {{else}}
+            published {{ len $posts }} post{{with (ne (len $posts) 1)}}s{{end}}.
+          {{end}}
+        </p>
+
+        {{ partial "posts.html" $posts }}
+    </main>
+{{ end }}
+

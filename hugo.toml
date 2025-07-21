@@ -66,6 +66,9 @@ dateformNumTime = "2006-01-02 15:04"
 description = "TheRomanXpl0it's official website"
 keywords = "ctf, italian, trx, team, cybersecurity"
 images = [""]
+
+baseAvatar = "/avatars/fallback.jpg"
+
 # Home subtitle of the index page.
 #
 homeSubtitle = "Italian CTF team"
@@ -191,7 +194,7 @@ name = "x-twitter"
 url = "https://x.com/TheRomanXpl0it"
 
 [[params.social]]
-name = "email"
+name = "mail"
 url = "mailto:info@theromanxpl0.it"
 
 [[params.social]]
