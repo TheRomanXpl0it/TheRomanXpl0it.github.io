@@ -13,7 +13,7 @@ authors:
 - Lorenzinco
 ---
 
-![Preview text](/static/nomectf/asset/free_the_monsters/prompt.png)
+![Preview text](/trxctf25/free_the_monsters/prompt.png)
 
 The challenge's structure is wrapped in a quest embarking game, the player is required to select some quest from the quest list change his equipment and embark, at any given moment during the preparation it can also check it's statistics.
 
@@ -75,7 +75,7 @@ Defense: 10668836035454024818
 
 All of the pointers inside the player's profile do not get set to `NULL` when freed. Given the heap blocks structure, in which the next pointer gets stored in the data section of the current chunk [(click here to find more details about this)](https://sploitfun.wordpress.com/2015/02/10/understanding-glibc-malloc/), this gives already the ability to leak some heap addresses.
 
-![Preview text](/static/nomectf/asset/free_the_monsters/free.png)
+![Preview text](/trxctf25/free_the_monsters/free.png)
 
 In the same part of the code we can also see that the code does not check whether that pointer was freed already before freeing it, this means we also got a **double free** to play around.
 
@@ -107,7 +107,7 @@ for i in range(3):
 for i in range(6):
     equip(3, b"B", 0, 0)
 
-unequip(2)  
+unequip(2)
 view()
 r.recvuntil(b"Attack: ")
 r.recvuntil(b"Attack: ")
@@ -124,7 +124,7 @@ Having retrieved the libc base address now we can take two intended paths:
 
 That said, i chose to writeup the cool as fuck road which involves writing a fake file pointer on the heap and then overwriting that pointer into `__std_err` (or whatever file pointer, stderr is handy since is not used in the context of this binary).
 
-##### If you have no idea what this means i highly encourage you to read [this](https://blog.kylebot.net/2022/10/22/angry-FSROP/), it contains far more precise and usefull information about fs exploits that i could ever sum up in this writeup.
+*If you have no idea what this means i highly encourage you to read [this](https://blog.kylebot.net/2022/10/22/angry-FSROP/), it contains far more precise and useful information about fs exploits than what I could ever sum up in this writeup.*
 
 As said, we are going to overwrite `std_err`:
 
@@ -163,7 +163,7 @@ for i in range(7):
 
 Note: this payload gets truncated each time a chunk metadata appears on the heap, so some fields of the file struct are goin to be broken and filled with garbage. They are not essential at all so we want to start writing the struct from an offset from which the important part (vtable pointer) is not overwritten with garbage, that is `0x10`.
 
-![Preview text](/static/nomectf/asset/free_the_monsters/gdb_fs.png)
+![Preview text](/trxctf25/free_the_monsters/gdb_fs.png)
 
 Done! All there's left to do is to trigger `_IO_flush_all` by exiting the binary and we popped a shell!
 
