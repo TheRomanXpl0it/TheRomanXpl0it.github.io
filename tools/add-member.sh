@@ -6,6 +6,6 @@ then
 	exit 1
 fi
 
-hugo new members/$1.md
+hugo new "members/$1.md"
 
-$EDITOR content/members/$1.md
+$EDITOR "content/members/$1.md"
