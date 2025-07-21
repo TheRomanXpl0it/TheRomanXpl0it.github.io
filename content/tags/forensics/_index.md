@@ -1,5 +1,5 @@
 ---
-title: "forensics"
+title: "Forensics"
 weight: 1
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "crypto"
+title: "Crypto"
 weight: 1
 ---
 

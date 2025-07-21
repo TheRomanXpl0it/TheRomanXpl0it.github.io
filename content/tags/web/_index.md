@@ -1,4 +1,4 @@
 ---
-title: "web"
+title: "Web"
 weight: 1
 ---

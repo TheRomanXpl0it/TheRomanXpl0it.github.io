@@ -117,6 +117,7 @@ content = 0.5
 
 [params.author]
 name = "TRX"
+category = "members"
 
 # Custom footer
 # If you want, you can easily override the default footer with your own content.
@@ -188,6 +189,10 @@ url = "mailto:info@theromanxpl0.it"
 [[params.social]]
 name = "telegram"
 url = "https://t.me/TheRomanChat"
+
+[[params.social]]
+name = "ctftime"
+url = "https://ctftime.org/team/46516/"
 
 [menu]
 [[menu.main]]

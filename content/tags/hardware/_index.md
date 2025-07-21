@@ -1,4 +1,4 @@
 ---
-title: "hardware"
+title: "Hardware"
 weight: 2
 ---

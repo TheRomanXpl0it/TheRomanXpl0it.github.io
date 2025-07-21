@@ -1,4 +1,4 @@
 ---
-title: "misc"
+title: "Misc"
 weight: 1
 ---

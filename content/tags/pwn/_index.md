@@ -1,4 +1,4 @@
 ---
-title: "pwn"
+title: "Pwn"
 weight: 1
 ---
