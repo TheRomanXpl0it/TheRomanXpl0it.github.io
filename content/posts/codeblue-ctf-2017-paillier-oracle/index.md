@@ -2,6 +2,7 @@
 title: Codeblue CTF 2017 - Paillier Oracle
 date: '2017-11-11'
 lastmod: '2019-04-07T13:46:27+02:00'
+math: true
 categories:
 - writeup
 - codeblue2017
@@ -11,19 +12,6 @@ tags:
 authors:
 - chq-matteo
 ---
-
-<script type="text/javascript" async
-  src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } },
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    processEscapes: true
-  }
-});
-</script>
 
 We have a service and we are given the source code.
 When we connect we have to submit a proof of work, after that we will receive the encrypted flag.

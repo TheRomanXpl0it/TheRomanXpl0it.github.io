@@ -31,6 +31,14 @@ unsafe = true
 noClasses = true
 style = "xcode-dark"
 
+[markup.goldmark.extensions]
+[markup.goldmark.extensions.passthrough]
+enable = true
+
+[markup.goldmark.extensions.passthrough.delimiters]
+block = [['\[', '\]'], ['$$', '$$']]
+inline = [['\(', '\)']]
+
 [taxonomies]
 category = "categories"
 tag = "tags"

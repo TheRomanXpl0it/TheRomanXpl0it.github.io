@@ -2,6 +2,7 @@
 title: Codeblue CTF 2017 - Common Modulus 1
 date: '2017-11-10'
 lastmod: '2019-04-07T13:46:27+02:00'
+math: true
 categories:
 - writeup
 - codeblue2017
@@ -13,25 +14,10 @@ authors:
 - chq-matteo
 ---
 
-<script type="text/javascript" async
-  src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } },
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    processEscapes: true
-  }
-});
-</script>
-
-
 Next in the series [Common Modulus 2]({{< ref "posts/codeblue-ctf-2017-common-modulus-2/index.md" >}})
 
 Quick summary of RSA
 $cipher text = message^e \mod N$
-
 
 We have a message (the flag) encrypted with the same $N$, but with two different $e$.
 As the name suggests the solution to this problem is a [common modulus attack](https://crypto.stackexchange.com/questions/16283/how-to-use-common-modulus-attack)
@@ -51,14 +37,14 @@ We can use this fact to compute $m$.
 
 We are given the cipher texts $c_1 = m^{e_1} \mod N$ and $c_2 = m^{e_2} \mod N$
 
-If we raise $c_1$ to the $x-th$ power modulo $N$ we get $c_1^{x} = (m^{e_1})^{x} = m^{xe_1} \mod N$ similary with $c_2$ and $y$ we get $c_2^{y} = m^{ye_2} \mod N$.
+If we raise $c_1$ to the $x-th$ power modulo $N$ we get $c_1^{x} = (m^{e_1})^{x} = m^{xe_1} \mod N$ similary with $c_2$ and $y$ we get $c_2^{y} = m^{ye_2} \mod N$
 
 If we multiply them we get $m^{xe_1}m^{ye_2} = m^{xe_1 + ye_2} \mod N$, but we have proven that the exponent is actually equal to $1$!
 So what we really get is $m$!
 
-________________
-N.B.
-One of $x$ and $y$ will be negative
+---
+
+Note: One of $x$ and $y$ will be negative
 
 ## Solution SageMath script
 ```python

@@ -2,6 +2,7 @@
 title: Codeblue CTF 2017 - Common Modulus 3
 date: '2017-11-10'
 lastmod: '2019-04-07T13:46:27+02:00'
+math: true
 categories:
 - writeup
 - codeblue2017
@@ -12,19 +13,6 @@ tags:
 authors:
 - chq-matteo
 ---
-
-<script type="text/javascript" async
-  src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } },
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    processEscapes: true
-  }
-});
-</script>
 
 We have solved [Common Modulus 1]({{< ref "posts/codeblue-ctf-2017-common-modulus-1/index.md" >}}) and
 [Common Modulus 2]({{< ref "posts/codeblue-ctf-2017-common-modulus-2/index.md" >}}), but now there's even more!

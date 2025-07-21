@@ -2,6 +2,7 @@
 title: Hack.lu CTF 2017 - Prime Enigma
 date: '2017-10-19'
 lastmod: '2019-04-07T13:46:27+02:00'
+math: true
 categories:
 - writeup
 - hacklu17
@@ -11,19 +12,6 @@ tags:
 authors:
 - chq-matteo
 ---
-
-<script type="text/javascript" async
-  src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } },
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    processEscapes: true
-  }
-});
-</script>
 
 We have
 

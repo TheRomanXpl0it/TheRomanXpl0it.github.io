@@ -13,9 +13,6 @@ authors:
 ## Flare what?
 The [Flare-On competition](https://2017.flare-on.com/) is an annual reverse engineering competition run by FireEye and mostly Windows-based. This was the first time I took part in it, and I have to admit some of the challenges were, _uhm_, challenging. In the end I managed to solve the first six problems out of 12.
 
-
-
-
 ## Challenge 1: login.html
 > "Welcome to the Fourth Flare-On Challenge! The key format, as always, will be a valid email address in the @flare-on.com domain."
 
@@ -174,7 +171,7 @@ Opening the file in IDA shows that it first of all loads some standard library f
 The interesting part still has to come though: when modifying an exe, the file tries to open `%USERDATA%\flareon2016challenge\key.bin` and either writes an 8 byte sequence or reads a 32 byte key. In particular, it reads 8 byte sequences from specific offsets from exe files that have the following compilation timestamps:
 
 ```
-2008/11/10 09:40:34 UTC 
+2008/11/10 09:40:34 UTC
 2016/08/01 00:00:00 UTC
 2016/09/08 18:49:06 UTC
 2016/09/09 12:54:16 UTC
