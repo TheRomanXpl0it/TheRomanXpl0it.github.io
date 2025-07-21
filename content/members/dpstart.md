@@ -14,10 +14,11 @@ roles:
   # - OG
   - former
 
+# put the avatar in /static/avatars/
+avatar: # "/avatars/{{ urlize .Name }}.jpg"
 social:
   mail: "danielepaliotta96@gmail.com"
   github: "https://github.com/dpstart"
   linkedin: ""
   website: ""
-  image: ""
 ---

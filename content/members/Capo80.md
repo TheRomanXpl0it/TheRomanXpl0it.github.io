@@ -1,6 +1,6 @@
 ---
 date: 2025-07-21T16:30:59+02:00
-title: "capo80"
+title: "Capo80"
 name: ""
 joined: 2025-07-21T16:30:59+02:00
 roles:
@@ -11,12 +11,13 @@ roles:
   # - misc
   # - forensics
   # - hardware
-  # - OG
+  - OG
 
+# put the avatar in /static/avatars/
+avatar: # "/avatars/{{ urlize .Name }}.jpg"
 social:
   mail: ""
   github: ""
   linkedin: ""
   website: ""
-  image: ""
 ---

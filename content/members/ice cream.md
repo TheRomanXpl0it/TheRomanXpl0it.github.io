@@ -14,10 +14,10 @@ roles:
   # - OG
   - infra
 
+avatar: "/avatars/ice-cream.png"
 social:
   mail: ""
   github: "https://github.com/tde-nico"
   linkedin: ""
   website: ""
-  image: ""
 ---

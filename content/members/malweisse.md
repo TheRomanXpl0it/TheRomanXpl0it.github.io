@@ -13,10 +13,11 @@ roles:
   # - hardware
   - OG
 
+# put the avatar in /static/avatars/
+avatar: # "/avatars/{{ urlize .Name }}.jpg"
 social:
   github: "https://github.com/andreafioraldi"
   linkedin: ""
   website: "http://andreafioraldi.github.io/"
   mail: "andreafioraldi@gmail.com"
-  image: ""
 ---

@@ -1,16 +1,16 @@
 ---
-date: {{ .Date }}
+date: 2025-07-21T17:03:48+02:00
 
 # username
-title: '{{ replace .File.ContentBaseName "-" " " }}'
+title: "simonedimaria"
 # real name
-name: "{{ .Name }}"
+name: "Simone Di Maria"
 # join date (year & month)
-joined: {{ .Date }} # change this
+joined: 2024-01-01
 
 roles:
-  - pwn
-  # - web
+  #- pwn
+  - web
   # - reverse
   # - crypto
   # - misc
@@ -19,7 +19,7 @@ roles:
   # - OG
 
 # put the avatar in /static/avatars/
-avatar: # "/avatars/{{ urlize .Name }}.jpg"
+avatar: "/avatars/simonedimaria.jpg"
 social:
   mail: ""
   github: ""
