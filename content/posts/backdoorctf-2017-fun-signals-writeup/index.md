@@ -9,7 +9,7 @@ tags:
 - pwn
 - sigreturn
 authors:
-- andreafioraldi
+- malweisse
 ---
 
 This binary has a very small portion of code.

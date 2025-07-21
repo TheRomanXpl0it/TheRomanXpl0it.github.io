@@ -9,7 +9,7 @@ tags:
 - pwn
 - rand
 authors:
-- pietroborrello
+- anticlockwise
 ---
 
 ## Capture United States - Ricks’ Secure Scheme

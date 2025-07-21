@@ -8,7 +8,7 @@ categories:
 tags:
 - pwn
 authors:
-- andreafioraldi
+- malweisse
 ---
 
 Decompiling the binary we can discover the master key.
@@ -140,7 +140,7 @@ Download the binary [here](/sharifctf18/t00p_secrets).
 Full exploit code:
 
 ```python
-#TheRomanXpl0it - andreafioraldi
+#TheRomanXpl0it - malweisse
 
 from pwn import *
 import sys

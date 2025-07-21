@@ -8,7 +8,7 @@ tags:
 - hardware
 - microarch
 authors:
-- pietroborrello
+- anticlockwise
 ---
 
 What? Reading kernel memory from user space? What?

@@ -9,7 +9,7 @@ tags:
 - web
 - sqli
 authors:
-- Tiziano-Caruana
+- Titto
 ---
 
 > "I got tired of people leaking my password from the db so I moved it out of the db."

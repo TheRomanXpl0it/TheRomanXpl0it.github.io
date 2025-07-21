@@ -7,7 +7,7 @@ categories:
 tags:
 - fuzzing
 authors:
-- andreafioraldi
+- malweisse
 ---
 
 Many people asked me to do this talk. So now i did it and of you missed it shame on you!

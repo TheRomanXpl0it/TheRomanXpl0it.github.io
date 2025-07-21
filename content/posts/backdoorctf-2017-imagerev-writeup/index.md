@@ -8,7 +8,7 @@ categories:
 tags:
 - reverse
 authors:
-- andreafioraldi
+- malweisse
 ---
 
 Looking at the code in [encrypt.py](/backdoorctf17/encrypt.py) we can see that the encryption function works with a pixel at once.

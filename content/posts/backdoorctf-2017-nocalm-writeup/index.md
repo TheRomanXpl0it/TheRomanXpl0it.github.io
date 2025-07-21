@@ -8,7 +8,7 @@ categories:
 tags:
 - reverse
 authors:
-- andreafioraldi
+- malweisse
 ---
 
 <img class="img-responsive" src="/backdoorctf17/nocalm-1.png" alt="Screenshot of decompiled main() function checking flag length and conditions" width="603" height="235">

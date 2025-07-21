@@ -10,7 +10,9 @@
               <li class="post-item">
                 <div class="post-item-inner">
                   <div class="post-item-left">
-                    <a class="post-title variant" href="{{.Permalink}}">{{.Title}}</a>
+                    <a class="post-title variant" href="{{.Permalink}}">{{.Title}}
+                    {{- if .Params.op }} <i style="font-size:0.8em;" class="fa-solid fa-crown"></i>{{- end -}}
+                    </a>
 
                     <div class="tags">
                       {{- range .Params.roles -}}
@@ -22,9 +24,9 @@
                   <div class="post-item-right">
                     <span class="post-published">
                       {{ if .Site.Params.dateformShort }}
-                          {{ time.Format .Site.Params.dateformShort .Date }}
+                          {{ time.Format .Site.Params.dateformShort .Params.Joined }}
                       {{ else }}
-                          {{ time.Format "Jan 2006" .Date }}
+                          {{ time.Format "Jan 2006" .Params.Joined }}
                       {{ end }}
                     </span>
                 </div>

@@ -10,7 +10,7 @@ tags:
 - xss
 - DOM clobbering
 authors:
-- LoldemortXP
+- Loldemort
 ---
 
 ## Context

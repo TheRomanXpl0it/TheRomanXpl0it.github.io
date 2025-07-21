@@ -8,7 +8,7 @@ categories:
 tags:
 - pwn
 authors:
-- andreafioraldi
+- malweisse
 ---
 
 Executing the binary for the first time we have this behaviour:

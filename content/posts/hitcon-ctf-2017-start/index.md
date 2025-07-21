@@ -8,7 +8,7 @@ categories:
 tags:
 - pwn
 authors:
-- andreafioraldi
+- malweisse
 ---
 
 The given binary is static.

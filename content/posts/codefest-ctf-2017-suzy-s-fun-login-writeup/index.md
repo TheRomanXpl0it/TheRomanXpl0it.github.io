@@ -8,7 +8,7 @@ categories:
 tags:
 - pwn
 authors:
-- andreafioraldi
+- malweisse
 ---
 
 Connecting to the remote service we can see that the response is random:

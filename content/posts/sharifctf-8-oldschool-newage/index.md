@@ -8,11 +8,11 @@ categories:
 tags:
 - pwn
 authors:
-- andreafioraldi
+- malweisse
 ---
 
 ```python
-#TheRomanXpl0it - andreafioraldi
+#TheRomanXpl0it - malweisse
 
 from pwn import *
 import sys

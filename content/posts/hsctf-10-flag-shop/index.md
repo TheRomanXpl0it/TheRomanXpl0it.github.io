@@ -10,7 +10,7 @@ tags:
 - blind
 - sqli
 authors:
-- Tiziano-Caruana
+- Titto
 ---
 
 > “hsctf pay to win confirmed?”

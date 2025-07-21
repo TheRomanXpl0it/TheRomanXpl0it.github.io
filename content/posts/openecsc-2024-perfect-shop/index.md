@@ -9,7 +9,7 @@ tags:
 - web
 - xss
 authors:
-- Tiziano-Caruana
+- Titto
 ---
 
 > "Do you like perfect things? Check out my new online shop!"

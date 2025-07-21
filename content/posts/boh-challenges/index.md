@@ -7,7 +7,7 @@ categories:
 tags:
 - pwn
 authors:
-- andreafioraldi
+- malweisse
 ---
 
 boh-lang is an intentionally vulnerable language.
