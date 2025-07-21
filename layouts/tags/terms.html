@@ -10,22 +10,15 @@
               <li class="post-item">
                 <div class="post-item-inner">
                   <div class="post-item-left">
-                    <a class="post-title variant" href="{{.Permalink}}">{{.Title}}</a>
-
-                    <div class="tags">
-                      {{- range .Params.roles -}}
+                    {{- with .Data.Term -}}
                         <a href="{{ "tags/" | absLangURL }}{{ . | urlize }}/"><span class="tag-pill tag-{{urlize .}}">{{.}}</span></a>
-                      {{ end }}
-                    </div>
+                    {{- end -}}
                   </div>
 
                   <div class="post-item-right">
-                    <span class="post-published">
-                      {{ if .Site.Params.dateformShort }}
-                          {{ time.Format .Site.Params.dateformShort .Date }}
-                      {{ else }}
-                          {{ time.Format "Jan 2006" .Date }}
-                      {{ end }}
+                    <span>
+                      {{- $count := len .Pages -}}
+                      {{ $count }} {{ if eq $count 1 }}page{{ else }}pages{{ end }}
                     </span>
                 </div>
               </li>
