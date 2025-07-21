@@ -130,7 +130,7 @@ theme = "#1b1c1d"
 
 [params.logo]
 path = "logo/TRX_smooth.png"
-alt = "logo"
+alt = ""
 logoMark = ""
 logoText = "TRX"
 # logoHomeLink = "/"
@@ -151,7 +151,7 @@ logoCursorDisabled = true
 [params.portrait]
 path = "logo/TRX_smooth.png"
 alt = ""
-maxWidth = "36%"
+maxWidth = "20em"
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Addon: Social icons

@@ -2,7 +2,7 @@
     {{ $paginator := .Paginate .Data.Pages }}
 
     <main class="posts">
-      <h1>{{ .Title }}</h1>
+      <h1 class="variant">{{ .Title }}</h1>
 
       {{ .Content }}
 
@@ -12,7 +12,7 @@
               <li class="post-item">
                 <div class="post-item-inner">
                   <div class="post-item-left">
-                    <a class="post-title" href="{{.Permalink}}">{{.Title}}</a>
+                    <a class="post-title variant" href="{{.Permalink}}">{{.Title}}</a>
 
                     <div class="tags">
                       {{- range .Params.roles -}}
