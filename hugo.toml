@@ -99,13 +99,21 @@ justifyContent = false  # Set "text-align: justify" to .post-content.
 
 [params.search]
 expand_results_meta = false
-distance = 0.4
 index_content = true
 index_headings = true
 index_summary = true
 index_taxonomies = false
 max_results = 20
 min_match_char_length = 2
+case_sensitive = false
+ignore_location = true
+threshold = 0.4
+
+[[params.search.key_weights]]
+headings = 2
+title = 2
+summary = 1
+content = 0.5
 
 [params.author]
 name = "TRX"
