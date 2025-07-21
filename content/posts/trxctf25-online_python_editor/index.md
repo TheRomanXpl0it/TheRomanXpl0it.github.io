@@ -7,6 +7,7 @@ categories:
 - trxctf25
 tags:
 - web
+- server side
 authors:
 - salvatore.abello
 ---
@@ -79,9 +80,9 @@ for x in range(32):
         "filename": "/app/secret.py"
         })
     leak = response.json()["error"].split("\n")[-4].strip()
-    
+
     if leak == ".":
         break
-    
+
     print(leak)
 ```

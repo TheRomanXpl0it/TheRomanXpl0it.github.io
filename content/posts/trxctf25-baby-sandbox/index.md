@@ -8,7 +8,7 @@ categories:
 tags:
 - web
 - client side
-- Shadow DOM
+- shadow DOM
 - iframe
 authors:
 - salvatore.abello

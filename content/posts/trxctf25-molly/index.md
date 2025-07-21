@@ -7,9 +7,9 @@ categories:
 - trxctf25
 tags:
 - reverse
-- Undoc WinApi
-- C++
-- LuaVM
+- WinApi
+- c++
+- lua
 authors:
 - uniq
 ---

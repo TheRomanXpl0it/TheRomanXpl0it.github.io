@@ -8,7 +8,7 @@ categories:
 - trxctf25
 tags:
 - crypto
-- Math BFS
+- BFS
 authors:
 - MagicFrank
 ---

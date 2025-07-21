@@ -7,7 +7,7 @@ categories:
 - trxctf25
 tags:
 - misc
-- Lua
+- lua
 authors:
 - uniq
 ---
@@ -46,7 +46,7 @@ Ex: FLAG = 'TRX{goodluck}';
 At the end of the script, there is a long encoded string that appears to be compressed data used during execution. For now, we treat it as **bytecode**
 
 ## Lost First Analysis
-Before diving into the complexities of `lost`, we set up a proper environment for analysis. The first step is to beautify the script.  
+Before diving into the complexities of `lost`, we set up a proper environment for analysis. The first step is to beautify the script.
 > There are many tools available online or on GitHub <br>for example: [lua-beautifier](https://goonlinetools.com/lua-beautifier/).
 
 
@@ -85,7 +85,7 @@ local general_meta_logger = {
     __newindex = function(self, idx, value)
         local mt = getmetatable(self);
         print(str_format(
-            "__newindex: %s; index: %s; old value: %s, value: %s from line %d", 
+            "__newindex: %s; index: %s; old value: %s, value: %s from line %d",
             mt.__name, idx, mt.__old[idx], value, dbg_getinfo(2).currentline
         ));
         mt.__old[idx] = value;
@@ -152,11 +152,11 @@ while true do
                                 local i
                                 local t
                                 -- mov operation on stack
-                                S[c.c] = S[c.S] 
+                                S[c.c] = S[c.S]
                                 -- increasing pc
-                                e = e + 1 
+                                e = e + 1
                                 -- changing current instruction
-                                c = l[e] 
+                                c = l[e]
 ```
 > Instructions seem to be located using a binary search, and there are two types of program counters: one for retrieving instruction data (instruction pc) and one for locating the instruction operation (instruction vmpc).
 
@@ -181,7 +181,7 @@ for l = 1, c do
 end
 for c = 1, e() do
     -- recursively deserialize protos inside the current proto
-    t[c - 1] = Q() 
+    t[c - 1] = Q()
 end
 l.d = i()
 for l = 1, e() do
@@ -347,7 +347,7 @@ Wow we discovered an equality check: `S[c.c] == n[c.N]`. Let's examine the opera
 * `S[c.c] = 2`;
 * `n[c.N] = 4`;`
 
-Now to confirm this check we could patch *vmpc 35* or just add two more parts to our flag.. 
+Now to confirm this check we could patch *vmpc 35* or just add two more parts to our flag..
 
 ## Lost VM Part 1
 
@@ -459,7 +459,7 @@ if t <= 0 then
     e = e + 1
     c = l[e]
     -- we can also change this to check if we bypass the check
-    if not S[c.c] then 
+    if not S[c.c] then
         e = e + 1
     else
         e = c.S
@@ -595,7 +595,7 @@ elseif t == 93 then
     S[t] = S[t](o(S, t + 1, c.S))
     -- return value is the char at index arg2 inside flag_parts[2]
     -- we notice flag_parts[2] getting printed with a value that seem an index
-    -- print(S[t], o(S, t + 1, c.S)) 
+    -- print(S[t], o(S, t + 1, c.S))
     e = e + 1
     c = l[e]
     S[c.c] = n[c.S]
@@ -623,7 +623,7 @@ elseif t == 93 then
     S[t] = S[t](o(S, t + 1, c.S)) -- xor(flag_parts[2][idx] ^ key)
     e = e + 1
     c = l[e]
-    S[c.c] = S[c.S][S[c.N]] 
+    S[c.c] = S[c.S][S[c.N]]
     -- dump the xor result
     local part2_xored = "";
     for i=1, #S[c.S] do
@@ -718,7 +718,7 @@ c = l[e]
 for i, v in next, S do
     if type(v) == 'table' and getmetatable(v) then
         print("---------TALBE_WITH_METAMETHODS---------")
-        tbl_foreach(v, print) -- we can reconstruct part3 easily 
+        tbl_foreach(v, print) -- we can reconstruct part3 easily
         print("----------------------------------------")
         -- m4573r3d
         logged_instructions = {}
