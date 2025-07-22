@@ -1,0 +1,41 @@
+<div class="posts">
+  <ul class="posts-list">
+      {{ range . }}
+          <li class="post-item">
+            <div class="post-item-inner">
+              <div class="post-item-left">
+                <a class="post-title variant" href="{{.Permalink}}">{{.Title}}</a>
+
+                <div class="tags">
+                  {{- range .Params.tags -}}
+                    <a href="{{ "tags/" | absLangURL }}{{ . | urlize }}/"><span class="tag-pill tag-{{urlize .}}">{{.}}</span></a>
+                  {{ end }}
+                </div>
+              </div>
+
+              <div class="post-item-right">
+                <span class="post-published">
+                    {{ if .Site.Params.dateform }}
+                        {{ time.Format .Site.Params.dateform .Date }}
+                    {{ else }}
+                        {{ time.Format "Jan 2 2006" .Date }}
+                    {{ end }}
+                </span>
+
+                {{- if .Params.authors -}}
+                {{- $site := .Site -}}
+                  <div class="post-authors">
+                    <span class="post-authors__label">by</span>
+                    <span class="post-authors__names">
+                      {{- range $index, $author := .Params.authors -}}
+                        {{- partial "author.html" (dict "author" $author "site" $site) -}}
+                      {{- end -}}
+                    </span>
+                  </div>
+                {{- end -}}
+              </div>
+            </div>
+          </li>
+      {{ end }}
+  </ul>
+</div>

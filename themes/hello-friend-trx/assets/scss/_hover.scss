@@ -1,0 +1,43 @@
+a:hover:not(.post-title):not(.search-result) {
+  color: $light-hover-color;
+
+  & .tag-pill {
+    filter: brightness(120%);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    color: $dark-hover-color;
+
+    & .tag-pill {
+      filter: brightness(120%);
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    color: $light-hover-color;
+
+    & .tag-pill {
+      filter: brightness(80%);
+    }
+  }
+
+  [data-theme=dark] & {
+    color: $dark-hover-color;
+
+    & .tag-pill {
+      filter: brightness(120%);
+    }
+  }
+
+  [data-theme=light] & {
+    color: $light-hover-color;
+
+    & .tag-pill {
+      filter: brightness(80%);
+    }
+  }
+}
+
+a > i {
+  color: inherit !important;
+}

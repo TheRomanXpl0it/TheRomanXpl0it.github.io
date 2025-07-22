@@ -1,0 +1,157 @@
+{{ define "main" }}
+  <main class="post">
+
+    <div class="post-info">
+      {{ if .Params.authors }}
+        <div>
+          {{- $site := .Site -}}
+            <div class="post-authors">
+              <span class="post-authors__label">AUTHOR{{if ne (len .Params.authors) 1}}S{{end}}</span>
+              <span class="post-authors__names">
+                {{- range $index, $author := .Params.authors -}}
+                  {{- partial "author.html" (dict "author" $author "site" $site) -}}
+                {{- end -}}
+              </span>
+            </div>
+        </div>
+      {{ end }}
+
+      <br>
+
+      <div class="tags">
+        <span style="margin-right: 1em">TAGS</span>
+        {{- range .Params.tags -}}
+          <a href="{{ "tags/" | absLangURL }}{{ . | urlize }}/"><span class="tag-pill tag-{{urlize .}}">{{.}}</span></a>
+        {{ end }}
+      </div>
+    </div>
+
+    <article>
+      <h1 class="post-title variant">
+        <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+      </h1>
+
+      {{ with .Params.Description }}
+        <div class="post-excerpt">{{ . }}</div>
+      {{ end }}
+
+      {{ if .Params.Cover }}
+        <figure class="post-cover">
+          <img src="{{ .Params.Cover | absURL }}" alt="{{ .Title }}" />
+
+          {{ if .Params.CoverCaption }}
+            <figcaption class="center">{{ .Params.CoverCaption | markdownify }}</figcaption>
+          {{ end }}
+        </figure>
+      {{ end }}
+
+      {{- if .Params.toc }}
+        <hr />
+        <aside id="toc">
+          <div class="toc-title">{{ i18n "tableOfContents" }}</div>
+          {{ .TableOfContents }}
+        </aside>
+        <hr />
+      {{- end }}
+
+      {{ if .Params.Audio }}
+        <div class="post-audio">
+          <audio controls>
+            <source src="{{ .Params.Audio }}">
+          </audio>
+        </div>
+      {{ end }}
+
+      <div class="post-content">
+        {{ .Content }}
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      {{ with .Params.categories }}
+          <p>
+              <svg class="variant" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+              {{ range . -}}
+                  <span class="tag"><a href="{{ "categories/" | absLangURL }}{{ . | urlize }}/">{{.}}</a></span>
+              {{ end }}
+          </p>
+      {{ end }}
+
+      <p>
+        <svg class="variant" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        {{ i18n "wordCount" .Page.WordCount }}
+      </p>
+
+      {{/*
+      <p>
+        <svg class="variant" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        {{ i18n "readingTime" .Page.ReadingTime }}
+      </p>
+      */}}
+
+      <p>
+        <svg class="variant" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        Published on
+        {{ if .Site.Params.dateformNumTime }}
+          {{ dateFormat .Site.Params.dateformNumTime .Date.Local }}
+        {{ else }}
+          {{ dateFormat "2006-01-02 15:04" .Date.Local }}
+        {{ end }}
+      </p>
+
+      <p>
+        <svg class="variant" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+
+        {{ if .Lastmod }}
+          {{ if not (eq .Lastmod .Date )}}
+            {{ if .Site.Params.dateformNumTime }}
+              {{ i18n "lastModified" }} on {{ dateFormat .Site.Params.dateformNumTime .Lastmod.Local }}
+            {{ else }}
+              {{ i18n "lastModified" }} on {{ dateFormat "2006-01-02 15:04" .Lastmod.Local }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </p>
+
+      {{- if .GitInfo }}
+        <p>
+          <svg class="variant" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-git-commit">
+            <circle cx="12" cy="12" r="4"></circle>
+            <line x1="1.05" y1="12" x2="7" y2="12"></line>
+            <line x1="17.01" y1="12" x2="22.96" y2="12"></line>
+          </svg>
+
+          <a href="{{ .Site.Params.gitUrl -}}{{ .GitInfo.Hash }}" target="_blank" rel="noopener">{{ .GitInfo.AbbreviatedHash }}</a>
+          @ {{ if .Site.Params.dateformNum }}{{ dateFormat .Site.Params.dateformNum .GitInfo.AuthorDate.Local }}{{ else }}{{ dateFormat "2006-01-02" .GitInfo.AuthorDate.Local }}{{ end }}
+        </p>
+      {{- end }}
+    </div>
+
+    {{- if .Site.Params.EnableSharingButtons }}
+      <hr />
+      <div class="sharing-buttons variant">
+	      Share on {{- partial "sharing-buttons.html" . -}}
+      </div>
+    {{- end }}
+
+    {{ partial "pagination-single.html" . }}
+
+  </main>
+{{ end }}

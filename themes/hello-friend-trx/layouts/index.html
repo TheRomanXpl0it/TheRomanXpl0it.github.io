@@ -1,0 +1,31 @@
+{{ define "body" }}
+    <body class="{{ if .Site.Params.backgroundImage }} background-image" style="background-image: url('{{ .Site.Params.backgroundImage }}');" {{ else }}"{{ end }}>
+{{ end }}
+
+{{ define "main" }}
+    <main>
+        <div>
+            {{ if .Site.Params.Portrait.Path }}
+            {{- $image := resources.Get .Site.Params.Portrait.Path -}}
+            {{- with $image -}}
+               <img src="{{ .RelPermalink }}" loading="eager" class="circle" alt="{{ $.Site.Params.Portrait.Alt }}" style="max-width:{{ $.Site.Params.Portrait.MaxWidth }}" />
+            {{- end -}}
+            {{ end }}
+
+            <h1 class="variant">{{ .Site.Title }}</h1>
+
+            {{ partial "subtitle.html" . }}
+
+            {{- with .Site.Params.social }}
+                <div class="variant" style="font-size: 1.4em;">
+                    {{ partial "social-icons.html" . }}
+                </div>
+            {{- end }}
+        </div>
+
+        <hr style="margin-top:1em;">
+
+        {{ $posts := where .Site.RegularPages "Section" "posts" | first 5 }}
+        {{ partial "posts.html" $posts }}
+    </main>
+{{ end }}

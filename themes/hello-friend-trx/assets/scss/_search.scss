@@ -1,0 +1,127 @@
+@mixin light-search {
+  --search-primary: #{$accent-color};
+  --search-container-bg: rgba(0, 0, 0, 20%);
+  --search-bg: #{$light-background-header};
+  --search-color: #{$light-color};
+  --search-color-secondary: $#{$light-color-secondary};
+  --search-result-bg: #{$light-background};
+  --search-result-bg-active: var(--search-primary);
+  --search-result-color: var(--search-color);
+  --search-result-color-active: #{$light-background-header};
+  --search-result-color-secondary: var(--search-color-secondary);
+  --search-result-color-secondary-active: #{$light-background-header};
+  --search-result-highlight-bg: inherit;
+  --search-result-highlight-color: inherit;
+  --search-border-color: #{$light-table-color};
+}
+
+@mixin dark-search {
+  --search-primary: #{$accent-color};
+  --search-container-bg: rgba(255, 255, 255, 20%);
+  --search-bg: #{$dark-background-header};
+  --search-color: #{$dark-color};
+  --search-color-secondary: $#{$dark-color-secondary};
+  --search-result-bg: #{$dark-background};
+  --search-result-bg-active: var(--search-primary);
+  --search-result-color: var(--search-color);
+  --search-result-color-active: #{$dark-background-header};
+  --search-result-color-secondary: var(--search-color-secondary);
+  --search-result-color-secondary-active: #{$dark-background-header};
+  --search-result-highlight-bg: inherit;
+  --search-result-highlight-color: inherit;
+  --search-border-color: #{$dark-table-color};
+}
+
+:root {
+  @include light-search;
+}
+
+input {
+  background: $light-background;
+  color: $light-color;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include dark-search;
+  }
+
+  input {
+    background: $dark-background;
+    color: $dark-color;
+  }
+
+  button.search-dropdown-reset {
+    color: $dark-color-variant;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    @include light-search;
+  }
+
+  input {
+    background: $light-background;
+    color: $light-color;
+  }
+
+  button.search-dropdown-reset {
+    color: $light-color-variant;
+  }
+}
+
+html[data-theme=dark] {
+  @include dark-search;
+
+  input {
+    background: $dark-background;
+    color: $dark-color;
+  }
+
+  button.search-dropdown-reset {
+    color: $dark-color-variant;
+  }
+}
+
+html[data-theme=light] {
+  @include light-search;
+
+  input {
+    background: $light-background;
+    color: $light-color;
+  }
+
+  button.search-dropdown-reset {
+    color: $light-color-variant;
+  }
+}
+
+button.search-dropdown-reset {
+  background: $accent-color;
+  border-radius: 0;
+}
+
+.search-dropdown-menu {
+  margin: 0;
+}
+
+.search-dropdown-body {
+  top: 1em;
+}
+
+// Kinda sus
+.search-modal {
+  width: 100%;
+  max-width: #{$max-size};
+  margin: auto;
+  position: relative !important;
+  left: 0;
+  top: -10em;
+  border-radius: 8px;
+
+  @media #{$media-size-tablet} {
+    top: 0;
+    border-radius: 0;
+  }
+}

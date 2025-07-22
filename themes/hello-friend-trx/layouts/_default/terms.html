@@ -1,0 +1,27 @@
+{{ define "main" }}
+    <main class="posts">
+      <h1 class="variant">{{ .Title }}</h1>
+
+      {{ .Content }}
+
+      <div class="posts">
+        <ul class="posts-list">
+            {{ range .Pages }}
+              <li class="post-item">
+                <div class="post-item-inner">
+                  <div class="post-item-left">
+                    <a class="post-title variant" href="{{.Permalink}}">{{.Title}}</a>
+                  </div>
+
+                  <div class="post-item-right">
+                    <span>
+                      {{- $count := len .Pages -}}
+                      {{ $count }} {{ if eq $count 1 }}page{{ else }}pages{{ end }}
+                    </span>
+                </div>
+              </li>
+          {{ end }}
+        </ul>
+      </div>
+    </main>
+{{ end }}

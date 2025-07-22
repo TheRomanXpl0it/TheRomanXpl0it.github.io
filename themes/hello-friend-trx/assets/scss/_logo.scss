@@ -1,0 +1,21 @@
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: monospace;
+
+  img {
+    width: auto;
+    height: 3em;
+  }
+
+  &__mark {
+    margin-right: 5px;
+  }
+
+  &__text {
+    font-size: 1.125rem;
+    white-space: nowrap;
+  }
+}

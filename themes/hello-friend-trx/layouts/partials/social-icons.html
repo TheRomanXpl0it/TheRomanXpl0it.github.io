@@ -1,0 +1,15 @@
+{{ range . -}}
+    &nbsp;
+    <a href="{{ .url }}" {{if eq .nonewpage 0}} target="_blank" {{end}} rel="me noopener {{ .rel }}" title="{{ .name | humanize }}">
+    {{- if (eq .name "ctftime") -}}
+      <svg xmlns="http://www.w3.org/2000/svg" style="vertical-align:-2px;" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M24 0v24H0V0h24Zm-3.077 3.077L7.067 3.076 16 12.816 10.369 19l-2.195-2.612 3.476-3.573-8.574-9.609v17.717h17.847V3.077Z"></path></svg>
+    {{- else if (eq .name "mail") -}}
+    <i class="fa-solid fa-envelope"></i>
+    {{- else if (eq .name "website") -}}
+    <i class="fa-solid fa-globe"></i>
+    {{- else -}}
+    <i class="fa-brands fa-{{.name}}"></i>
+    {{- end  -}}
+    </a>
+    &nbsp;
+{{- end -}}

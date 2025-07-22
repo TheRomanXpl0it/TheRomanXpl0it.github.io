@@ -1,0 +1,157 @@
+.posts {
+  width: 100%;
+  text-align: left;
+  padding: 20px;
+
+  @media #{$media-size-tablet} {
+    max-width: 660px;
+    padding: 10px;
+  }
+
+  &-group {
+    display: flex;
+    margin-bottom: 1.9em;
+    line-height: normal;
+
+    @media #{$media-size-tablet} {
+      display: block;
+    }
+  }
+
+  &-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    font-size: 1.2em;
+
+    &-by {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      gap: 2rem;
+
+      svg {
+        width: 1.2rem;
+        height: 1.2rem;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  &-list {
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .post {
+    padding-bottom: 0.5em;
+
+    &-item {
+      border-bottom: 1px grey dashed;
+
+      &-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 12px 0;
+        text-decoration: none;
+        flex-direction: row;
+        gap: 2em;
+        width: 100%;
+
+        @media #{$media-size-tablet} {
+          flex-direction: column;
+          gap: 1em;
+        }
+      }
+
+      &-right {
+        display: flex;
+        flex-direction: column;
+        flex: 3 1 0;
+        min-width: 0;
+        width: 100%;
+        gap: 0.6rem;
+
+        @media #{$media-size-tablet} {
+          flex: auto;
+          flex-direction: row;
+          justify-content: space-between;
+          gap: 2em;
+        }
+      }
+
+      &-left {
+        display: flex;
+        flex-direction: column;
+        flex: 7 1 0;
+        min-width: 0;
+        width: 100%;
+      }
+    }
+
+    &-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin: 5px 0 5px 0;
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .tags {
+      display: flex;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      min-width: 0;
+    }
+
+    &-published {
+      flex-shrink: 0;
+      @include dimmed;
+    }
+
+    //&-authors {
+    //  display: inline-flex;
+    //  min-width: 0;
+    //  white-space: nowrap;
+    //  overflow: hidden;
+    //  text-overflow: ellipsis;
+    //  align-items: center;
+    //  gap: 0.5rem;
+    //
+    //}
+  }
+}
+
+.post-authors {
+  display: flex;
+  width: 100%;
+  flex: 1 1 auto;
+  min-width: 0;
+  align-items: center;
+  gap: 0.5em;
+
+  &__label {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  &__names {
+    /* now this really is the sole flex‑item that clips */
+    flex: 1 1 0;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    display: inline-flex;  /* keep your icon+name alignment */
+    align-items: center;
+    gap: 0.5em;
+  }
+}

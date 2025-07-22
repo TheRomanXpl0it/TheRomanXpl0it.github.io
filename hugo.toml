@@ -3,7 +3,7 @@ languageCode = "en-us"
 title = "TheRomanXpl0it"
 copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 # Theme config below
-theme = "hello-friend-ng"
+theme = "hello-friend-trx"
 archetypeDir = "archetypes"
 contentDir = "content"
 dataDir = "data"
