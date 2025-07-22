@@ -115,25 +115,12 @@
       flex-shrink: 0;
       @include dimmed;
     }
-
-    //&-authors {
-    //  display: inline-flex;
-    //  min-width: 0;
-    //  white-space: nowrap;
-    //  overflow: hidden;
-    //  text-overflow: ellipsis;
-    //  align-items: center;
-    //  gap: 0.5rem;
-    //
-    //}
   }
 }
 
 .post-authors {
   display: flex;
   width: 100%;
-  flex: 1 1 auto;
-  min-width: 0;
   align-items: center;
   gap: 0.5em;
 
@@ -143,15 +130,19 @@
   }
 
   &__names {
-    /* now this really is the sole flex‑item that clips */
+    display: inline-block;
     flex: 1 1 0;
     min-width: 0;
-    overflow: hidden;
     white-space: nowrap;
+    overflow: hidden;
     text-overflow: ellipsis;
 
-    display: inline-flex;  /* keep your icon+name alignment */
-    align-items: center;
-    gap: 0.5em;
+    & .author-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25em;
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
   }
 }

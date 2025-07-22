@@ -29,6 +29,7 @@
                     <span class="post-authors__names">
                       {{- range $index, $author := .Params.authors -}}
                         {{- partial "author.html" (dict "author" $author "site" $site) -}}
+                        &nbsp;
                       {{- end -}}
                     </span>
                   </div>
