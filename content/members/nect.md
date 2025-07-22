@@ -18,3 +18,7 @@ social:
   linkedin: ""
   website: ""
 ---
+
+C programmer and pwner.
+
+Wrote the website with :heart:
