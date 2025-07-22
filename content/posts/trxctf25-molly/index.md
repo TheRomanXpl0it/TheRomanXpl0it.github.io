@@ -22,7 +22,7 @@ We are presented with two PE x86_64 binaries: `molly.exe` and `molly_dll.dll`
 
 Initially, disassembling `molly.exe` reveals a multitude of unusual instructions. Furthermore, the high entropy in the `.text` section suggests that the code is not standard executable code.
 
-![static_first_view](img/static_first_view.png)
+![static_first_view](/trxctf25/molly/static_first_view.png)
 
 
 At this point running `molly.exe` produces the following output:
@@ -60,7 +60,7 @@ At this point `molly_dll.dll` likely plays a critical role in unpacking or decry
 ## Molly Dynamic Overview
 By setting a breakpoint at the entry point of `molly.exe` using x64dbg and examining the memory regions corresponding to the `.text` section, we observed that the section is fragmented. Some regions are marked as `NO_ACCESS`, while others have a fixed size of <b>0x1000</b> with `READ_EXECUTE` permissions. This suggests that molly.exe is not packed; rather, it is decrypted and executed at runtime.
 
-![x64dbg_regions](img/x64dbg_regions.png)
+![x64dbg_regions](/trxctf25/molly/x64dbg_regions.png)
 
 ## Dll Static Analysis
 When the Windows loader calls an imported DLL with an entry point, it executes on the main thread before the process's own entry point. As a result, the process entry point will not run until all DLL entry points have completed.
@@ -353,19 +353,19 @@ if __name__ == "__main__":
 ## Binary Dynamic Decryption (Bonus)
 One interesting feature of Molly is its ability to re-encrypt old unlocked pages once the maximum number of decrypted pages has been reached. However, due to the binary’s size and an incorrectly set limit of `0x10`, Molly allowed 15 pages to remain decrypted, and no re-encryption occurs after the binary exits.
 
-![encoldpages](img/molly_encoldpages.png)
+![encoldpages](/trxctf25/molly/molly_encoldpages.png)
 
 How can we exploit this behavior?
 
 First, configure x64dbg to establish breakpoints prior to Molly's start and before its termination, and disable the general exception breakpoint.
-![dbg_dumppreparation](img/x64dbg_dump.png)
+![dbg_dumppreparation](/trxctf25/molly/x64dbg_dump.png)
 
 After running Molly, the console should close while the process remains active. Next, open Scylla to dump the process.
-![scylla_dump](img/Scylla_dump.png)
+![scylla_dump](/trxctf25/molly/Scylla_dump.png)
 
 Even if the binary is not fully decrypted, we can still analyze its core components to reconstruct the flag.
 
-![molly_dump](img/molly_dump.png)
+![molly_dump](/trxctf25/molly/molly_dump.png)
 
 ## Binary Analysis
 
