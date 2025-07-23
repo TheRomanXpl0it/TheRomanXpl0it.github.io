@@ -14,7 +14,7 @@ roles:
   # - OG
 
 # put the avatar in /static/avatars/
-avatar: # "/avatars/{{ urlize .Name }}.jpg"
+avatar: "/avatars/lorenzinco.jpg"
 social:
   mail: "lorenzinco23@gmail.com"
   github: "https://github.com/lorenzinco"
