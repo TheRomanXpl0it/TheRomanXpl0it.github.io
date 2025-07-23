@@ -2,7 +2,7 @@
 date: 2025-07-21T16:29:47+02:00
 title: "Lorenzinco"
 name: "Lorenzo Colombini"
-joined: 2023-01-01
+joined: 2023-01-06
 roles:
   - pwn
   # - web
@@ -16,8 +16,8 @@ roles:
 # put the avatar in /static/avatars/
 avatar: # "/avatars/{{ urlize .Name }}.jpg"
 social:
-  mail: ""
-  github: ""
+  mail: "lorenzinco23@gmail.com"
+  github: "https://github.com/lorenzinco"
   linkedin: ""
   website: ""
 ---
