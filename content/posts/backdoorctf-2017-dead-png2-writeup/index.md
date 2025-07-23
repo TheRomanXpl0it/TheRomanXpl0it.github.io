@@ -9,7 +9,7 @@ tags:
 - forensics
 - data-recovery
 authors:
-- dp1
+- dp_1
 ---
 
 We're given a file that we're told is a corrupted png file. Having a first look at it in a hex editor, I couldn't find any of the normal headers that are normally present in a png file, so I added them back in.

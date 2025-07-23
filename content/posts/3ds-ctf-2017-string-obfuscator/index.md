@@ -10,7 +10,7 @@ tags:
 - reverse
 - excel
 authors:
-- dp1
+- dp_1
 ---
 
 The input file had no extension, so the first thing to do was figure out how to read it. I opened it in n++ and saw it began with the zip header, so it got decompressed. On the inside, the files were actually the structure of an `.xlsm` file, so rather than working on the directory I changed the extension of the input and opened it in excel. I had to enable macros for the challenge to work properly, and this is what I saw at first:

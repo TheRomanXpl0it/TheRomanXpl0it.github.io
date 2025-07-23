@@ -9,7 +9,7 @@ tags:
 - pwn
 - rop
 authors:
-- dp1
+- dp_1
 ---
 
 For this challenge we get a small binary that first asks and prints a name and then reads a string.

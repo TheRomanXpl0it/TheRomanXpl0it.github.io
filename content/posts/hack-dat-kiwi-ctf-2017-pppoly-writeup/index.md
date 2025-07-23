@@ -9,7 +9,7 @@ tags:
 - reverse
 - php
 authors:
-- dp1
+- dp_1
 ---
 
 This was a nice reversing challenge, starting with a php file:

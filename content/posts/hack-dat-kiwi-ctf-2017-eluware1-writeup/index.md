@@ -8,7 +8,7 @@ categories:
 tags:
 - forensics
 authors:
-- dp1
+- dp_1
 ---
 
 The Eluware 1 challenge was quite simple. A copy of a website was displayed with a malicious `www.malware.com/md5.js` script added to it.

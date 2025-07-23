@@ -11,7 +11,7 @@ authors:
 - matteojug
 - cristianassaiante
 - chq-matteo
-- dp1
+- dp_1
 ---
 
 We upload our final report for the CSAW 19 Embeded Security Challenge.

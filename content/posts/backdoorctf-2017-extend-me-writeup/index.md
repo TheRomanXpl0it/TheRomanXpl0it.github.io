@@ -8,7 +8,7 @@ categories:
 tags:
 - web
 authors:
-- dp1
+- dp_1
 ---
 
 For this challenge we get access to a login prompt. This is the code on the backend, stripped of the useless parts:

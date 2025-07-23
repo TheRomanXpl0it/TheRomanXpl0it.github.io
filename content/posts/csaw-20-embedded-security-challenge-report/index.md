@@ -11,7 +11,7 @@ authors:
 - matteojug
 - cristianassaiante
 - chq-matteo
-- dp1
+- dp_1
 ---
 
 This year, we participated for the second time in the [CSAW Embedded Security Challenge](https://www.csaw.io/esc) finals.

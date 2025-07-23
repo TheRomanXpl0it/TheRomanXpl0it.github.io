@@ -7,7 +7,7 @@ categories:
 tags:
 - flare-on
 authors:
-- dp1
+- dp_1
 ---
 
 In the third meeting of DC11396 I presented my solution to the last problem of [Flare-On](http://flare-on.com/) 2018, the annual individual reverse engineering CTF.
