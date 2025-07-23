@@ -27,17 +27,17 @@ enableGitInfo = true
 [markup.goldmark.renderer]
 unsafe = true
 
-[markup.highlight]
-noClasses = true
-style = "xcode-dark"
-
 [markup.goldmark.extensions]
 [markup.goldmark.extensions.passthrough]
 enable = true
 
 [markup.goldmark.extensions.passthrough.delimiters]
-block = [['\[', '\]'], ['$$', '$$']]
+block = [['\[', '\]'], ["$$", "$$"]]
 inline = [['\(', '\)']]
+
+[markup.highlight]
+noClasses = true
+style = "xcode-dark"
 
 [taxonomies]
 category = "categories"
@@ -66,9 +66,7 @@ dateformNumTime = "2006-01-02 15:04"
 description = "TheRomanXpl0it's official website"
 keywords = "ctf, italian, trx, team, cybersecurity"
 images = [""]
-
 baseAvatar = "/avatars/fallback.jpg"
-
 # Home subtitle of the index page.
 #
 homeSubtitle = "Italian CTF team"
@@ -228,3 +226,6 @@ path = "github.com/hugomods/search"
 [outputs]
 home = ["HTML", "RSS", "SearchIndex"]
 
+[caches]
+[caches.images]
+dir = ":cacheDir/images"
