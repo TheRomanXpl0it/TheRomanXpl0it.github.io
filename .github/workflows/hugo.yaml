@@ -3,20 +3,18 @@ name: Deploy Hugo site to Pages
 
 on:
   # Runs on pushes targeting the default branch
-  #push:
-  #  branches:
-  #    - main
+  push:
+    branches:
+      - master
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-env:
-  # Where to push your built site (owner/repo)
-  #PAGE_REPO: TheRomanXpl0it/TheRomanXpl0it.github.io
-  PAGE_REPO: bynect/bynect.github.io
-  # The baseURL you want Hugo to use
-  #BASE_URL: https://theromanxpl0.it
-  BASE_URL: https://bynect.github.io
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -55,6 +53,9 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
       - name: Cache Restore
@@ -73,7 +74,7 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --baseURL "${{ env.BASE_URL }}/" \
+            --baseURL "${{ steps.pages.outputs.base_url }}/" \
             --cacheDir "${{ runner.temp }}/hugo_cache"
       - name: Cache Save
         id: cache-save
@@ -83,25 +84,18 @@ jobs:
             ${{ runner.temp }}/hugo_cache
           key: ${{ steps.cache-restore.outputs.cache-primary-key }}
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: public
           path: ./public
 
   # Deployment job
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Checkout the build artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: public
-          path: ./public
-      - name: Deploy to TheRomanXpl0it.github.io
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          external_repository: ${{ env.PAGE_REPO }}
-          publish_branch: main
-          publish_dir: ./public
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
