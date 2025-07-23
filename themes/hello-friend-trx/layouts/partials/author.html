@@ -9,7 +9,9 @@
 {{- end -}}
 {{- with $memberPage -}}
   {{- with .Params.avatar -}}
-    <img src="{{ . | relURL }}" class="author-icon" />
+    <div class="author-icon">
+    <img src="{{ . | relURL }}" />
+    </div>
   {{- end -}}
 {{- end -}}
 <strong class="author-name">{{- $author -}}</strong>
