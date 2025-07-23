@@ -1,6 +1,6 @@
 ---
 date: 2025-07-21T14:12:13+02:00
-title: "cristianassaiante"
+title: "cristianrichie"
 name: "Cristian Assaiante"
 joined: 2017-01-01
 roles:
@@ -17,7 +17,7 @@ roles:
 avatar: # "/avatars/{{ urlize .Name }}.jpg"
 social:
   mail: ""
-  github: ""
+  github: "https://github.com/cristianassaiante"
   linkedin: ""
-  website: ""
+  website: "https://cristianassaiante.github.io/"
 ---
