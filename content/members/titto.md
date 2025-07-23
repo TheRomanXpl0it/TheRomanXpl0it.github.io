@@ -14,10 +14,10 @@ roles:
   # - OG
 
 # put the avatar in /static/avatars/
-avatar: # "/avatars/{{ urlize .Name }}.jpg"
+avatar: "/avatars/titto.png"
 social:
   mail: "tizianocaruana@gmail.com"
   github: "https://github.com/Tiziano-Caruana"
-  linkedin: ""
-  website: ""
+  linkedin: "https://www.linkedin.com/in/tiziano-caruana/"
+  website: "https://tiziano-caruana.github.io/"
 ---

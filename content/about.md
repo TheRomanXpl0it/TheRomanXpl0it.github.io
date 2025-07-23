@@ -6,6 +6,14 @@ skipinfo = true
 
 We are a competitive CTF team from Italy.
 
-Also professional pasta eaters.
+With the [mhackeroni](https://mhackeroni.it/) joint team we partecipate in top CTFs (like CCC CTF and DEF CON CTF).
 
-Part of [mHACKeroni](https://mhackeroni.it/).
+Many of us are students at Sapienza, University of Rome and alumni of [CyberChallengeIT](https://cyberchallenge.it).
+
+We actively teach crypto, web and binary exploitation at the newbies of Sapienza's CyberChallenge group.
+
+Contact us at [info@theromanxpl0.it](mailto:info@theromanxpl0.it).
+
+Follow us on [Twitter](https://x.com/TheRomanXpl0it).
+
+Join our [Telegram group](https://t.me/TheRomanChat).
