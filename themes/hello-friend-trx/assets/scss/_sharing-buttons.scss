@@ -13,6 +13,10 @@
   .resp-sharing-button__link {
     text-decoration: none;
     margin: 0.5em;
+
+    @media #{$media-size-phone} {
+      margin: 0;
+    }
   }
 
   .resp-sharing-button {

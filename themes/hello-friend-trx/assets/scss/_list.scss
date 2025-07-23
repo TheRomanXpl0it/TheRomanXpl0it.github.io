@@ -5,7 +5,7 @@
 
   @media #{$media-size-tablet} {
     max-width: 660px;
-    padding: 10px;
+    padding: 16px;
   }
 
   &-group {
@@ -25,11 +25,20 @@
     flex-direction: row;
     font-size: 1.2em;
 
+    @media #{$media-size-phone} {
+      font-size: 1em;
+    }
+
     &-by {
       display: flex;
       justify-content: space-between;
       flex-direction: row;
       gap: 2rem;
+
+      @media #{$media-size-phone} {
+        flex-direction: column;
+        gap: 0.2em;
+      }
 
       svg {
         width: 1.2rem;
@@ -78,9 +87,8 @@
 
         @media #{$media-size-tablet} {
           flex: auto;
-          flex-direction: row;
           justify-content: space-between;
-          gap: 2em;
+          gap: 0.5em;
         }
       }
 

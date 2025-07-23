@@ -169,7 +169,7 @@ logoCursorDisabled = true
 [params.portrait]
 path = "logo/TRX_smooth.png"
 alt = ""
-maxWidth = "20em"
+maxWidth = "30%"
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Addon: Social icons

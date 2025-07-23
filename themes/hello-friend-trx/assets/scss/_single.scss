@@ -5,7 +5,8 @@
   padding: 20px;
 
   @media #{$media-size-tablet} {
-    max-width: 600px;
+    max-width: 660px;
+    padding: 16px;
   }
 
   &-date {
@@ -15,12 +16,6 @@
   }
 
   &-title {
-    font-size: 2.625rem;
-
-    @media #{$media-size-phone} {
-      font-size: 2rem;
-    }
-
     a {
       text-decoration: none;
     }
@@ -47,6 +42,7 @@
 
     a {
       color: $accent-color;
+      word-break: break-all;
     }
 
     a:hover {
