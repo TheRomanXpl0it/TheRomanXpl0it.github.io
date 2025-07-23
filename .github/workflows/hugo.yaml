@@ -10,11 +10,13 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+env:
+  # Where to push your built site (owner/repo)
+  #PAGE_REPO: TheRomanXpl0it/TheRomanXpl0it.github.io
+  PAGE_REPO: bynect/bynect.github.io
+  # The baseURL you want Hugo to use
+  #BASE_URL: https://theromanxpl0.it
+  BASE_URL: https://bynect.github.io
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -71,7 +73,7 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/" \
+            --baseURL "${{ env.BASE_URL }}/" \
             --cacheDir "${{ runner.temp }}/hugo_cache"
       - name: Cache Save
         id: cache-save
@@ -81,7 +83,7 @@ jobs:
             ${{ runner.temp }}/hugo_cache
           key: ${{ steps.cache-restore.outputs.cache-primary-key }}
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: public
           path: ./public
@@ -92,15 +94,14 @@ jobs:
     needs: build
     steps:
       - name: Checkout the build artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: public
           path: ./public
       - name: Deploy to TheRomanXpl0it.github.io
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
-            # Use a PAT with repo scope stored as GH_PAGES_TOKEN
-            personal_token: ${{ secrets.GH_PAGES_TOKEN }}
-            external_repository: TheRomanXpl0it/TheRomanXpl0it.github.io
-            publish_branch: main
-            publish_dir: ./public
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          external_repository: ${{ env.PAGE_REPO }}
+          publish_branch: main
+          publish_dir: ./public
