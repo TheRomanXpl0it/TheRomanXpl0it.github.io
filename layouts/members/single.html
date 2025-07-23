@@ -4,7 +4,9 @@
             <h1 class="post-title variant" class="variant"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
 
             <div class="member-info">
-              <img src="{{ .Params.avatar | default .Site.Params.baseAvatar | relURL }}" class="author-icon" />
+              <div class=author-icon>
+              <img src="{{ .Params.avatar | default .Site.Params.baseAvatar | relURL }}" />
+              </div>
 
               <div class="member-info-left">
                 <h2 class="author-name variant">{{ .Params.name | default .Params.title }}</h2>

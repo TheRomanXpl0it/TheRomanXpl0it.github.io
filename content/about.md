@@ -6,7 +6,7 @@ skipinfo = true
 
 We are a competitive CTF team from Italy.
 
-With the [mhackeroni](https://mhackeroni.it/) joint team we partecipate in top CTFs (like CCC CTF and DEF CON CTF).
+With the [mhackeroni](https://mhackeroni.it/) joint team we partecipate in top CTFs (like CCC CTF and [DEF CON](https://defcon.org/)).
 
 Many of us are students at Sapienza, University of Rome and alumni of [CyberChallengeIT](https://cyberchallenge.it).
 
