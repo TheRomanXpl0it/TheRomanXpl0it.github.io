@@ -11,7 +11,7 @@ tags:
 - overflow
 - setbuf
 authors:
-- dp1
+- dp_1
 ---
 
 For this challenge we're given the binary of a service, `mailer`. There are 5 letters allocated on the stack which we can work on, and every time a letter is referenced the code checks if the index is valid - no exploits there. The service allows us to write, delete and post letters, where posting a letter really means writing out its contents to `/dev/null` with the ability to use a filter. It's in the filter selection that we find our vulnerability:

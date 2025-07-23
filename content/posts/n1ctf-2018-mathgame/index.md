@@ -10,7 +10,7 @@ tags:
 - ppc
 - geometry
 authors:
-- dp1
+- dp_1
 ---
 
 > Game rules:

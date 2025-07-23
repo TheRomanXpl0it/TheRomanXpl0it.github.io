@@ -9,7 +9,7 @@ tags:
 - misc
 - algorithm
 authors:
-- dp1
+- dp_1
 ---
 
 > You are given 128 puzzles (https://en.wikipedia.org/wiki/15_puzzle)<br/>
