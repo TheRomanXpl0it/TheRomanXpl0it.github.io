@@ -62,3 +62,23 @@ Then you can run the website with:
 hugo server
 
 ```
+
+### With Docker
+
+Build the image and serve:
+
+```bash
+docker build -t hugo-dev .
+
+# if you want to quickly serve the current site
+docker run -p 1313:1313 --rm hugo-dev:latest hugo serve --bind 0.0.0.0
+
+# if you want to make it better <3
+docker run -p 1313:1313 --rm -it -v `pwd`:/code hugo-dev:latest bash
+
+# inside the container you'll have
+# /src -> original code
+# /code -> the current code in a volume
+cd /code
+hugo serve --bind 0.0.0.0
+```
