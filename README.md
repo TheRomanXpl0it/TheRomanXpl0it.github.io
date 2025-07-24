@@ -38,7 +38,7 @@ Values supported in the `social` table are:
 
 Clone with submodules:
 ```bash
-git clone --recurse-submodules https://github.com/TheRomanXpl0it/trxdotit.git
+git clone --recurse-submodules git@github.com:TheRomanXpl0it/TheRomanXpl0it.github.io.git
 ```
 
 Install hugo modules:
