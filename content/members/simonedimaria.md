@@ -6,7 +6,8 @@ title: "simonedimaria"
 # real name
 name: "Simone Di Maria"
 # join date (year & month)
-joined: 2024-01-01
+join_year: 2024
+join_month:
 
 roles:
   #- pwn

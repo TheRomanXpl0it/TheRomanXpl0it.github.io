@@ -2,7 +2,9 @@
 date: 2025-07-21T16:29:47+02:00
 title: "Lorenzinco"
 name: "Lorenzo Colombini"
-joined: 2023-01-06
+join_year: 2023
+join_month: 06
+
 roles:
   - pwn
   # - web

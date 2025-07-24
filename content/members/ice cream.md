@@ -2,7 +2,7 @@
 date: 2025-07-21T14:47:40+02:00
 title: "ice cream"
 name: "Tommaso De Nicola"
-joined: 2023-01-01
+join_year: 2023
 roles:
   #- pwn
   # - web
@@ -21,5 +21,3 @@ social:
   linkedin: ""
   website: ""
 ---
-
-Example description... Very useful for testing...

@@ -23,14 +23,15 @@
                         <a href="{{ "tags/" | absLangURL }}{{ . | urlize }}/"><span class="tag-pill tag-{{urlize .}}">{{.}}</span></a>
                       {{ end }}
                     </div>
+                    {{if .Params.join_year}}
                     <span class="post-published">
                       Joined
-                      {{ if .Site.Params.dateformShort }}
-                          {{ time.Format .Site.Params.dateformShort .Params.Joined }}
-                      {{ else }}
-                          {{ time.Format "Jan 2006" .Params.Joined }}
-                      {{ end }}
+                      {{if .Params.join_month}}
+                      {{ dateFormat "Jan" (time (printf "2006-%02d-01" .Params.join_month)) }}
+                      {{end}}
+                      {{.Params.join_year}}
                     </span>
+                    {{end}}
                 </div>
               </li>
           {{ end }}

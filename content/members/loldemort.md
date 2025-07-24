@@ -2,7 +2,7 @@
 date: 2025-07-21T14:02:25+02:00
 title: "Loldemort"
 name: "Leandro Pagano"
-joined: 2023-01-01
+join_year: 2023
 roles:
   - pwn
   - web

@@ -2,7 +2,9 @@
 date: 2025-07-21T16:28:53+02:00
 title: "leave"
 name: ""
-joined: 2024-05-22
+join_year: 2024
+join_month: 05
+
 roles:
   - pwn
   # - web

@@ -2,7 +2,7 @@
 date: 2025-07-21T13:51:09+02:00
 title: "rop2bash"
 name: "Luigi Paolo Pileggi"
-joined: 2017-01-01
+join_year: 2017
 roles:
   #- pwn
   # - web
