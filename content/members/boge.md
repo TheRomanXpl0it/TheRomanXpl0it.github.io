@@ -6,7 +6,8 @@ title: 'boge'
 # real name
 name: "Filippo Bogetti"
 # join date (year & month)
-joined: 2023-12-01T18:42:53+02:00
+join_year: 2023
+join_month: 12
 
 roles:
   # - pwn

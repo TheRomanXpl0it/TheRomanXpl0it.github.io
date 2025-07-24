@@ -2,7 +2,7 @@
 date: 2025-07-21T13:09:11+02:00
 title: "dp_1"
 name: "Dario Petrillo"
-joined: 2017-01-01
+join_year: 2017
 op: true
 roles:
   #- pwn

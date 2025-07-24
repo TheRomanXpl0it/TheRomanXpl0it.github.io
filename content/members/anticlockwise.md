@@ -2,7 +2,8 @@
 date: 2025-07-21T13:58:47+02:00
 title: "anticlockwise"
 name: "Pietro Borrello"
-joined: 2017-01-01
+join_year: 2017
+join_month:
 roles:
   - pwn
   # - web

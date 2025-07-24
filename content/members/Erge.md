@@ -2,7 +2,7 @@
 date: 2025-07-21T16:30:34+02:00
 title: "Erge"
 name: ""
-joined: 2025-07-21T16:30:34+02:00
+join_year: 2024
 roles:
   - pwn
   # - web
