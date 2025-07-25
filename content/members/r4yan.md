@@ -15,7 +15,7 @@ roles:
   # - OG
 
 # put the avatar in /static/avatars/
-avatar: # "/avatars/r4yan.jpg"
+avatar: "/avatars/r4yan.jpg"
 social:
   mail: "rayan@r4yan.com"
   github: "https://github.com/R4yGM"
