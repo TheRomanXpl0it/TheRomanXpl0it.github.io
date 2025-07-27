@@ -14,7 +14,7 @@ roles:
   # - OG
 
 # put the avatar in /static/avatars/
-avatar: "/avatars/witer33.jpg"
+avatar: "/avatars/witer33.png"
 social:
   mail: ""
   github: "https://github.com/witer33"
