@@ -1,6 +1,6 @@
 .post {
   width: 100%;
-  max-width: #{'max(720px, 40%)'};
+  max-width: #{$max-size};
   text-align: left;
   padding: 20px;
 
