@@ -1,5 +1,5 @@
 ---
-date: 2025-07-21T13:10:23+02:00
+date: 2025-07-27T13:10:23+02:00
 title: "nect"
 join_year: 2025
 join_month: 06
