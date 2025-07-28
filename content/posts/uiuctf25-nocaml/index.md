@@ -95,9 +95,9 @@ f()
 ```
 
 After this solve I also found a much shorter one (possibly unintended).
-To prevent module collisions the compiler produces for `Parent.Child` modules
-in the format `Parent__Child`.
-The Stdlib is [not an exception][dune] to this, so we can rely on those internal names:
+To prevent module collisions the compiler mangles module names (`Parent.Child` becomes `Parent__Child`).
+The Stdlib is [not an exception][dune] to this, and `Nocaml` does not block those internal names.
+So we can simply do:
 
 ```ocaml
 Stdlib__Sys.command "cat flag.txt"
