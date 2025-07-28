@@ -12,11 +12,23 @@ authors:
 - nect
 ---
 
+This is essentially an OCaml jail.
+
 ## Overview
 
-This is a sort of jail written in OCaml.
-The `nocaml.ml` module shadows all functions and modules of the standard library
-and is automatically imported by the challenge (with `-open Nocaml`).
+The challenge runs user provided OCaml source code (encoded in base64).
+The compiler is invoked with the flag `-open Nocaml`, that automatically imports
+all the content of the module Nocaml into the scope of our code.
+
+```sh
+#excerpt from go.sh...
+read -r line && echo "$line" | base64 -d > "$tmp_dir/code.ml"
+ocamlc -o "$tmp_dir/out" -open Nocaml "$tmp_dir/code.ml" && "$tmp_dir/out"
+```
+
+In `nocaml.ml` we can see that all the values of the standard
+library are rebound to the unit type (`()`).
+Once those identifiers are shadowed we have no way to reach them.
 
 ```ocaml
 let raise = ()
@@ -42,6 +54,12 @@ let __FILE__ = ()
 let __LINE__ = ()
 let __MODULE__ = ()
 (* and so on ... *)
+module Stdlib = struct end
+module String = struct end
+module StringLabels = struct end
+module Sys = struct end
+module Type = struct end
+(* and so on ... *)
 ```
 
 As usual, the objective is reading the file `flag.txt`.
@@ -49,11 +67,11 @@ As usual, the objective is reading the file `flag.txt`.
 ## Exploitation
 
 The first thing that came to mind was using `Pervasives` (the old name of the `Stdlib` module).
-Unfortunately newer version of OCaml removed this alias.
+Unfortunately newer versions of OCaml removed this alias.
 
 At this point I went for the foreign function interface.
 With the use of the `external` keyword, it's possible to declare
-and invoke functions following the C ABI.
+and invoke functions from the C ABI.
 
 We don't have a way to create new foreign functions, but we don't really need to!
 The `Stdlib` is always compiled and linked, even if we can't access it from the code.
@@ -61,7 +79,7 @@ This means that plenty of internal functions can be brought back with the FFI.
 
 By diving into the [standard library code](https://github.com/ocaml/ocaml/tree/trunk/stdlib)
 I found some useful primitives for IO.
-The script we used to get the flag is the following:
+The script I used to get the flag is the following:
 
 ```ocaml
 (* directly from Stdlib *)
@@ -110,5 +128,8 @@ $ (base64 -w0 solve.ml; echo) | ncat --no-shutdown --ssl nocaml.chal.uiuc.tf 133
 == proof-of-work: disabled ==
 uiuctf{nocaml_79976241e31bee31e37c42885}
 ```
+
+To conclude, I liked this challenge quite a bit.
+Coming into this with OCaml experience, the solutions felt natural and intuitive.
 
 [dune]: https://github.com/ocaml/ocaml/blob/9d44d724ad63ea76e22f5ac4740d7d0a66ec92bd/toplevel/dune#L92
