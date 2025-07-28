@@ -2,7 +2,8 @@
 date: 2025-07-27T21:30:42+02:00
 title: "witer33"
 name: ""
-joined: 2024-05-22
+join_year: 2024
+join_month: 05
 roles:
   # - pwn
   - web

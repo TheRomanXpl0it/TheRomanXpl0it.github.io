@@ -12,7 +12,7 @@ roles:
   # - misc
   # - forensics
   # - hardware
-  - infra
+  #- infra
   # - og
 
 avatar: "/avatars/nect.jpg"

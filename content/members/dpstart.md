@@ -1,5 +1,5 @@
 ---
-date: 2025-07-21T14:04:19+02:00
+date: 2025-07-01T14:04:19+02:00
 title: "dpstart"
 name: "Daniele Paliotta"
 join_year: 2017

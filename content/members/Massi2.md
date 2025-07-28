@@ -2,7 +2,8 @@
 date: 2025-07-24T22:00:45+02:00
 title: 'Massi2'
 name: "Massimo Palozzi"
-joined: 2024-11-19
+join_year: 2024
+join_month: 11
 
 roles:
   # - pwn

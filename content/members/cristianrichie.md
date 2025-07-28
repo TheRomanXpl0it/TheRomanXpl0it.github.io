@@ -1,5 +1,5 @@
 ---
-date: 2025-07-21T14:12:13+02:00
+date: 2025-07-21T13:12:13+02:00
 title: "cristianrichie"
 name: "Cristian Assaiante"
 join_year: 2017

@@ -1,7 +1,9 @@
 ---
 date: 2025-07-28T11:50:00+02:00
 title: "Valenter"
-joined: 2025-07-11
+join_year: 2025
+join_month: 07
+
 roles:
   # - pwn
   - web

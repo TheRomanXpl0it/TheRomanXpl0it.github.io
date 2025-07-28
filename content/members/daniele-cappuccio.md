@@ -1,5 +1,5 @@
 ---
-date: 2025-07-21T14:03:30+02:00
+date: 2025-07-01T14:03:30+02:00
 title: "daniele-cappuccio"
 name: "Daniele Cappuccio"
 join_year: 2017
