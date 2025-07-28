@@ -6,7 +6,8 @@ title: 'purupuddu'
 # real name
 name: "Andrea Puddu"
 # join date (year & month)
-joined: 2024-02-24T19:44:25+02:00 # change this
+join_year: 2024
+join_month: 02
 
 roles:
   # - pwn

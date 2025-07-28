@@ -1,25 +1,37 @@
 ---
+# file creation date (not relevant)
 date: {{ .Date }}
 
-# username
+# username (required)
 title: '{{ replace .File.ContentBaseName "-" " " }}'
-# real name
-name: "{{ .Name }}"
-# join date (year & month)
-joined: {{ .Date }} # change this
 
+# real name (optional)
+name: "{{ .Name }}"
+
+# join year (required)
+join_year: 2024
+
+# join month number (optional)
+join_month: # 1
+
+# you can add multiple, but please no custom ones
 roles:
-  - pwn
-  # - web
   # - reverse
   # - crypto
-  # - misc
   # - forensics
+  # - misc
+  # - pwn
+  # - web
+  # - fullpwn
   # - hardware
+  # - infra
   # - OG
+  # - former
 
 # put the avatar in /static/avatars/
 avatar: # "/avatars/{{ urlize .Name }}.jpg"
+
+# optional social links
 social:
   mail: ""
   github: ""

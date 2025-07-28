@@ -1,7 +1,9 @@
 ---
 date: 2025-07-27T13:10:23+02:00
 title: "nect"
-joined: 2025-06-01
+join_year: 2025
+join_month: 06
+
 roles:
   - pwn
   # - web
@@ -10,6 +12,7 @@ roles:
   # - misc
   # - forensics
   # - hardware
+  #- infra
   # - og
 
 avatar: "/avatars/nect.jpg"

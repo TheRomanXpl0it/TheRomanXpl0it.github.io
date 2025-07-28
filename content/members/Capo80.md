@@ -2,7 +2,8 @@
 date: 2025-07-21T16:30:59+02:00
 title: "Capo80"
 name: "Pasquale Caporaso"
-joined: 2021-10-01T16:30:59+02:00
+join_year: 2021
+join_month: 10
 roles:
   #- pwn
   # - web

@@ -2,7 +2,8 @@
 date: 2025-07-24T16:07:25+02:00
 title: "Fwame"
 name: "Donato Barone"
-joined: 2024-03-21
+join_year: 2024
+join_month: 03
 roles:
   # - pwn
   # - web

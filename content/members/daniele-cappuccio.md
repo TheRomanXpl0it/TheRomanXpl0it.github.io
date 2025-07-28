@@ -1,8 +1,9 @@
 ---
-date: 2025-07-21T14:03:30+02:00
+date: 2025-07-01T14:03:30+02:00
 title: "daniele-cappuccio"
 name: "Daniele Cappuccio"
-joined: 2017-01-01
+join_year: 2017
+join_month:
 roles:
   #- pwn
   # - web

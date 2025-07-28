@@ -2,7 +2,8 @@
 date: 2025-07-25T16:34:12+02:00
 title: 'r4yan'
 name: "Rayan Yessou"
-joined: 2025-06-23
+join_year: 2025
+join_month: 06
 
 roles:
   # - pwn

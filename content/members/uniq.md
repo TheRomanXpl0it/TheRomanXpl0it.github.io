@@ -2,7 +2,8 @@
 date: 2025-07-21T16:31:20+02:00
 title: "uniq"
 name: ""
-joined: 2025-07-21T16:31:20+02:00
+join_year: 2023
+join_month:
 roles:
   - pwn
   # - web

@@ -1,6 +1,6 @@
 # [theromanxpl0.it](https://theromanxpl0.it/)
 
-## Add member
+## Adding a member
 
 To add yourself to the members page, you can run the helper script:
 
@@ -22,7 +22,8 @@ The content of the members page are as follows:
 
 * `title`: Your username
 * `name`: Your full name (optional)
-* `joined`: Approximate date of join (year/month is enough)
+* `join_year`: Year of join (required)
+* `join_month`: Month of join (optional)
 * `roles`: A list of roles (please don't add custom roles :pray:)
 * `avatar`: Path of your avatar image (relative to `/static`). Please add the image as `/static/avatars/X` and put the avatar value as `"/avatars/X"`
 
@@ -31,6 +32,11 @@ Values supported in the `social` table are:
 * `github`
 * `linkedin`
 * `website`
+
+## Writing a post
+
+> ![TIP]
+> If you need mathjax, you can add `math: true` to the frontmatter.
 
 ## Development setup
 
