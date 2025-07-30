@@ -18,9 +18,9 @@ Another flag checker challenge...can you get the correct input to print out the 
 
 author: epistemologist
 
-## Analisys
+## Analysis
 
-We start by opening the binary attachment with ida, from there I can see that the main is fairly simple, it reads an input, runs some checks and then prints the flag.
+We start by opening the binary attachment with IDA, from there I can see that the main is fairly simple, it reads an input, runs some checks and then prints the flag.
 
 ```c
 int __fastcall main(int argc, const char **argv, const char **envp)
@@ -39,7 +39,7 @@ int __fastcall main(int argc, const char **argv, const char **envp)
 }
 ```
 
-First we take a look to the `print_flag` function to see that takes our input as "key" to decrypt the flag and print it
+First we take a look to the `print_flag` function to see that it takes our input as "key" to decrypt the flag and print it
 
 ```c
 unsigned __int64 __fastcall print_flag(__int64 a1)
@@ -56,7 +56,7 @@ unsigned __int64 __fastcall print_flag(__int64 a1)
 }
 ```
 
-We can now check the content of the function `F`, discovering that is the fast exponentiation function
+We can now check the content of the function `F`, discovering that it is the fast exponentiation function
 
 ```c
 __int64 __fastcall F(__int64 a1, __int64 a2, __int64 a3)
@@ -93,7 +93,7 @@ __int64 __fastcall check_input(__int64 a1)
 }
 ```
 
-As we can see, it's doing `pow(test_pt[i], a1[i], 0xFFFFFF2FLL) != test_ct[i]` where `a1` are 4 bytes of the key, so now we can take the costants from ida
+As we can see, it's doing `pow(test_pt[i], a1[i], 0xFFFFFF2FLL) != test_ct[i]` where `a1` are 4 bytes of the key, so now we can take the constants from IDA
 
 ```c
 .rodata:0000000000002040                 public test_pt

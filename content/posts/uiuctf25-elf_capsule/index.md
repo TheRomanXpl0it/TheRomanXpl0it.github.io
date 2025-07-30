@@ -27,9 +27,9 @@ author: CBCicada
 
 ## Analysis
 
-First thing first, we can start by throwing common commands against this binary, such as `strings` or `binwalk`, `binwalk` finds an hidden binary inside the binary, this will be useful later; in the strings there is not something useful.
+First thing first, we can start by throwing common commands against this binary, such as `strings` or `binwalk`, `binwalk` finds a hidden binary inside the binary, this will be useful later; in the strings there is not something useful.
 
-In the main binary, following a bt of the code flow we see that we arrive at `loc_80000E78` which loads the addr of the inner elf into a register and then it calls `sub_800004BC` that will dispatch the embedded binary
+In the main binary, following a bit of the code flow we see that we arrive at `loc_80000E78` which loads the addr of the inner elf into a register and then it calls `sub_800004BC` that will dispatch the embedded binary
 
 ### Inner binary
 
@@ -77,13 +77,13 @@ This exception-based dispatch mechanism lets the embedded binary implement a ful
 
 ## Main binary
 
-as we saw earlier `sub_800001C0` contains the code of the functions that are called with codes as invalid memory addresses, there are two branches, one for operation type (load and store), that will do 2 similar operations, for example the xor operation are defined as `stack[-1] ^= a4` for the stores and `a4 = stack[-2] ^ stack[-1]` for the loads, this pattern is shared between all operations + some functions that are one the inverse of the other (like `push` and `pop`)
+as we saw earlier `sub_800001C0` contains the code of the functions that are called with codes as invalid memory addresses, there are two branches, one for operation type (load and store), that will do 2 similar operations, for example the xor operation is defined as `stack[-1] ^= a4` for the stores and `a4 = stack[-2] ^ stack[-1]` for the loads, this pattern is shared between all operations + some functions that are one, the inverse of the other (like `push` and `pop`)
 
 ## Decompiler
 
-Given the previous patterns is possible to write a simple pattern matching decompiler (more likely a function call resolver) for the inner binary.
+Given the previous patterns is possible to write a simple pattern matching decompiler (more like a function call resolver) for the inner binary.
 
-We can start by enumerating all the found functions from the first binary function `sub_800001C0` which contains all the "opcodes" that are called, and also we notice that the the "load and "store" operations are actually two different type of instructions. (the `push_call` are like the init of a for loop and we have 3 of them, then the `pop_call` is the dec of the loop index)
+We can start by enumerating all the found functions from the first binary function `sub_800001C0` which contains all the "opcodes" that are called, and also we notice that the "load and "store" operations are actually two different type of instructions. (the `push_call` are like the init of a for loop and we have 3 of them, then the `pop_call` is the dec of the loop index)
 
 ```py
 sd_codes = {
@@ -163,7 +163,7 @@ if m := sd_regex.match(inst):
 	inst = f'{real_func}'
 ```
 
-then we step to the "load" calls that are kinda the same as above
+then we step to the "load" calls that are similar to the above
 
 ```py
 ld_regex = re.compile(r"l(d|bu)\s*a.,\s0\(a(.)\)")
@@ -723,7 +723,7 @@ loc_801009d8: ret
 
 Now we can actually see a somewhat readable code.
 We can start by noticing that the code is divided into 4 sections,
-the first one is like it's checking that the vm is working properly, then there are two crc and the last one is probably a decoy given that it's doing 3 nested for loops of length 991469, 692549 and 823212, which would amount at 565 quadrillion that is not feasible.
+the first one is like it's checking that the vm is working properly, then there are two crc and the last one is probably a decoy given that it's doing 3 nested for loops of length 991469, 692549 and 823212, which would amount to 565 quadrillion that is not feasible.
 
 We can now start to implement the `encrypt` function in python
 
