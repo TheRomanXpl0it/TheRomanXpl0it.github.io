@@ -6,7 +6,7 @@ categories:
 - writeup
 - uiuctf25
 tags:
-- rev
+- reverse
 - cuda
 authors:
 - ice cream
