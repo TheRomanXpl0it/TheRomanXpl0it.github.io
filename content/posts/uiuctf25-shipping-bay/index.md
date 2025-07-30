@@ -30,7 +30,7 @@ Let's try to create a new shipment.
 
 We can pick from a variety of options here, but it doesn't really matter, the space courier will always lose our package
 
-```http
+```
 https://shipping-bay.chal.uiuc.tf/?status=oops+we+lost+the+package
 ```
 
@@ -86,13 +86,13 @@ We are going to use this character: `ſ` (Latin small long‑s, U+017F, unchange
 
 ```python
     form = [
-        ("origin",       uid),               # tutti i campi “normali”
+        ("origin",       uid),               
         ("destination",  "Luna City"),
         ("weight",       "1 ton"),
         ("priority",     "Low"),
         ("vessel",       "USS Tomorrow"),
-        ("supply_type",  "Tools"),           # passa il filtro Python
-        ("ſupply_type",   "flag"),            # secondo campo → debug
+        ("supply_type",  "Tools"),           # passes the first python filter
+        ("ſupply_type",   "flag"),           # overwrites the go parser
     ]
 ``` 
 

