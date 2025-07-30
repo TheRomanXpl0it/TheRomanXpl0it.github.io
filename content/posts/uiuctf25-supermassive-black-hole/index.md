@@ -4,11 +4,12 @@ date: 2025-07-30
 lastmod: 2025-07-30T13:00:30+02:00
 categories:
   - writeup
-  - UIUCTF
+  - uiuctf25
 tags:
   - web
   - python
   - CRLF injection
+  - medium
 authors:
   - Valenter
 ---

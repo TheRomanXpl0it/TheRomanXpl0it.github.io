@@ -4,10 +4,11 @@ date: 2025-07-28
 lastmod: 2025-07-28T19:59:34+02:00
 categories:
   - writeup
-  - L3akCTF
+  - L3akCTF25
 tags:
   - web
   - php
+  - medium
 authors:
   - Valenter
 ---
