@@ -7,7 +7,7 @@ categories:
   - uiuctf25
 tags:
   - web
-  - Typescript
+  - typescript
   - xss
 authors:
   - Valenter
