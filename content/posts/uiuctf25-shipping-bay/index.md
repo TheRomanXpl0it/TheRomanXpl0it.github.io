@@ -9,7 +9,7 @@ tags:
   - web
   - python
   - go
-  - Parser-differential
+  - parser differential
   - medium
 authors:
   - Valenter
@@ -86,7 +86,7 @@ We are going to use this character: `ſ` (Latin small long‑s, U+017F, unchange
 
 ```python
     form = [
-        ("origin",       uid),               
+        ("origin",       uid),
         ("destination",  "Luna City"),
         ("weight",       "1 ton"),
         ("priority",     "Low"),
@@ -94,7 +94,7 @@ We are going to use this character: `ſ` (Latin small long‑s, U+017F, unchange
         ("supply_type",  "Tools"),           # passes the first python filter
         ("ſupply_type",   "flag"),           # overwrites the go parser
     ]
-``` 
+```
 
 But **what** is going on under the hood?
 
@@ -122,16 +122,16 @@ On the **Go** (processing_service) side:
 - Go’s JSON unmarshaller scans keys in order and, upon each match, sets the struct field
 ```go
 type Shipment struct {
-    …  
+    …
     SupplyType string `json:"supply_type"`
-    …  
+    …
 }
 ```
 - It matches keys using **Unicode case‑folding** (`strings.EqualFold`), which maps both ASCII “s” and the long‑s “ſ” to the same fold class “s”.
 - Therefore:
 
 	1. On seeing `"supply_type":"Tools"`, it sets `SupplyType = "Tools"`.
-    
+
 	2. On seeing `"ſupply_type":"flag"`, it also matches the same field (since “ſ” folds to “s”) and overwrites it with `"flag"`
 This gives rise to a sort of pseudo-homographic **parser differential** attack.
 
@@ -159,7 +159,7 @@ def pretty(loc):
 def main():
     uid = f"Earth‑{uuid.uuid4()}"
     form = [
-        ("origin",       uid),               
+        ("origin",       uid),
         ("destination",  "Luna City"),
         ("weight",       "1 ton"),
         ("priority",     "Low"),

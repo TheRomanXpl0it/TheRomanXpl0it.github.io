@@ -125,3 +125,34 @@ button.search-dropdown-reset {
     border-radius: 0;
   }
 }
+
+.search-form-control,
+.search-modal-close {
+  margin: 0;
+  flex-shrink: 1;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.search-modal-close {
+  padding: 0 0.5em;
+}
+
+.search-input-group-wrapper {
+  gap: 1em;
+}
+
+@media (max-width: 372px) {
+  .search-modal-close {
+    padding: 8px 0;
+  }
+  .search-input-group-wrapper {
+    flex-direction: column;
+  }
+}
+
+.search-input {
+  flex-shrink: 1;
+  min-width: 0;
+  width: 100%;
+}
