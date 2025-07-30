@@ -29,7 +29,27 @@ author: CBCicada
 
 First thing first, we can start by throwing common commands against this binary, such as `strings` or `binwalk`, `binwalk` finds a hidden binary inside the binary, this will be useful later; in the strings there is not something useful.
 
-In the main binary, following a bit of the code flow we see that we arrive at `loc_80000E78` which loads the addr of the inner elf into a register and then it calls `sub_800004BC` that will dispatch the embedded binary
+In the main RICV binary, following a bit of the code flow from the `start` function, we see that we arrive through `sub_80000060` at `loc_80000E78` which loads the addr of the inner elf into a register and then it calls `sub_800004BC` that will dispatch the embedded binary
+
+```c
+loc_80000E78:
+    addi    sp, sp, -20h
+    sd      ra, 18h(sp)
+    sd      s0, 10h(sp)
+    addi    s0, sp, 20h # ' '
+    call    sub_80000210
+    addi    a1, s0, -18h
+    la      a0, unk_80001000 # Inner Binary
+    call    sub_800004BC # Dispatch function
+    lui     a0, 801h
+    ld      a1, -18h(s0)
+    slli    a0, a0, 8
+    la      a2, unk_80006010
+    addi    a0, a0, -1
+    call    sub_800001DC
+```
+
+We will return to this binary after looking the second one.
 
 ### Inner binary
 
