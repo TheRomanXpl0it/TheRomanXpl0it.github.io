@@ -23,3 +23,5 @@ social:
   linkedin: ""
   website: "https://kqx.io"
 ---
+
+i do linux kernel and x86 stuff for fun
