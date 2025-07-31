@@ -1,7 +1,7 @@
 ---
 date: 2025-07-21T16:28:53+02:00
 title: "leave"
-name: ""
+name: "Manuele Pandolfi"
 join_year: 2024
 join_month: 05
 
@@ -21,5 +21,5 @@ social:
   mail: ""
   github: "https://github.com/manuele-pandolfi"
   linkedin: ""
-  website: ""
+  website: "https://kqx.io"
 ---
