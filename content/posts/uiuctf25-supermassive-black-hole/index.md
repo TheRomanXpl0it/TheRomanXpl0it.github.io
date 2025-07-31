@@ -130,7 +130,7 @@ But since `fix_eols` is deactivated, this is vulnerable to **CRLF injection**.
 
 ## Examining the vulnerability
 
-We can use `\n.\r\n`, a.k.a *LF‑dot‑CRLF*, to close our crafted message, the SMTP server will recognize dot-only line as end-of-DATA, and everything that follows (`MAIL FROM:…`, `RCPT TO:…`, etc.) will be interpreted  as new SMTP commands.
+We can use `\n.\r\n`, a.k.a *LF‑dot‑CRLF*, to close our crafted message, the SMTP server will recognize a dot-only line as end-of-DATA, and everything that follows (`MAIL FROM:…`, `RCPT TO:…`, etc.) will be interpreted  as new SMTP commands.
 
 #### The payload
 
