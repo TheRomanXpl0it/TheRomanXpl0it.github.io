@@ -24,3 +24,29 @@
   height: 2.2em;
   margin-right: 1em;
 }
+
+.post-authors {
+  display: flex;
+  width: 100%;
+
+  &__label {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  &__names {
+    display: flex;
+    gap: 0.8em;
+    flex: 1 1 0;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+
+    & .author-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.1em;
+      flex: 0 0 auto;
+    }
+  }
+}

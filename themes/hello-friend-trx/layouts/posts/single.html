@@ -3,18 +3,11 @@
 
     <div class="post-info">
       {{ if .Params.authors }}
-        <div>
-          {{- $site := .Site -}}
-            <div class="post-authors">
-              <span class="post-authors__label">AUTHOR{{if ne (len .Params.authors) 1}}S{{end}}</span>
-              <span class="post-authors__names">
-                {{- range $index, $author := .Params.authors -}}
-                  {{- partial "author.html" (dict "author" $author "site" $site) -}}
-                  &nbsp;
-                {{- end -}}
-              </span>
-            </div>
-        </div>
+      {{- $label := "AUTHORS" -}}
+      {{- if eq (len .Params.authors) 1 -}}
+        {{- $label = "AUTHOR" -}}
+      {{- end -}}
+      {{- partial "authors.html" (dict "authors" .Params.authors "site" .Site "label" $label) -}}
       {{ end }}
 
       <br>

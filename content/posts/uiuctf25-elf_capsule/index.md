@@ -23,7 +23,7 @@ Note: The flag consists of only printable ASCII characters.
 The flag has format uiuctf{...}, and inputs to program should follow this format.
 Your solve script shouldn't take more than 10 minutes to run.
 
-author: CBCicada
+Author: CBCicada
 
 ## Analysis
 
@@ -97,7 +97,7 @@ This exception-based dispatch mechanism lets the embedded binary implement a ful
 
 ## Main binary
 
-as we saw earlier `sub_800001C0` contains the code of the functions that are called with codes as invalid memory addresses, there are two branches, one for operation type (load and store), that will do 2 similar operations, for example the xor operation is defined as `stack[-1] ^= a4` for the stores and `a4 = stack[-2] ^ stack[-1]` for the loads, this pattern is shared between all operations + some functions that are one, the inverse of the other (like `push` and `pop`)
+As we saw earlier `sub_800001C0` contains the code of the functions that are called with codes as invalid memory addresses, there are two branches, one for operation type (load and store), that will do 2 similar operations, for example the xor operation is defined as `stack[-1] ^= a4` for the stores and `a4 = stack[-2] ^ stack[-1]` for the loads, this pattern is shared between all operations + some functions that are one, the inverse of the other (like `push` and `pop`).
 
 ## Decompiler
 
@@ -220,7 +220,7 @@ if lui in inst:
 
 	m = addi_regex.match(addi_inst)
 	a4 = int(m.group(1), 16)
-	
+
 	addr += inst_size
 	continue
 ```
@@ -350,7 +350,7 @@ while addr < end:
 			real_func = ld_codes.get(real_func, f'unknown_{real_func}')
 			a5 = None
 		inst = f'{real_func}'
-	
+
 	elif lui in inst:
 		addi_inst = idc.GetDisasm(addr+inst_size)
 		addi_insn = ida_ua.insn_t()
@@ -359,7 +359,7 @@ while addr < end:
 
 		m = addi_regex.match(addi_inst)
 		a4 = int(m.group(1), 16)
-		
+
 		addr += inst_size
 		continue
 

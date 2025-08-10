@@ -33,3 +33,5 @@ RUN npm install
 RUN hugo mod get -u && \
     hugo mod tidy
 
+RUN git config --global --add safe.directory /code
+RUN git config --global --add safe.directory /src
