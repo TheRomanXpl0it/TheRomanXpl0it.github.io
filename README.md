@@ -41,6 +41,8 @@ You can create an empty blog post with header by using hugo:
 hugo new posts/myctf25-chall1/index.md
 ```
 
+If you want to add a link to your blog post you can add the `upstream` value to the frontmatter.
+
 > [!TIP]
 > If you need mathjax, you can add `math: true` to the frontmatter.
 
