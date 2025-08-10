@@ -9,6 +9,7 @@ tags:
   - web
   - typescript
   - xss
+  - easy
 authors:
   - Valenter
 ---
