@@ -1,0 +1,10 @@
+{{- $site := .site -}}
+<div class="post-authors">
+  <span class="post-authors__label">{{.label}}</span>
+
+  <span class="post-authors__names">
+  {{- range $index, $author := .authors -}}
+  {{- partial "author.html" (dict "author" $author "site" $site) -}}
+  {{- end -}}
+  </span>
+</div>

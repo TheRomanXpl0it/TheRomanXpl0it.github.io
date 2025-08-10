@@ -22,18 +22,10 @@
                     {{ end }}
                 </span>
 
-                {{- if .Params.authors -}}
-                {{- $site := .Site -}}
-                  <div class="post-authors">
-                    <span class="post-authors__label">by</span>
-                    <span class="post-authors__names">
-                      {{- range $index, $author := .Params.authors -}}
-                        {{- partial "author.html" (dict "author" $author "site" $site) -}}
-                        &nbsp;
-                      {{- end -}}
-                    </span>
-                  </div>
-                {{- end -}}
+              {{ if .Params.authors }}
+              {{- $label := "by" -}}
+              {{- partial "authors.html" (dict "authors" .Params.authors "site" .Site "label" $label) -}}
+              {{ end }}
               </div>
             </div>
           </li>
