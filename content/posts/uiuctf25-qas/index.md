@@ -30,6 +30,8 @@ prints the flag if the hashed output matches a constant.
 The code is very straightforward and the only annoyance
 is the usage of confusing type names for integer types.
 
+Here's the code stripped from comments:
+
 ```c
 typedef int not_int_small;
 typedef short int_small;
@@ -122,7 +124,7 @@ int main() {
     printf("=== QUANTUM AUTHENTICATION SYSTEM v2.7.3 ===\n");
     printf("Initializing quantum security protocols...\n");
 
-    for (volatile int i = 0; i < 100000; i++) { /* quantum processing */ }
+    for (volatile int i = 0; i < 100000; i++) { }
 
     printf("Quantum entropy generated. System ready.\n");
     printf("Please enter your quantum authentication code: ");
@@ -143,14 +145,14 @@ int main() {
         printf("Quantum authentication failed!\n");
         printf("Access denied. Incident logged.\n");
     }
-
     return 0;
 }
 ```
 
-Since the constant is known `0x555` and the domain of the input is small (32-bit), we can just bruteforce it!
+Since the constant is known (`0x555`) and the domain of the input is small (32-bit),
+we can just bruteforce it!
 
-Valid solutions can be found by just changing the main function like so:
+Valid solutions can be found by changing the main function like so:
 
 ```c
 int main() {
@@ -200,12 +202,13 @@ Accessing secured vault...
 CLASSIFIED FLAG: uiuctf{qu4ntum_0v3rfl0w_2d5ad975653b8f29}
 ```
 
-Now that the cheesy solution is out of the way, what is the vuln here?
+With the cheesy solution out of the way, what is the vuln here?
 
 `scanf("%d", (int*)&qdata.input.val)` reads 4 bytes into the input struct. But the `val` field is a short!
 Since the struct is packed, this means that we are overwriting the following field, which in this case is a `char[2]` called `padding`.
 
 Contrary to common sense, this field is actually used in the hash function: `hash ^= input.padding[0] << 8 | input.padding[1];`
 
-By providing certain negative numbers we can manipulate the input and win. Also note that there are no positive solutions.
+By providing certain negative numbers we can obtain the right output value and win.
+Also note that there are no positive solutions.
 
