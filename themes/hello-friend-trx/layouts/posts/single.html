@@ -3,17 +3,27 @@
 
     <div class="post-info">
       {{ if .Params.authors }}
-      {{- $label := "AUTHORS" -}}
-      {{- if eq (len .Params.authors) 1 -}}
-        {{- $label = "AUTHOR" -}}
-      {{- end -}}
-      {{- partial "authors.html" (dict "authors" .Params.authors "site" .Site "label" $label) -}}
+        {{- $label := "AUTHORS" -}}
+        {{- if eq (len .Params.authors) 1 -}}
+          {{- $label = "AUTHOR" -}}
+        {{- end -}}
+        {{- partial "authors.html" (dict "authors" .Params.authors "site" .Site "label" $label) -}}
+        <br>
       {{ end }}
 
-      <br>
+      {{ if .Params.upstream }}
+        <div>
+          <span class="upstream-label">UPSTREAM</span>
+          <a href="{{.Params.upstream}}" class="accent upstream">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            {{.Params.upstream}}
+          </a>
+        </div>
+        <br>
+      {{ end }}
 
       <div class="tags">
-        <span style="margin-right: 1em">TAGS</span>
+        <span class="tags-label">TAGS</span>
         {{- range .Params.tags -}}
           <a href="{{ "tags/" | absLangURL }}{{ . | urlize }}/"><span class="tag-pill tag-{{urlize .}}">{{.}}</span></a>
         {{ end }}
