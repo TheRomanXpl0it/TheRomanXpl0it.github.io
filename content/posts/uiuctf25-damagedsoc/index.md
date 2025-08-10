@@ -98,7 +98,7 @@ Like many modern reverse engineering challenges, this step won't be as easy as t
 
 ![idaSOC](/uiuctf2025/damaged-soc/screenshot-1.png)
 
-##### Enter `sus.py`, courtesy of my teammate [@nect](https://theromanxpl0.it/members/nect/)
+**Enter `sus.py`, courtesy of my teammate [@nect](https://theromanxpl0.it/members/nect/)**
 
 ```python
 f = open('memory.mem')
@@ -577,7 +577,7 @@ result = find_key_bytes()
 `Bytes 16-23: 70736c3076657223 = 'psl0ver#'`
 `Bytes 24-27: 30643030 = '0d00'`
 
-**`flag = uiuctf{U_Uctf_m1psl0ver#0d00._abcdefghi}
+**`flag = uiuctf{U_Uctf_m1psl0ver#0d00._abcdefghi}`**
 
 Now, if everything is correct, we should be able to patch our memory.mem file and see `\n===verification passed!===\n` printed in the output.
 
@@ -722,7 +722,58 @@ if __name__ == "__main__":
 During our first approach to the challenge, [simonedimaria](https://theromanxpl0.it/members/simonedimaria/) managed to recompile the source files with debugging logs:
 
 ```
-Interrupe Handler Address: 0000000008000040 ---- Damaged region dump ---- mem[8] = ef mem[9] = bf mem[a] = bd mem[b] = ef mem[c] = bf mem[d] = bd mem[e] = ef mem[f] = bf mem[10] = bd mem[11] = ef mem[12] = bf mem[13] = bd mem[14] = ef mem[15] = bf mem[16] = bd mem[17] = ef mem[18] = bf mem[19] = bd mem[1a] = ef mem[1b] = bf mem[1c] = bd mem[1d] = ef mem[1e] = bf mem[1f] = bd mem[20] = ef mem[21] = bf mem[22] = bd mem[23] = ef mem[24] = bf mem[25] = bd mem[26] = ef mem[27] = bf mem[28] = bd mem[29] = ef mem[2a] = bf mem[2b] = bd mem[2c] = ef mem[2d] = bf mem[2e] = 7d ----------------------------- PC=0x000000000000010c, inst=0x24190148, rs_data(t0)=0x0000000000000000, rt_data(i)=0x0000000000000000 writeback regnum = 29, data = 0000000000000d00 PC=0x0000000000000110, inst=0x03200009, rs_data(t0)=0x0000000000000000, rt_data(i)=0x0000000000000000 writeback regnum = 28, data = 0000000000000af0 PC=0x0000000000000114, inst=0x00000000, rs_data(t0)=0x0000000000000000, rt_data(i)=0x0000000000000000 writeback regnum = 31, data = 0000000000000d00 writeback regnum = 25, data = 0000000000000148 write addr: 0000000000000cf8, data: 0000000000000d00, type: 4 writeback regnum = 29, data = 0000000000000c90 writeback regnum = 2, data = 000000000000000
+Interrupe Handler Address: 0000000008000040
+---- Damaged region dump ----
+mem[8] = ef
+mem[9] = bf
+mem[a] = bd
+mem[b] = ef
+mem[c] = bf
+mem[d] = bd
+mem[e] = ef
+mem[f] = bf
+mem[10] = bd
+mem[11] = ef
+mem[12] = bf
+mem[13] = bd
+mem[14] = ef
+mem[15] = bf
+mem[16] = bd
+mem[17] = ef
+mem[18] = bf
+mem[19] = bd
+mem[1a] = ef
+mem[1b] = bf
+mem[1c] = bd
+mem[1d] = ef
+mem[1e] = bf
+mem[1f] = bd
+mem[20] = ef
+mem[21] = bf
+mem[22] = bd
+mem[23] = ef
+mem[24] = bf
+mem[25] = bd
+mem[26] = ef
+mem[27] = bf
+mem[28] = bd
+mem[29] = ef
+mem[2a] = bf
+mem[2b] = bd
+mem[2c] = ef
+mem[2d] = bf
+mem[2e] = 7d
+-----------------------------
+PC=0x000000000000010c, inst=0x24190148, rs_data(t0)=0x0000000000000000, rt_data(i)=0x0000000000000000
+writeback regnum = 29, data = 0000000000000d00
+PC=0x0000000000000110, inst=0x03200009, rs_data(t0)=0x0000000000000000, rt_data(i)=0x0000000000000000
+writeback regnum = 28, data = 0000000000000af0
+PC=0x0000000000000114, inst=0x00000000, rs_data(t0)=0x0000000000000000, rt_data(i)=0x0000000000000000
+writeback regnum = 31, data = 0000000000000d00
+writeback regnum = 25, data = 0000000000000148
+write addr: 0000000000000cf8, data: 0000000000000d00, type: 4
+writeback regnum = 29, data = 0000000000000c90
+writeback regnum =  2, data = 0000000000000000
 ...
 ```
 
