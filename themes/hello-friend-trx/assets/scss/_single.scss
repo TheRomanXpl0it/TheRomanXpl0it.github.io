@@ -21,20 +21,10 @@
     }
   }
 
-  // Kinda hacky
-  &-authors__label {
-    margin-right: 0.5em;
-  }
-
-  &-tags {
-    display: block;
-    margin-bottom: 20px;
-    font-size: 1rem;
-    opacity: 0.5;
-
-    a {
-      text-decoration: none;
-    }
+  & .tags-label,
+  & .upstream-label,
+  & .post-authors__label {
+    margin-right: 1em;
   }
 
   &-content {

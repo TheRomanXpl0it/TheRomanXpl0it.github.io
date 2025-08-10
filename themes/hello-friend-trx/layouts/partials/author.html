@@ -5,7 +5,7 @@
 {{- $memberPage := "" -}}
 {{- if $category -}}
 {{- $memberPage = $site.GetPage (printf "%s/%s" $category $slug) -}}
-<a class="author-link" href="{{ $category | absLangURL }}/{{ $slug }}/">
+<a class="author-link accent" href="{{ $category | absLangURL }}/{{ $slug }}/">
 {{- end -}}
 {{- with $memberPage -}}
   {{- with .Params.avatar -}}
@@ -14,7 +14,7 @@
     </div>
   {{- end -}}
 {{- end -}}
-<strong class="author-name">{{- $author -}}</strong>
+<span class="author-name">{{- $author -}}</span>
 {{- if $category -}}
 </a>
 {{- end -}}

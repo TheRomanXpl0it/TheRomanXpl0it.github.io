@@ -192,7 +192,11 @@ figure {
   }
 }
 
-em, i, strong, .variant {
+.accent {
+  font-weight: bold;
+}
+
+em, i, strong, .variant, .accent {
   // Default
   color: $light-color-variant;
 

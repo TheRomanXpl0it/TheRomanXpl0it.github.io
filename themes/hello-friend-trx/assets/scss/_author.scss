@@ -28,6 +28,7 @@
 .post-authors {
   display: flex;
   width: 100%;
+  align-items: center;
 
   &__label {
     flex: 0 0 auto;
@@ -49,4 +50,9 @@
       flex: 0 0 auto;
     }
   }
+}
+
+.upstream i {
+  margin-right: 0.3em; // same as author icon spacing
+  font-size: 0.8em;
 }
