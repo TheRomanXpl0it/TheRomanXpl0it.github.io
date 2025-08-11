@@ -75,7 +75,7 @@ Incorrect key
 HALT
 ```
 
-Well... not much right right now.
+Well... not much right now.
 
 Why is this happening? Well, the author mentioned that the memory is "corrupted", analyzing `memory.mem` we can see what's happening:
 
@@ -577,7 +577,7 @@ result = find_key_bytes()
 `Bytes 16-23: 70736c3076657223 = 'psl0ver#'`
 `Bytes 24-27: 30643030 = '0d00'`
 
-**`flag = uiuctf{U_Uctf_m1psl0ver#0d00._abcdefghi}`**
+**`flag = uiuctf{U_Uctf_m1psl0ver#0d00_abcdefghi}`**
 
 Now, if everything is correct, we should be able to patch our memory.mem file and see `\n===verification passed!===\n` printed in the output.
 
