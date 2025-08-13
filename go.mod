@@ -1,4 +1,4 @@
-module github.com/TheRomanXpl0it/trxdotit
+module github.com/TheRomanXpl0it/TheRomanXpl0it.github.io
 
 go 1.24.4
 
