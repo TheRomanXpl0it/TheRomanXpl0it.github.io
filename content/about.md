@@ -14,6 +14,7 @@ We actively teach crypto, web and binary exploitation at the newbies of Sapienza
 
 Contact us at [info@theromanxpl0.it](mailto:info@theromanxpl0.it).
 
-Follow us on [Twitter](https://x.com/TheRomanXpl0it).
+Follow us on [Twitter](https://x.com/TheRomanXpl0it) and join our [Telegram group](https://t.me/TheRomanChat).
 
-Join our [Telegram group](https://t.me/TheRomanChat).
+*We are currently looking for sponsors.
+If you want to collaborate with us don't hesitate to get in touch.*
