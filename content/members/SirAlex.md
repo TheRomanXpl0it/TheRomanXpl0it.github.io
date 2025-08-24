@@ -6,7 +6,7 @@ date: 2025-08-24T20:02:01+02:00
 title: 'SirAlex'
 
 # real name (optional)
-# name: "SirAlex"
+name: "Alessio Maiola"
 
 # join year (required)
 join_year: 2025
