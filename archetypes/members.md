@@ -15,6 +15,7 @@ join_year: 2024
 join_month: # 1
 
 # you can add multiple, but please no custom ones
+# please don't use more than 2 roles
 roles:
   # - reverse
   # - crypto

@@ -13,7 +13,7 @@ join_month: 6
 
 # you can add multiple, but please no custom ones
 roles:
-   - reverse
+  #- reverse
   # - crypto
   # - forensics
    - misc

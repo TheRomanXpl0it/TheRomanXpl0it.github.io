@@ -27,6 +27,9 @@ The content of the members page are as follows:
 * `roles`: A list of roles (please don't add custom roles :pray:)
 * `avatar`: Path of your avatar image (relative to `/static`). Please add the image as `/static/avatars/X` and put the avatar value as `"/avatars/X"`
 
+> [!CAUTION]
+> Please only use 2 roles max
+
 Values supported in the `social` table are:
 * `mail`
 * `github`
