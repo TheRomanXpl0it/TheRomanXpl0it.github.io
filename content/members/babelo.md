@@ -1,6 +1,6 @@
 ---
 date: 2025-07-21T14:46:19+02:00
-title: "salvatore.abello"
+title: "babelo"
 name: "Salvatore Abello"
 join_year: 2024
 join_month:
@@ -18,7 +18,7 @@ roles:
 avatar: # "/avatars/{{ urlize .Name }}.jpg"
 social:
   mail: ""
-  github: ""
+  github: "https://github.com/salvatore-abello/"
   linkedin: ""
-  website: ""
+  website: "http://blog.babelo.xyz/"
 ---

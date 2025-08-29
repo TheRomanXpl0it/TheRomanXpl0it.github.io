@@ -11,7 +11,7 @@ tags:
 - shadow DOM
 - iframe
 authors:
-- salvatore.abello
+- babelo
 ---
 
 This is an easy client-side challenge

@@ -8,7 +8,7 @@ tags:
 - misc
 - pyjail
 authors:
-- salvatore.abello
+- babelo
 ---
 
 ## Challenge

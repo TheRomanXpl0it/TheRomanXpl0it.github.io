@@ -18,7 +18,7 @@ join_month: 07
 roles:
    - crypto
    - web
-   - reverse
+  # - reverse
   # - forensics
   # - misc
   # - pwn

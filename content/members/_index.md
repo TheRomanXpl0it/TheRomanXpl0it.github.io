@@ -2,5 +2,5 @@
 title = "Members"
 +++
 
-Current active players in the team.
+Active and former players in the team.
 

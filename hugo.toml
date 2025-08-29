@@ -63,8 +63,8 @@ dateformNum = "2006-01-02"
 dateformNumTime = "2006-01-02 15:04"
 # Metadata mostly used in document's head
 #
-description = "TheRomanXpl0it's official website"
-keywords = "ctf, italian, trx, team, cybersecurity"
+description = "The Roman Exploit's website"
+keywords = "CTF, TheRomanXpl0it, TheRomanExploit, italian, TRX, team, cybersecurity"
 images = [""]
 baseAvatar = "/avatars/fallback.jpg"
 # Home subtitle of the index page.
@@ -126,6 +126,7 @@ content = 0.5
 
 [params.author]
 name = "TRX"
+email = "info@theromanxpl0.it"
 category = "members"
 
 # Custom footer

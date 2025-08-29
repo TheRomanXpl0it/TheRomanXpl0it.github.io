@@ -9,6 +9,14 @@
     padding: 16px;
   }
 
+  @media #{$media-size-phone} {
+    padding: 14px;
+  }
+
+  .posts {
+    padding: 0;
+  }
+
   &-date {
     &:after {
       content: '—';
