@@ -6,6 +6,10 @@
   align-items: center;
   margin: 2em;
 
+  @media #{$media-size-phone} {
+    margin: 0;
+  }
+
   &-left {
     width: 100%;
     display: flex;
@@ -17,6 +21,10 @@
     display: flex;
     flex-direction: column;
     gap: 1em;
+
+    & div {
+      text-align: center;
+    }
   }
 
   & .author-icon {

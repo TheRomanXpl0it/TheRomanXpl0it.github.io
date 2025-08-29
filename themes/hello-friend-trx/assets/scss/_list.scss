@@ -8,6 +8,10 @@
     padding: 16px;
   }
 
+  @media #{$media-size-phone} {
+    padding: 14px;
+  }
+
   &-group {
     display: flex;
     margin-bottom: 1.9em;
