@@ -4,9 +4,10 @@ date: '2019-11-11'
 lastmod: '2019-11-11T15:25:44+01:00'
 categories:
 - articles
+- CSAW
 tags:
-- esc
 - csaw
+- esc
 authors:
 - matteojug
 - cristianrichie

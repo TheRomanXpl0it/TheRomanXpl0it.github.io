@@ -3,7 +3,7 @@ title: Trend Micro CTF 2019 libChakraCore.so
 date: '2019-09-09'
 lastmod: '2019-09-09T22:49:17+02:00'
 categories:
-- articles
+- writeup
 tags:
 - pwn
 - jit
