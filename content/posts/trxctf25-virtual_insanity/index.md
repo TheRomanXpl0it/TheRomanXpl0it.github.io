@@ -18,6 +18,7 @@ authors:
 Dancing, Walking, Rearranging Furniture
 
 **DISCLAIMER**: This challenge doesn't require brute-forcing
+
 ## Overview of the challenge
 
 The challenge is a standard ret2win with a pretty obvious overflow of 0x30 bytes, the binary is compiled without stack canary protection but has pie, with no apparent way to leak addresses.
@@ -26,11 +27,11 @@ The challenge is a standard ret2win with a pretty obvious overflow of 0x30 bytes
 
 The intended solution involves performing a partial overwrite to redirect execution to the `win` function. However, the return address on the stack is a libc address. To work around this, we can leverage [vsyscall](https://0xax.gitbooks.io/linux-insides/content/SysCall/linux-syscall-3.html) to traverse the stack until we locate the address of `main`. By modifying its least significant byte (LSB), we can transform it into the address of `win`. When execution returns, `vsyscall` effectively acts as a `ret` gadget, allowing us to redirect control flow to `win`.
 
-Before overwrite:\
-![](img1.png)
+**Before overwrite:**
+![](/trxctf25/virtual/img1.png)
 
-After overwrite:\
-![](img2.png)
+**After overwrite:**
+![](/trxctf25/virtual/img2.png)
 
 ## Solve Script
 
@@ -57,10 +58,10 @@ set follow-exec-mode same
 def conn():
     if args.LOCAL:
         return process([exe.path])
-    
+
     if args.GDB:
         return gdb.debug([exe.path], gdbscript=GDB_SCRIPT)
-    
+
     return remote(REMOTE_NC_CMD.split()[1], int(REMOTE_NC_CMD.split()[2]))
 
 def main():
