@@ -3,7 +3,7 @@ title: WCTF 2019 BabyPwn
 date: '2019-07-06'
 lastmod: '2019-07-06T15:08:55+02:00'
 categories:
-- articles
+- writeup
 tags:
 - pwn
 - crypto
@@ -168,7 +168,7 @@ To do so we have to carefully choose the parameters of the DH key exchange.
 In function dh_exchange at 0x00411ae0 we are asked for 3 hex-encoded values
 
 ```
-p (in hexadecimal, length <= 1000) : 
+p (in hexadecimal, length <= 1000) :
 q (in hexadecimal, length <= 1000) :
 g (in hexadecimal, 0x2 <= g <= 0x40 ) :
 ```
@@ -203,7 +203,7 @@ To at least complete the exchange, our parameters p, q, g need to satisfy some c
   if (q_bit_len_ge_200 < 0x200) {
     return 0;
   }
-  
+
     ….
 
 p_min_1_mod_q = __gmpz_divisible_p(p_minus_1,q);
@@ -226,7 +226,7 @@ We will be prompted for g^a and then the server will compute the shared key as g
 ```c
 // function key_exchange@0x00412064
     BCryptGenRandom((BCRYPT_ALG_HANDLE)0x0,nonce,0x40,2);
-    …..  
+    …..
     __gmpz_set_str(b,nonce_hex,0x10);
     __gmpz_powm(g_to_b,g,b,p);
     __gmp_sprintf(local_8c4,&DAT_00418b38,g_to_b);
@@ -237,7 +237,7 @@ We will be prompted for g^a and then the server will compute the shared key as g
 
 ### Solution
 
-So we need to find a way to choose g^a so that g^ab mod p = 0x0102030405060708091011121314151617181920212223242526272829303132 
+So we need to find a way to choose g^a so that g^ab mod p = 0x0102030405060708091011121314151617181920212223242526272829303132
 
 The key insight to solve the challenge is that g^a = b-th root of 0x0102030405060708091011121314151617181920212223242526272829303132 mod p
 
@@ -259,7 +259,7 @@ So mainly thanks to point 2 and 3 we can use *pohlig hellman* algorithm to solve
 
 To do so we repeatedly
 
-1. generate q as a 0x200 bits prime, then we generate several (in my final exploit ~100) small primes 
+1. generate q as a 0x200 bits prime, then we generate several (in my final exploit ~100) small primes
 2. check that p = 2 * q * primes + 1 is prime
 Now that we have the correct p and q we can store them to use in the exploit
 

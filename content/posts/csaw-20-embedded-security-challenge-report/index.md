@@ -4,9 +4,10 @@ date: '2020-11-12'
 lastmod: '2020-11-12T17:03:23+01:00'
 categories:
 - articles
+- CSAW
 tags:
-- esc
 - csaw
+- esc
 authors:
 - matteojug
 - cristianrichie

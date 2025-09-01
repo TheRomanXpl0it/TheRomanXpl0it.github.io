@@ -3,7 +3,7 @@ title: Flare-On 2017 writeups
 date: '2017-10-14'
 lastmod: '2023-07-03T19:19:24+02:00'
 categories:
-- articles
+- writeup
 tags:
 - flare-on
 authors:
