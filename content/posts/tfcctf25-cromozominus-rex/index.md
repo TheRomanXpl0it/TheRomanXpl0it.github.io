@@ -1,6 +1,6 @@
 ---
 # example: UIUCTF 25 - ELF Capsule
-title: TFCCTF 25 - Cromozominus Rex
+title: TFC CTF 25 - Cromozominus Rex
 
 # date of publication/creation
 date: '2025-09-02T11:56:22+02:00'
@@ -102,10 +102,11 @@ undefined4 syscall(undefined4 param_1,undefined4 param_2)
 }
 ```
 
-System calls are triggered with `trap 0` in CSKY.
+This function will come in handy later.
+For now, know that system calls are triggered with `trap 0` in C-SKY.
 
-Now that we found the overflow, we can start ropping.
-But first we need to study the architecture a bit.
+Well, we found the buffer overflow.
+But before we start ropping, a closer look at this architecture is in order.
 
 ### C-SKY 101
 
@@ -113,7 +114,7 @@ There are a lot of registers, but we care only about a handful:
 
 |Register|Usage      |
 |--------|-----------|
-|`r0` |First argument|
+|`r0` |First argument (& return value)|
 |`r1` |Second argument|
 |`r2` |Third argument|
 |`r3` |Fourth argument|
@@ -127,12 +128,12 @@ the address from the stack, but jumps on the link register.\
 So we need to find gadgets that pop to `r15` for the ROP chain.
 
 Another important fact: the stack is not randomized.
-Every program execution got the same stack addresses (around `0x3ffff000`).
+Every program execution has the same stack addresses (around `0x3ffff000`).
 I did find a slight address discrepancy when running on Docker though.
 
 > Note that in both challenges the stack is executable.\
-> I already started with the ROP route, but in mucusuki
-> you could put shellcode in the buffer.
+> I had already started with the ROP route, but you
+> could flag mucusuki by jumping to shellcode in the buffer.
 
 ### The syscall gadget
 
@@ -140,7 +141,7 @@ While the decompiled code is useful to get an overview of the program,
 to ROP we need to get to the assembly.
 Since my objdump did not support C-SKY, I just disassembled from gdb.
 
-To help you understand the assembly I commented a bit the instructions:
+To help you understand the assembly I commented the instructions a bit:
 
 ```asm
 // get_input
@@ -207,7 +208,7 @@ Now that you've got the gist of it, let's see the `syscall` function:
 0x8262:	rts
 ```
 
-As we can see this function does a bit more manipulation than what ghidra decompiled.\
+As we can see this function does a bit more than what ghidra decompiled.
 Let's rewrite it in pseudo code:
 
 ```c
@@ -228,6 +229,8 @@ undefined syscall(sysnr, arg1, arg2, arg3)
 
 To swap the registers appropriately for the syscall calling convention, they are stored and loaded from the stack.\
 Thus, we can store the register values that we want in the stack and jump in the middle of the function.
+
+Also, note how `21` is subtracted from the syscall number (`r7`) after it was masked by `255`.
 
 ### The exploit
 
@@ -278,7 +281,9 @@ Let's follow this advice and move on to cromozominus.
 
 ## Cromozominus Rex
 
-The program is the same except for the `get_input` function.\
+Similarly to before, we get the `crorex` and `qemu` binaries.
+
+The program is the same, except for the `get_input` function.\
 A huge if statement was added to check if disallowed bytes were present in the buffer.
 If they are found, the function calls exit instead of returning,
 skipping our ROP chain.
@@ -430,11 +435,12 @@ Thus, I started looking for suitable gadgets in the the whole program.
 
 ### Debugging
 
-This was one of the first times I tried a challenge in an exotic architecture (reading as, not x86).
-Debugging this kind of challenge is always hard, as pwntools' `gdb.attach` simply won't work.
+This was one of the first times I tried a challenge in an exotic architecture (reading as in, not x86).
+Debugging this kind of challenge is always hard, as pwntools' `gdb.attach` simply won't work
+when qemu and Docker enter the mix.
 
-So I spent quite a bit of time preparing a comfortable gdb setup.
-Since this helped me immensely, I think it's worth sharing.
+So, I spent quite a bit of time preparing a comfortable gdb setup.
+Since this helped me lots, I think it's worth sharing.
 
 First of all, I exposed a port for qemu's gdbserver:
 ```Dockerfile
@@ -452,11 +458,17 @@ with open('args.gdb','w') as f:
 process(context.terminal + ["sh", "-c", f"sleep 1; sudo gdb -x args.gdb {e.path}"])
 ```
 
-Another point of frustration was that C-SKY is not supported by `pwndbg`.
-To mitigate the pain of using the tui layout and default commands,
-I made a small script to help me associate addresses with function names.
+At this point I got a gdb window connected to the remote executable.\
+However, we immediately stumble upon another point of frustration:
+`pwndbg` has no support whatsoever for C-SKY :wilted_flower:
+
+![sad](/tfcctf25/cromo/sad.png)
+
+I needed a way to mitigate the pain of only being able to use the TUI layouts and the default commands...\
+So I made this small script to help me associate addresses with function names.
 
 ```py
+# start - end address
 syms = {
     "get_input": (0x000823c, 0x8770),
     "entry": (0x8778, 0x87ae),
@@ -488,11 +500,10 @@ import os
 os.system("as -g sym.S -o sym.o")
 ```
 
-This script produces an object file that can be loaded with `add-symbol-file sym.o 0x0`.
+This script produces an object file that can be loaded with `add-symbol-file sym.o 0x0`.\
+Not the end of the world, but we can finally see where the exploit is jumping around :wink:
 
 ![gdb2](/tfcctf25/cromo/gdb2.png)
-
-Now we can see where the exploit is jumping around :wink:
 
 ### Final script
 
@@ -501,7 +512,7 @@ This is the flow of the first payload:
 2) set r3 to the buffer address + 16
 3) set r8 to the buffer address + 16
 4) call the read gadget
-5) do the second stage (basically the same as *mucusuki*)
+5) do the second stage (basically *mucusuki*'s payload)
 
 ```py
 from pwn import *
@@ -599,7 +610,7 @@ if __name__ == "__main__":
     main()
 ```
 
-I finished the script and got the flag at 4AM :pray:
+Fun fact: I finished this script and got the flag at 4AM :pray:
 
 ```
 TFCCTF{cromozominus_pulisaki_in_redacted_cro++_crorex_crovid}
