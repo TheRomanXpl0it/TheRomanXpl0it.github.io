@@ -1,5 +1,5 @@
 ---
-title: UIUCTF 2025 - Damaged SoC
+title: UIUCTF 25 - Damaged SoC
 date: 2025-08-10
 lastmod: 2025-08-10T23:50:30+02:00
 categories:
@@ -68,7 +68,7 @@ but we don't need to go through all of them to understand what it does, in short
 But let's cut to the chase, what is all of this actually doing?
 
 ```bash
-$ ./SOC_run_sim 
+$ ./SOC_run_sim
 Bootloading
 Starting verification:
 Incorrect key
@@ -92,7 +92,7 @@ The first few lines contain several `EF BF BD` (the UTF-8 replacement character,
 
 Our goal is to recover the boot ROM from the corrupted image, decompile, understand the “key” check (as we will see, the flag itself), craft the correct string and **patch** the memory so the verification passes and the board “boots.”
 
-## Decompiling 
+## Decompiling
 
 Like many modern reverse engineering challenges, this step won't be as easy as throwing the binary into IDA or Ghidra, it's a little trickier than that. Running `SOC_run_sim` through IDA awakens cosmic horrors that are best left undisturbed:
 
@@ -173,12 +173,12 @@ Incorrect key
 **`vq{uv|qw`**
 ```
 flag[15] = key[0]-16 = 'v'(118)-16 = 102 = 'f'
-flag[16] = key[1]-16 = 'q'(113)-16 = 97 = 'a'     
-flag[17] = key[2]-16 = '{'(123)-16 = 107 = 'k'     
-flag[18] = key[3]-16 = 'u'(117)-16 = 101 = 'e'     
-flag[19] = key[4]-16 = 'v'(118)-16 = 102 = 'f'     
-flag[20] = key[5]-16 = '|'(124)-16 = 108 = 'l'     
-flag[21] = key[6]-16 = 'q'(113)-16 = 97 = 'a'     
+flag[16] = key[1]-16 = 'q'(113)-16 = 97 = 'a'
+flag[17] = key[2]-16 = '{'(123)-16 = 107 = 'k'
+flag[18] = key[3]-16 = 'u'(117)-16 = 101 = 'e'
+flag[19] = key[4]-16 = 'v'(118)-16 = 102 = 'f'
+flag[20] = key[5]-16 = '|'(124)-16 = 108 = 'l'
+flag[21] = key[6]-16 = 'q'(113)-16 = 97 = 'a'
 flag[22] = key[7]-16 = 'w'(119)-16 = 103 = 'g'`
 ```
 
@@ -203,7 +203,7 @@ ROM:0000000000000210  beqz   $v0, loc_224   ; if (v0 == 0) jump to verification
 ROM:0000000000000214  nop                   ; branch-delay slot
 ROM:0000000000000218  syscall 0x6D8        ; else: make a simulator syscall/trap
 ROM:000000000000021C  jr     $ra            ; and return immediately
-ROM:0000000000000220  nop                       
+ROM:0000000000000220  nop
 ```
 ### 1. Prefix check: `uiuctf{` (bytes 0..6)
 
@@ -458,7 +458,7 @@ sw    $v0, 0x38($sp)     ; y ^= c32
 
 ```asm
 ; rol64(x,8) via shifts/ors then add 0x0123456789ABCDEF
-...                   
+...
 dli   $v0, 0x123456789ABCDEF
 daddu $v0, $v1, $v0    ; x += 0x0123456789ABCDEF
 sd    $v0, 0x30($sp)
@@ -527,48 +527,48 @@ def ror32(val, r):
     return ((val >> r) | (val << (32 - r))) & 0xFFFFFFFF
 
 def find_key_bytes():
-    
+
     target_E = 0xC956B3009784E40F
     target_F = 0x83C5A9D1
-    
-    
+
+
     E = target_E ^ 0xFEDCBA9876543210
     F = target_F ^ 0x13579BDF
     print(f"After final inverse XOR: E=0x{E:016x}, F=0x{F:08x}")
-    
-    
+
+
     F_before_mix = F ^ (E & 0xFFFFFFFF)
     E_before_mix = E ^ (F_before_mix << 32)
     print(f"After inverse Feistel: E=0x{E_before_mix:016x}, F=0x{F_before_mix:08x}")
-    
-    
+
+
     E_before_add = (E_before_mix - 0x0123456789ABCDEF) & 0xFFFFFFFFFFFFFFFF
     F_before_add = (F_before_mix - 0x87654321) & 0xFFFFFFFF
     print(f"After subtraction: E=0x{E_before_add:016x}, F=0x{F_before_add:08x}")
-    
-    
+
+
     E_before_rot = ror64(E_before_add, 8)
     F_before_rot = ror32(F_before_add, 4)
     print(f"After inverse rotation: E=0x{E_before_rot:016x}, F=0x{F_before_rot:08x}")
-    
-    
+
+
     E_original = E_before_rot ^ 0x1337C0DE12345678
     F_original = F_before_rot ^ 0x3EADBE3F
     print(f"Original values: E=0x{E_original:016x}, F=0x{F_original:08x}")
-    
-    
+
+
     E_bytes = E_original.to_bytes(8, 'little')
     F_bytes = F_original.to_bytes(4, 'little')
-    
-    
+
+
     char23 = E_bytes[7]  #ultimo byte di E
     char24 = F_bytes[0]  #primo byte di F
     print(f"\nVerify sum: 0x{char23:02x} + 0x{char24:02x} = 0x{char23 + char24:02x} (Has to be 0x53)")
-    
-    
+
+
     print(f"\nBytes 16-23: {E_bytes.hex()} = '{E_bytes.decode('ascii', errors='replace')}'")
     print(f"Bytes 24-27: {F_bytes.hex()} = '{F_bytes.decode('ascii', errors='replace')}'")
-    
+
     return E_bytes + F_bytes
 
 result = find_key_bytes()
