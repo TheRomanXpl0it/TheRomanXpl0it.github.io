@@ -2,6 +2,7 @@
 title: UIUCTF 25 - Damaged SoC
 date: 2025-08-10
 lastmod: 2025-08-10T23:50:30+02:00
+aliases: ["/posts/2025/08/uiuctf-2025-damaged-soc/"]
 categories:
   - writeup
   - uiuctf25
@@ -98,7 +99,7 @@ Like many modern reverse engineering challenges, this step won't be as easy as t
 
 ![idaSOC](/uiuctf2025/damaged-soc/screenshot-1.png)
 
-**Enter `sus.py`, courtesy of my teammate [@nect](https://theromanxpl0.it/members/nect/)**
+Enter `sus.py`, courtesy of my teammate [@nect](https://theromanxpl0.it/members/nect/).
 
 ```python
 f = open('memory.mem')
@@ -719,7 +720,7 @@ if __name__ == "__main__":
 
 ![discord_chat](/uiuctf2025/damaged-soc/screenshot-4.png)
 
-During our first approach to the challenge, [simonedimaria](https://theromanxpl0.it/members/simonedimaria/) managed to recompile the source files with debugging logs:
+During our first approach to the challenge, [@simonedimaria](https://theromanxpl0.it/members/simonedimaria/) managed to recompile the source files with debugging logs:
 
 ```
 Interrupe Handler Address: 0000000008000040

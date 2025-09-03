@@ -2,6 +2,8 @@
 # example: UIUCTF 25 - ELF Capsule
 title: TFC CTF 25 - Cromozominus Rex
 
+aliases: ["/posts/2025/09/tfcctf-25-cromozominus-rex/"]
+
 # date of publication/creation
 date: '2025-09-02T11:56:22+02:00'
 
