@@ -2,6 +2,7 @@
 title: UIUCTF 25 - Ruler of the Universe
 date: 2025-07-30
 lastmod: 2025-07-30T13:00:30+02:00
+aliases: ["/posts/2025/07/uiuctf-2025-ruler-of-the-universe/"]
 categories:
   - writeup
   - uiuctf25
