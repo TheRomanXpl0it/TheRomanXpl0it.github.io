@@ -30,7 +30,7 @@ roles:
   # - former
 
 # put the avatar in /static/avatars/
-avatar: # "/avatars/zbion1c.jpg"
+avatar: "/avatars/zbion1c.jpg"
 
 # optional social links
 social:
