@@ -14,11 +14,10 @@ roles:
   # - hardware
   # - OG
 
-# put the avatar in /static/avatars/
-avatar: # "/avatars/{{ urlize .Name }}.jpg"
+avatar: "/avatars/uniqua.jpg"
 social:
-  mail: ""
-  github: ""
-  linkedin: ""
-  website: ""
+  mail: "ko-fi.cozily794@passinbox.com"
+  github: "https://github.com/uniquadev"
+  linkedin: "https://www.linkedin.com/in/lorenzo-cipolletti-15a110208/"
+  website: "https://uniqua.dev"
 ---
