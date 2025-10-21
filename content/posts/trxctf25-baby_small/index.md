@@ -12,7 +12,7 @@ authors:
 - leave
 ---
 
-Link to official blogpost: https://kqx.io/writeups/baby_small/
+Link to the official blogpost: https://kqx.io/writeups/baby_small/
 
 ## Description
 
