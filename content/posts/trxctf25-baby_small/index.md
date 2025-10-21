@@ -12,6 +12,8 @@ authors:
 - leave
 ---
 
+Link to the official blogpost: https://kqx.io/writeups/baby_small/
+
 ## Description
 
 > im a  _baby_  and im  _small_
