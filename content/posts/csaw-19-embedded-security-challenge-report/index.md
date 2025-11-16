@@ -23,5 +23,5 @@ We had a faulty board so we emulated the challenges. Spoiler: we got the first p
     .responsive-wrap iframe { max-width: 100%;}
 </style>
 <div class="responsive-wrap">
-    <iframe src="https://drive.google.com/file/d/16KNrVeG4wiGouWJzpnxoAggWGLC0m8wc/preview" width="100%" height="1357"></iframe>
+    <iframe src="/csaw19/TRX__CSAW_Embedded_Security_Challenge_Final.pdf" width="100%" height="1357"></iframe>
 </div>
