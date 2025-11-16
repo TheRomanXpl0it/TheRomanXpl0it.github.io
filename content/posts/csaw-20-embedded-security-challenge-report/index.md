@@ -24,5 +24,5 @@ We did it again: just like last year, we completed all the qualifying challenges
     .responsive-wrap iframe { max-width: 100%;}
 </style>
 <div class="responsive-wrap">
-    <iframe src="https://drive.google.com/file/d/1S6V0jRGmK28v4P4q984KBT8cBKHOu6B1/preview" width="100%" height="1080"></iframe>
+    <iframe src="/csaw20/Team_TRX_Sapienza___CSAW_ESC_2020_Final_Report.pdf" width="100%" height="1080"></iframe>
 </div>
