@@ -12,9 +12,10 @@ Many of us are students at Sapienza, University of Rome and alumni of [CyberChal
 
 We actively teach crypto, web and binary exploitation at the newbies of Sapienza's CyberChallenge group.
 
-Contact us at [info@theromanxpl0.it](mailto:info@theromanxpl0.it).
+Contact us at [hello@theromanxpl0.it](mailto:hello@theromanxpl0.it).
 
-Follow us on [Twitter](https://x.com/TheRomanXpl0it) and join our [Telegram group](https://t.me/TheRomanChat).
+Follow **@theromanxpl0it** on [Twitter](https://x.com/TheRomanXpl0it), [Instagram](https://www.instagram.com/theromanxpl0it/)
+and join our [Telegram group](https://t.me/TheRomanChat).
 
 *We are currently looking for sponsors.
 If you want to collaborate with us don't hesitate to get in touch.*
