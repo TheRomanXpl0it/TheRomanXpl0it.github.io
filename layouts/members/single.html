@@ -53,7 +53,17 @@
         </article>
 
         <hr>
-        {{ $posts := where .Site.RegularPages "Params.authors" "intersect" (slice .Title) }}
+
+        {{ $author := lower .Title }}
+        {{ $posts := slice }}
+
+        {{ range .Site.RegularPages }}
+            {{ $pageAuthors := apply .Params.authors "lower" "." }}
+            {{ if in $pageAuthors $author }}
+                {{ $posts = $posts | append . }}
+            {{ end }}
+        {{ end }}
+
         {{ $n := len $posts }}
 
         <p class="member-published">

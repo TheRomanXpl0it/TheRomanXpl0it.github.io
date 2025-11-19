@@ -28,7 +28,7 @@ tags:
 # please use the standard name in content/members
 authors:
 - nect
-- lorenzinco
+- Lorenzinco
 - kristoj
 - ver7ux
 ---
