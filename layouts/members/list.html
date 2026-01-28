@@ -6,7 +6,8 @@
 
       <div class="posts">
         <ul class="posts-list">
-            {{ range .Data.Pages.ByWeight }}
+            {{ $sortedPages := sort (sort (sort .Data.Pages "Title" "asc" (dict "case_insensitive" true)) ".Params.join_month") ".Params.join_year" }}
+            {{ range $sortedPages }}
               <li class="post-item">
                 <div class="post-item-inner" style="align-items: center;">
                   <div class="post-item-left" style="flex: 5 1 0;">
