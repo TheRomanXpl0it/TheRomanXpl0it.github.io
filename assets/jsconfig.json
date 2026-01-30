@@ -3,9 +3,9 @@
   "baseUrl": ".",
   "paths": {
    "*": [
-    "../../../.cache/hugo_cache/modules/filecache/modules/pkg/mod/github.com/hugomods/i18n-js@v0.2.1/assets/*",
-    "../../../.cache/hugo_cache/modules/filecache/modules/pkg/mod/github.com/hugomods/search@v0.20.0/assets/*",
-    "../../../.cache/hugo_cache/modules/filecache/modules/pkg/mod/github.com/krisk/!fuse@v7.0.0+incompatible/dist/*"
+    "../../.cache/hugo_cache/modules/filecache/modules/pkg/mod/github.com/hugomods/i18n-js@v0.2.1/assets/*",
+    "../../.cache/hugo_cache/modules/filecache/modules/pkg/mod/github.com/hugomods/search@v0.20.0/assets/*",
+    "../../.cache/hugo_cache/modules/filecache/modules/pkg/mod/github.com/krisk/!fuse@v7.0.0+incompatible/dist/*"
    ]
   }
  }
