@@ -6,7 +6,7 @@ date: 2026-01-30T14:56:05+01:00
 title: 'prosti'
 
 # real name (optional)
-name: "prosti"
+name: "Gabriel Prostitis"
 
 # join year (required)
 join_year: 2023
