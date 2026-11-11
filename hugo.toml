@@ -1,4 +1,5 @@
-baseURL = "https://theromanxpl0.it"
+#baseURL = "https://theromanxpl0.it"
+baseURL = "http://localhost:9000"
 languageCode = "en-us"
 title = "TheRomanXpl0it"
 copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
@@ -133,10 +134,11 @@ category = "members"
 # If you want, you can easily override the default footer with your own content.
 #
 [params.footer]
-trademark = 2025
+trademark = 2026
 rss = true
 copyright = true
-author = true
+author = "TRX APS"
+taxCode = "90103860582"
 topText = []
 bottomText = []
 
