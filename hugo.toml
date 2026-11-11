@@ -133,10 +133,11 @@ category = "members"
 # If you want, you can easily override the default footer with your own content.
 #
 [params.footer]
-trademark = 2025
+trademark = 2026
 rss = true
 copyright = true
-author = true
+author = "TRX APS"
+taxCode = "90103860582"
 topText = []
 bottomText = []
 

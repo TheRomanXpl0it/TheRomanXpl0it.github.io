@@ -4,13 +4,13 @@ title = 'About'
 skipinfo = true
 +++
 
-We are a competitive CTF team from Italy.
+We are a competitive CTF team from Italy and, since 2026, a non-profit association dedicated to promoting cybersecurity education, knowledge sharing, and collaboration within the security community.
 
 With the [mhackeroni](https://mhackeroni.it/) joint team we partecipate in top CTFs (like CCC CTF and [DEF CON](https://defcon.org/)).
 
-Many of us are students at Sapienza, University of Rome and alumni of [CyberChallengeIT](https://cyberchallenge.it).
+We also organize CTF competitions, workshops, bootcamps, and community events, bringing together students, enthusiasts, and professionals to learn, compete, and share knowledge.
 
-We actively teach crypto, web and binary exploitation at the newbies of Sapienza's CyberChallenge group.
+Many of us are students at Sapienza, University of Rome and alumni of [CyberChallengeIT](https://cyberchallenge.it).
 
 Contact us at [hello@theromanxpl0.it](mailto:hello@theromanxpl0.it).
 
