@@ -1,5 +1,4 @@
-#baseURL = "https://theromanxpl0.it"
-baseURL = "http://localhost:9000"
+baseURL = "https://theromanxpl0.it"
 languageCode = "en-us"
 title = "TheRomanXpl0it"
 copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
